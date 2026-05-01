@@ -22,7 +22,7 @@ function ImageGallery({ images, make, model }: { images: string[]; make: string;
 
   const variants = {
     enter: (d: number) => ({ x: d > 0 ? 300 : -300, opacity: 0 }),
-    center: { x: 0, opacity: 1, transition: { duration: 0.4, ease: "easeOut" } },
+    center: { x: 0, opacity: 1, transition: { duration: 0.4, ease: "easeOut" as const } },
     exit: (d: number) => ({ x: d < 0 ? 300 : -300, opacity: 0, transition: { duration: 0.3 } }),
   };
 

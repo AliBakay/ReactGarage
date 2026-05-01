@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Car, MapPin, Phone, Mail, Instagram } from "lucide-react";
+import { Car, MapPin, Phone, Mail } from "lucide-react";
 
 export function Footer() {
   return (
@@ -36,11 +36,6 @@ export function Footer() {
               </li>
             ))}
           </ul>
-          <div className="flex gap-3 mt-5">
-            <a href="#" aria-label="Instagram" className="w-9 h-9 glass rounded-lg flex items-center justify-center text-garage-sub hover:text-garage-accent hover:border-garage-accent/50 transition-all">
-              <Instagram size={16} />
-            </a>
-          </div>
         </div>
       </div>
       <div className="border-t border-garage-border text-center py-4 text-xs text-garage-muted">
