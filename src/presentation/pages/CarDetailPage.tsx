@@ -156,8 +156,17 @@ export default function CarDetailPage() {
 
   useEffect(() => {
     if (!id) return;
-    setLoading(true);
-    GetCarById(id).then(c => { setCar(c); setLoading(false); });
+    let ignore = false;
+    async function fetchCar() {
+      setLoading(true);
+      const c = await GetCarById(id!);
+      if (!ignore) {
+        setCar(c);
+        setLoading(false);
+      }
+    }
+    fetchCar();
+    return () => { ignore = true; };
   }, [id]);
 
   if (loading) return (
