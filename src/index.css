@@ -9,7 +9,6 @@
   html { scroll-behavior: smooth; }
   body {
     @apply bg-garage-bg text-garage-text font-sans antialiased;
-    background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,168,76,0.12), transparent);
   }
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { @apply bg-garage-bg; }
@@ -17,27 +16,80 @@
 }
 
 @layer components {
+  /* ── Glass (for dark sections) ── */
   .glass {
     @apply bg-white/5 backdrop-blur-md border border-white/10;
   }
   .glass-heavy {
-    @apply bg-black/40 backdrop-blur-xl border border-white/10;
+    @apply bg-garage-bg/90 backdrop-blur-xl border-b border-white/10;
   }
+
+  /* ── Buttons ── */
   .btn-primary {
-    @apply bg-garage-accent text-black font-semibold px-6 py-3 rounded-xl
-           hover:bg-garage-accent/90 active:scale-95 transition-all duration-200;
+    @apply bg-garage-accent text-white font-semibold px-6 py-3 rounded-xl
+           hover:bg-garage-accent2 active:scale-95 transition-all duration-200 shadow-lg shadow-garage-accent/20;
   }
-  .btn-ghost {
-    @apply border border-garage-border text-garage-text px-6 py-3 rounded-xl
-           hover:bg-white/5 active:scale-95 transition-all duration-200;
+  .btn-ghost-light {
+    @apply border border-white/30 text-white px-6 py-3 rounded-xl
+           hover:bg-white/10 active:scale-95 transition-all duration-200;
   }
-  .card-hover {
-    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-garage-accent/10;
+  .btn-ghost-dark {
+    @apply border border-garage-border text-garage-dark px-6 py-3 rounded-xl
+           hover:bg-garage-surface active:scale-95 transition-all duration-200;
   }
-  .section-heading {
-    @apply font-display text-3xl md:text-4xl font-bold text-garage-text;
+
+  /* ── Cards (white, on light sections) ── */
+  .car-card {
+    @apply bg-white rounded-2xl overflow-hidden border border-garage-border
+           shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+  }
+
+  /* ── Section helpers ── */
+  .section-light {
+    @apply bg-garage-surface;
+  }
+  .section-dark {
+    @apply bg-garage-bg;
+  }
+  .section-heading-dark {
+    @apply font-display text-3xl md:text-4xl font-bold text-garage-dark;
+  }
+  .section-heading-light {
+    @apply font-display text-3xl md:text-4xl font-bold text-white;
+  }
+
+  /* ── Labels ── */
+  .label-tag-light {
+    @apply text-xs font-semibold uppercase tracking-widest text-garage-accent;
+  }
+  .label-tag-dark {
+    @apply text-xs font-semibold uppercase tracking-widest text-garage-accent;
   }
   .label-tag {
     @apply text-xs font-semibold uppercase tracking-widest text-garage-accent;
   }
+
+  /* ── Input (light background) ── */
+  .input-light {
+    @apply w-full bg-white border border-garage-border rounded-xl px-4 py-3 text-sm
+           text-garage-dark placeholder:text-garage-muted
+           focus:outline-none focus:border-garage-accent transition-colors shadow-sm;
+  }
+
+  /* ── Input (dark background) ── */
+  .input-dark {
+    @apply w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm
+           text-white placeholder:text-white/50
+           focus:outline-none focus:border-garage-accent transition-colors;
+  }
+
+  /* ── Card hover ── */
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  /* Legacy aliases */
+  .section-heading { @apply section-heading-dark; }
+  .btn-ghost { @apply btn-ghost-dark; }
+  .btn-ghost-white { @apply btn-ghost-light; }
 }

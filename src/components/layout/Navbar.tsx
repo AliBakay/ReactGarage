@@ -1,28 +1,43 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, Car, Phone } from "lucide-react";
 import { cn } from "../../lib/utils";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "/inventory", label: "Inventory" },
+    { href: "/inventory", label: "Aanbod" },
     { href: "/contact", label: "Contact" },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass-heavy border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
+    <header
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        scrolled
+          ? "bg-garage-bg/95 backdrop-blur-xl border-b border-white/10 shadow-lg"
+          : "bg-transparent"
+      )}
+    >
+      <div className="max-w-7xl mx-auto px-4 md:px-8 h-18 flex items-center justify-between py-4">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 bg-garage-accent rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-            <Car size={18} className="text-black" />
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <div className="w-9 h-9 bg-garage-accent rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-md shadow-garage-accent/30">
+            <Car size={18} className="text-white" />
           </div>
-          <span className="font-display font-bold text-lg text-garage-text">
-            ORC <span className="text-garage-accent">Garage</span>
+          <span className="font-display font-bold text-xl text-white">
+            Auto<span className="text-garage-accent">Deal</span>
           </span>
         </Link>
 
@@ -33,8 +48,10 @@ export function Navbar() {
               key={l.href}
               to={l.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-garage-accent",
-                pathname === l.href ? "text-garage-accent" : "text-garage-sub"
+                "text-sm font-medium transition-all hover:text-garage-accent relative",
+                pathname === l.href
+                  ? "text-garage-accent after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-0.5 after:bg-garage-accent after:rounded-full"
+                  : "text-white/80"
               )}
             >
               {l.label}
@@ -43,19 +60,22 @@ export function Navbar() {
         </nav>
 
         {/* CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <a href="tel:+32000000000" className="flex items-center gap-2 text-sm text-garage-sub hover:text-garage-accent transition-colors">
-            <Phone size={15} />
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href="tel:+32000000000"
+            className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+          >
+            <Phone size={15} className="text-garage-accent" />
             <span>+32 000 000 000</span>
           </a>
-          <Link to="/inventory" className="btn-primary text-sm py-2 px-4">
-            Browse Cars
+          <Link to="/inventory" className="btn-primary text-sm py-2.5 px-5">
+            Aanbod Bekijken
           </Link>
         </div>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-garage-sub hover:text-garage-text transition-colors"
+          className="md:hidden text-white/80 hover:text-white transition-colors"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -65,7 +85,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden glass-heavy border-t border-white/5 px-4 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-garage-bg/98 backdrop-blur-xl border-t border-white/10 px-4 py-6 flex flex-col gap-4">
           {links.map(l => (
             <Link
               key={l.href}
@@ -73,14 +93,14 @@ export function Navbar() {
               onClick={() => setOpen(false)}
               className={cn(
                 "text-sm font-medium py-2 transition-colors",
-                pathname === l.href ? "text-garage-accent" : "text-garage-sub"
+                pathname === l.href ? "text-garage-accent" : "text-white/80"
               )}
             >
               {l.label}
             </Link>
           ))}
-          <Link to="/inventory" className="btn-primary text-sm text-center">
-            Browse Cars
+          <Link to="/inventory" className="btn-primary text-sm text-center mt-2">
+            Aanbod Bekijken
           </Link>
         </div>
       )}

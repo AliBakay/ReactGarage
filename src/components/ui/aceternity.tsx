@@ -2,6 +2,7 @@
 import { cn } from "../../lib/utils";
 import { useEffect, useRef, useState } from "react";
 
+// ── Aurora Background (deep blue hero sections) ────────────────────────────────
 export const AuroraBackground = ({
   children,
   className,
@@ -14,7 +15,7 @@ export const AuroraBackground = ({
   return (
     <main
       className={cn(
-        "relative flex flex-col min-h-screen items-center justify-center bg-garage-bg text-garage-text transition-bg",
+        "relative flex flex-col min-h-screen items-center justify-center bg-garage-bg text-white transition-bg",
         className
       )}
     >
@@ -22,13 +23,12 @@ export const AuroraBackground = ({
         <div
           className={cn(
             `
-            [--white-gradient:repeating-linear-gradient(100deg,var(--white)_0%,var(--white)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--white)_16%)]
-            [--dark-gradient:repeating-linear-gradient(100deg,var(--black)_0%,var(--black)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--black)_16%)]
-            [--aurora:repeating-linear-gradient(100deg,var(--yellow-500)_10%,var(--amber-600)_15%,var(--orange-400)_20%,var(--amber-700)_25%,var(--yellow-600)_30%)]
+            [--dark-gradient:repeating-linear-gradient(100deg,var(--garage-bg)_0%,var(--garage-bg)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--garage-bg)_16%)]
+            [--aurora:repeating-linear-gradient(100deg,#ff4d4d_10%,#3b82f6_20%,#1e40af_30%,#ff7676_40%,#1d4ed8_50%)]
             [background-image:var(--dark-gradient),var(--aurora)]
             [background-size:300%,_200%]
             [background-position:50%_50%,50%_50%]
-            filter blur-[10px] invert-0
+            filter blur-[12px]
             after:content-[""] after:absolute after:inset-0
             after:[background-image:var(--dark-gradient),var(--aurora)]
             after:[background-size:200%,_100%]
@@ -36,7 +36,7 @@ export const AuroraBackground = ({
             after:[background-attachment:fixed]
             after:mix-blend-difference
             pointer-events-none
-            absolute -inset-[10px] opacity-40 will-change-transform`,
+            absolute -inset-[10px] opacity-30 will-change-transform`,
             showRadialGradient &&
               `[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)]`
           )}
@@ -47,7 +47,7 @@ export const AuroraBackground = ({
   );
 };
 
-// Tracing Beam Component
+// ── Tracing Beam (scroll-follow line for car detail page) ──────────────────────
 export function TracingBeam({
   children,
   className,
@@ -86,17 +86,12 @@ export function TracingBeam({
           className="overflow-visible"
           aria-hidden="true"
         >
-          <path
-            d={`M 1 0 V ${svgHeight}`}
-            fill="none"
-            stroke="#232529"
-            strokeWidth="1.5"
-          />
+          <path d={`M 1 0 V ${svgHeight}`} fill="none" stroke="#e2e8f0" strokeWidth="1.5" />
           <path
             d={`M 1 0 V ${svgHeight}`}
             fill="none"
             stroke="url(#beamGrad)"
-            strokeWidth="1.5"
+            strokeWidth="2"
             strokeDasharray={dashArray}
             strokeDashoffset={dashOffset}
             strokeLinecap="round"
@@ -104,16 +99,16 @@ export function TracingBeam({
           />
           <defs>
             <linearGradient id="beamGrad" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor="#c9a84c" stopOpacity="0" />
-              <stop offset="50%" stopColor="#c9a84c" />
-              <stop offset="100%" stopColor="#e85d1e" stopOpacity="0" />
+              <stop offset="0%"   stopColor="#ff4d4d" stopOpacity="0" />
+              <stop offset="50%"  stopColor="#ff4d4d" />
+              <stop offset="100%" stopColor="#ff7676" stopOpacity="0" />
             </linearGradient>
           </defs>
           <circle
             cx="1"
             cy={progress * svgHeight}
             r="4"
-            fill="#c9a84c"
+            fill="#ff4d4d"
             filter="url(#glow)"
           />
           <defs>
@@ -128,6 +123,26 @@ export function TracingBeam({
         </svg>
       </div>
       <div ref={ref}>{children}</div>
+    </div>
+  );
+}
+
+// ── Floating Card (for trust badges in hero) ──────────────────────────────────
+export function FloatingCard({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <div
+      className={cn("animate-float", className)}
+      style={{ animationDelay: `${delay}s` }}
+    >
+      {children}
     </div>
   );
 }

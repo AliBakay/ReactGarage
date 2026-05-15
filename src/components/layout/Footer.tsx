@@ -1,45 +1,86 @@
 import { Link } from "react-router-dom";
-import { Car, MapPin, Phone, Mail } from "lucide-react";
+import { Car, MapPin, Phone, Mail, Share2, ExternalLink, Globe } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="border-t border-garage-border bg-garage-surface mt-20">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+    <footer className="bg-garage-bg text-white">
+      {/* Top section */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Brand */}
-        <div>
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 bg-garage-accent rounded-lg flex items-center justify-center">
-              <Car size={18} className="text-black" />
+        <div className="md:col-span-2">
+          <div className="flex items-center gap-2.5 mb-5">
+            <div className="w-9 h-9 bg-garage-accent rounded-xl flex items-center justify-center shadow-md shadow-garage-accent/30">
+              <Car size={18} className="text-white" />
             </div>
-            <span className="font-display font-bold text-lg">ORC <span className="text-garage-accent">Garage</span></span>
+            <span className="font-display font-bold text-xl">
+              Auto<span className="text-garage-accent">Deal</span>
+            </span>
           </div>
-          <p className="text-sm text-garage-sub leading-relaxed">
-            Premium pre-owned vehicles. Professionally inspected, competitively priced.
+          <p className="text-sm text-white/60 leading-relaxed max-w-sm">
+            Premium tweedehands voertuigen. Professioneel gekeurd, eerlijk geprijsd en klaar om te rijden.
           </p>
+          {/* Social */}
+          <div className="flex items-center gap-4 mt-6">
+            {[Share2, Globe, ExternalLink].map((Icon, i) => (
+              <a
+                key={i}
+                href="#"
+                className="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-garage-accent transition-colors"
+              >
+                <Icon size={16} className="text-white" />
+              </a>
+            ))}
+          </div>
         </div>
+
         {/* Contact */}
         <div>
-          <h3 className="font-semibold text-garage-text mb-4">Contact</h3>
-          <ul className="space-y-3 text-sm text-garage-sub">
-            <li className="flex items-center gap-2"><MapPin size={14} className="text-garage-accent" /> Belgium</li>
-            <li className="flex items-center gap-2"><Phone size={14} className="text-garage-accent" /> +32 000 000 000</li>
-            <li className="flex items-center gap-2"><Mail size={14} className="text-garage-accent" /> info@orcgarage.be</li>
+          <h3 className="font-semibold text-white mb-5">Contact</h3>
+          <ul className="space-y-3 text-sm text-white/60">
+            <li className="flex items-start gap-2.5">
+              <MapPin size={15} className="text-garage-accent mt-0.5 shrink-0" />
+              <span>Autostraat 12<br />9000 Gent, België</span>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Phone size={15} className="text-garage-accent shrink-0" />
+              <a href="tel:+32000000000" className="hover:text-white transition-colors">+32 000 000 000</a>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Mail size={15} className="text-garage-accent shrink-0" />
+              <a href="mailto:info@autodeal.be" className="hover:text-white transition-colors">info@autodeal.be</a>
+            </li>
           </ul>
         </div>
+
         {/* Links */}
         <div>
-          <h3 className="font-semibold text-garage-text mb-4">Explore</h3>
-          <ul className="space-y-2 text-sm text-garage-sub">
-            {[["Home", "/"], ["Inventory", "/inventory"], ["Contact", "/contact"]].map(([label, href]) => (
+          <h3 className="font-semibold text-white mb-5">Navigatie</h3>
+          <ul className="space-y-2.5 text-sm text-white/60">
+            {[
+              ["Home", "/"],
+              ["Aanbod", "/inventory"],
+              ["Contact", "/contact"],
+            ].map(([label, href]) => (
               <li key={href}>
-                <Link to={href} className="hover:text-garage-accent transition-colors">{label}</Link>
+                <Link to={href} className="hover:text-garage-accent transition-colors">
+                  {label}
+                </Link>
               </li>
             ))}
           </ul>
         </div>
       </div>
-      <div className="border-t border-garage-border text-center py-4 text-xs text-garage-muted">
-        © {new Date().getFullYear()} ORC BV Autohandel. All rights reserved.
+
+      {/* Bottom bar */}
+      <div className="border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-white/40">
+            © {new Date().getFullYear()} AutoDeal. Alle rechten voorbehouden.
+          </p>
+          <p className="text-xs text-white/40">
+            Professioneel gekeurd · Eerlijk geprijsd · Betrouwbaar
+          </p>
+        </div>
       </div>
     </footer>
   );
