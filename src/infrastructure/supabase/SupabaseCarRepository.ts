@@ -10,7 +10,7 @@ interface CarRow {
   price: number;
   mileage: number;
   fuel_type: string;
-  images_url: string[] | null;
+  car_images?: { image_url: string; display_order: number; is_primary: boolean }[] | null;
   specs_json: Record<string, unknown> | null;
   created_at: string;
   featured: boolean;
@@ -18,6 +18,14 @@ interface CarRow {
 }
 
 function mapRowToCar(row: CarRow): Car {
+  const rawImages = row.car_images ?? [];
+  const sortedImages = [...rawImages].sort((a, b) => {
+    if (a.is_primary && !b.is_primary) return -1;
+    if (!a.is_primary && b.is_primary) return 1;
+    return a.display_order - b.display_order;
+  });
+  const imagesUrl = sortedImages.map(img => img.image_url);
+
   const specs = (row.specs_json ?? {}) as {
     horsepower?: number;
     torque?: number;
@@ -38,7 +46,7 @@ function mapRowToCar(row: CarRow): Car {
     price:       row.price,
     mileage:     row.mileage,
     fuelType:    row.fuel_type as FuelType,
-    imagesUrl:   row.images_url ?? [],
+    imagesUrl:   imagesUrl,
     specs: {
       horsepower:   specs.horsepower   ?? 0,
       torque:       specs.torque       ?? 0,
@@ -132,7 +140,7 @@ export const SupabaseCarRepository = {
     try {
       let query = supabase
         .from("cars")
-        .select("*")
+        .select("*, car_images(image_url, display_order, is_primary)")
         .order("featured", { ascending: false })
         .order("price", { ascending: true });
 
@@ -174,7 +182,7 @@ export const SupabaseCarRepository = {
     try {
       const { data, error } = await supabase
         .from("cars")
-        .select("*")
+        .select("*, car_images(image_url, display_order, is_primary)")
         .eq("id", id)
         .single();
 
@@ -192,7 +200,7 @@ export const SupabaseCarRepository = {
     try {
       const { data, error } = await supabase
         .from("cars")
-        .select("*")
+        .select("*, car_images(image_url, display_order, is_primary)")
         .eq("featured", true)
         .limit(limit);
 
