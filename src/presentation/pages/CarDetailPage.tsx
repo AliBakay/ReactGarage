@@ -15,6 +15,8 @@ const FUEL_LABEL: Record<string, string> = {
   diesel:   "Diesel",
   electric: "Elektrisch",
   hybrid:   "Hybride",
+  lpg:      "LPG",
+  other:    "Andere",
 };
 
 // ── Image Gallery ────────────────────────────────────────────────────────────

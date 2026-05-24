@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Menu, X, Car, Phone } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { cn } from "../../lib/utils";
 
 export function Navbar() {
@@ -32,13 +32,8 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 h-18 flex items-center justify-between py-4">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 bg-garage-accent rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-md shadow-garage-accent/30">
-            <Car size={18} className="text-white" />
-          </div>
-          <span className="font-display font-bold text-xl text-white">
-            Auto<span className="text-garage-accent">Deal</span>
-          </span>
+        <Link to="/" className="flex items-center group">
+          <img src="/logo.png" alt="Garage van Hozeham" className="h-12 w-auto group-hover:scale-105 transition-transform" />
         </Link>
 
         {/* Desktop nav */}

@@ -14,6 +14,8 @@ const FUEL_OPTIONS: { value: FuelType; label: string; icon: string }[] = [
   { value: "diesel",   label: "Diesel",  icon: "🔧" },
   { value: "electric", label: "Elektrisch", icon: "⚡" },
   { value: "hybrid",   label: "Hybride", icon: "🌿" },
+  { value: "lpg",      label: "LPG",     icon: "💨" },
+  { value: "other",    label: "Andere",  icon: "❓" },
 ];
 
 const CURRENT_YEAR = new Date().getFullYear();

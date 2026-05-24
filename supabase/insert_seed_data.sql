@@ -1,78 +1,3 @@
--- Insert BMW M4 Competition
-INSERT INTO cars (id, make, model, year, price, mileage, fuel_type, specs_json, featured, description)
-VALUES (
-  '11111111-1111-1111-1111-111111111111',
-  'BMW',
-  'M4 Competition',
-  2023,
-  95000,
-  12000,
-  'gasoline',
-  '{"horsepower": 503, "torque": 650, "engine": "3.0L Twin-Turbo Inline-6", "transmission": "8-Speed Automatic", "drivetrain": "RWD / AWD", "acceleration": "3.8s", "top_speed": 290, "seating": 4, "color": "Sao Paulo Yellow", "doors": 2}',
-  true,
-  'Pristine condition M4 Competition. Full service history and remaining factory warranty.'
-);
-
--- Insert Porsche 911 Carrera S
-INSERT INTO cars (id, make, model, year, price, mileage, fuel_type, specs_json, featured, description)
-VALUES (
-  '22222222-2222-2222-2222-222222222222',
-  'Porsche',
-  '911 Carrera S',
-  2022,
-  135000,
-  8500,
-  'gasoline',
-  '{"horsepower": 443, "torque": 530, "engine": "3.0L Twin-Turbo Flat-6", "transmission": "8-Speed PDK", "drivetrain": "RWD", "acceleration": "3.5s", "top_speed": 308, "seating": 4, "color": "Guards Red", "doors": 2}',
-  true,
-  'Iconic 911 in stunning Guards Red. Sport Chrono package included.'
-);
-
--- Insert Tesla Model S Plaid
-INSERT INTO cars (id, make, model, year, price, mileage, fuel_type, specs_json, featured, description)
-VALUES (
-  '33333333-3333-3333-3333-333333333333',
-  'Tesla',
-  'Model S Plaid',
-  2024,
-  105000,
-  3000,
-  'electric',
-  '{"horsepower": 1020, "torque": 1420, "engine": "Tri-Motor Electric", "transmission": "Single Speed", "drivetrain": "AWD", "acceleration": "1.99s", "top_speed": 322, "seating": 5, "color": "Solid Black", "doors": 4}',
-  true,
-  'Mind-bending performance. Yoke steering and full self-driving capability.'
-);
-
--- Insert Mercedes-Benz G63 AMG
-INSERT INTO cars (id, make, model, year, price, mileage, fuel_type, specs_json, featured, description)
-VALUES (
-  '44444444-4444-4444-4444-444444444444',
-  'Mercedes-Benz',
-  'G63 AMG',
-  2021,
-  185000,
-  35000,
-  'gasoline',
-  '{"horsepower": 577, "torque": 850, "engine": "4.0L Bi-Turbo V8", "transmission": "9-Speed Automatic", "drivetrain": "4WD", "acceleration": "4.5s", "top_speed": 240, "seating": 5, "color": "Obsidian Black", "doors": 5}',
-  false,
-  'Luxury off-roader with aggressive styling and immense power.'
-);
-
--- Insert Audi RS6 Avant
-INSERT INTO cars (id, make, model, year, price, mileage, fuel_type, specs_json, featured, description)
-VALUES (
-  '55555555-5555-5555-5555-555555555555',
-  'Audi',
-  'RS6 Avant',
-  2023,
-  128000,
-  18000,
-  'hybrid',
-  '{"horsepower": 591, "torque": 800, "engine": "4.0L Twin-Turbo V8 Mild Hybrid", "transmission": "8-Speed Automatic", "drivetrain": "Quattro AWD", "acceleration": "3.5s", "top_speed": 305, "seating": 5, "color": "Nardo Grey", "doors": 5}',
-  true,
-  'The ultimate family supercar. Finished in iconic Nardo Grey.'
-);
-
 -- Insert Mercedes-Benz CLA 180
 INSERT INTO cars (id, make, model, year, price, mileage, fuel_type, specs_json, featured, description)
 VALUES (
@@ -571,203 +496,186 @@ VALUES (
 -- Insert Car Images
 INSERT INTO car_images (car_id, image_url, display_order, is_primary)
 VALUES
--- BMW M4 Competition Images
-('11111111-1111-1111-1111-111111111111', 'https://images.unsplash.com/photo-1617814076367-b759c7d7e73a?q=80&w=1200&auto=format&fit=crop', 0, true),
-('11111111-1111-1111-1111-111111111111', 'https://images.unsplash.com/photo-1617814076778-98e6c43666f2?q=80&w=1200&auto=format&fit=crop', 1, false),
-
--- Porsche 911 Carrera S Images
-('22222222-2222-2222-2222-222222222222', 'https://images.unsplash.com/photo-1503376713356-20092c6c39f2?q=80&w=1200&auto=format&fit=crop', 0, true),
-('22222222-2222-2222-2222-222222222222', 'https://images.unsplash.com/photo-1580274455059-a86d26732dc2?q=80&w=1200&auto=format&fit=crop', 1, false),
-
--- Tesla Model S Plaid Images
-('33333333-3333-3333-3333-333333333333', 'https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1200&auto=format&fit=crop', 0, true),
-
--- Mercedes-Benz G63 AMG Images
-('44444444-4444-4444-4444-444444444444', 'https://images.unsplash.com/photo-1520031441872-265e4ff70366?q=80&w=1200&auto=format&fit=crop', 0, true),
-
--- Audi RS6 Avant Images
-('55555555-5555-5555-5555-555555555555', 'https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?q=80&w=1200&auto=format&fit=crop', 0, true),
-
 -- Mercedes-Benz CLA 180 Images (Replace the placeholder URLs once you upload to Supabase)
-('66666666-6666-6666-6666-666666666666', 'REPLACE_WITH_SUPABASE_STORAGE_URL_1', 0, true),
-('66666666-6666-6666-6666-666666666666', 'REPLACE_WITH_SUPABASE_STORAGE_URL_2', 1, false),
+('66666666-6666-6666-6666-666666666666', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/mercedes-benz-cla-180-shooting-brake.jpg', 0, true),
+('66666666-6666-6666-6666-666666666666', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/mercedes-benz-cla-180-shooting-brake-2.jpg', 1, false),
 
 -- Opel Combo Images
-('77777777-7777-7777-7777-777777777777', 'REPLACE_WITH_SUPABASE_STORAGE_URL_OPEL', 0, true),
+('77777777-7777-7777-7777-777777777777', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/opel-combo-tour-1-3-cdti.jpg', 0, true),
 
 -- BMW 325iA Coupé Images
-('88888888-8888-8888-8888-888888888888', 'REPLACE_WITH_SUPABASE_STORAGE_URL_BMW_COUPE', 0, true),
+('88888888-8888-8888-8888-888888888888', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/bmw-325ia-coup-lpg.jpg', 0, true),
 
 -- Renault Trafic Images
-('99999999-9999-9999-9999-999999999999', 'REPLACE_WITH_SUPABASE_STORAGE_URL_RENAULT', 0, true),
+('99999999-9999-9999-9999-999999999999', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/renault-trafic-1-6-dci-l2h1.jpg', 0, true),
 
 -- BMW 320d GT Images
-('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'REPLACE_WITH_SUPABASE_STORAGE_URL_BMW_GT', 0, true),
+('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/bmw-320d-gt-gran-turismo.jpg', 0, true),
 
 -- Volkswagen Golf 5 Images
-('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'REPLACE_WITH_SUPABASE_STORAGE_URL_GOLF', 0, true),
+('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/volkswagen-golf-5-1-6-i.jpg', 0, true),
 
 -- Peugeot 207 Cabriolet Images
-('cccccccc-cccc-cccc-cccc-cccccccccccc', 'REPLACE_WITH_SUPABASE_STORAGE_URL_PEUGEOT', 0, true),
+('cccccccc-cccc-cccc-cccc-cccccccccccc', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/peugeot-207-cabriolet-1-6-hdi.jpg', 0, true),
 
 -- Citroen Grand C4 Picasso Images
-('dddddddd-dddd-dddd-dddd-dddddddddddd', 'REPLACE_WITH_SUPABASE_STORAGE_URL_CITROEN', 0, true),
+('dddddddd-dddd-dddd-dddd-dddddddddddd', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/citroen-grand-c4-picasso-1-6-hdi.jpg', 0, true),
 
 -- Renault Espace Images
-('eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee', 'REPLACE_WITH_SUPABASE_STORAGE_URL_RENAULT_ESPACE', 0, true),
+('eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/renault-espace-1-6-blue-dci-intens.jpg', 0, true),
 
 -- Opel Astra Cabriolet Images
-('ffffffff-ffff-ffff-ffff-ffffffffffff', 'REPLACE_WITH_SUPABASE_STORAGE_URL_OPEL_ASTRA', 0, true),
+('ffffffff-ffff-ffff-ffff-ffffffffffff', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/opel-astra-1-6-16v-bertone-cabriolet.jpg', 0, true),
 
 -- Opel Corsa Images
-('10000000-0000-0000-0000-000000000001', 'REPLACE_WITH_SUPABASE_STORAGE_URL_OPEL_CORSA', 0, true),
+('10000000-0000-0000-0000-000000000001', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/opel-corsa-1-4-i.jpg', 0, true),
 
 -- Mercedes E-Klasse Images
-('10000000-0000-0000-0000-000000000002', 'REPLACE_WITH_SUPABASE_STORAGE_URL_MERCEDES_E', 0, true),
+('10000000-0000-0000-0000-000000000002', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/mercedes-benz-e-klasse-e-220-cdi-avantgarde.jpg', 0, true),
 
 -- Renault Grand Scenic Images
-('10000000-0000-0000-0000-000000000003', 'REPLACE_WITH_SUPABASE_STORAGE_URL_RENAULT_SCENIC', 0, true),
+('10000000-0000-0000-0000-000000000003', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/renault-grand-scenic-energy-tce-130-bose.jpg', 0, true),
 
 -- Renault Laguna Images
-('10000000-0000-0000-0000-000000000004', 'REPLACE_WITH_SUPABASE_STORAGE_URL_RENAULT_LAGUNA', 0, true),
+('10000000-0000-0000-0000-000000000004', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/renault-laguna-2-0-dci-4control.jpg', 0, true),
 
 -- Renault Kadjar Images
-('10000000-0000-0000-0000-000000000005', 'REPLACE_WITH_SUPABASE_STORAGE_URL_RENAULT_KADJAR', 0, true),
+('10000000-0000-0000-0000-000000000005', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/renault-kadjar-1-2-tce-s-edition.jpg', 0, true),
 
 -- Ford Grand C-Max Images
-('10000000-0000-0000-0000-000000000006', 'REPLACE_WITH_SUPABASE_STORAGE_URL_FORD_CMAX', 0, true),
+('10000000-0000-0000-0000-000000000006', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/ford-grand-c-max-1-6-tdci.jpg', 0, true),
 
 -- Peugeot Expert Images
-('10000000-0000-0000-0000-000000000007', 'REPLACE_WITH_SUPABASE_STORAGE_URL_PEUGEOT_EXPERT', 0, true),
+('10000000-0000-0000-0000-000000000007', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/peugeot-expert-combi-1-6hdi.jpg', 0, true),
 
 -- VW Passat Variant Images
-('10000000-0000-0000-0000-000000000008', 'REPLACE_WITH_SUPABASE_STORAGE_URL_VW_PASSAT', 0, true),
+('10000000-0000-0000-0000-000000000008', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/volkswagen-passat-variant-gte-1-4-ehybrid.jpg', 0, true),
 
 -- VW Beetle Cabrio Images
-('10000000-0000-0000-0000-000000000009', 'REPLACE_WITH_SUPABASE_STORAGE_URL_VW_BEETLE', 0, true),
+('10000000-0000-0000-0000-000000000009', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/volkswagen-beetle-cabrio-1-9-tdi.jpg', 0, true),
 
 -- Opel Zafira Images
-('10000000-0000-0000-0000-00000000000a', 'REPLACE_WITH_SUPABASE_STORAGE_URL_OPEL_ZAFIRA', 0, true),
+('10000000-0000-0000-0000-00000000000a', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/opel-zafira-opc-line-1-7-dtl-cdti.jpg', 0, true),
 
 -- Porsche Cayenne Images
-('20000000-0000-0000-0000-000000000001', 'REPLACE_WITH_SUPABASE_STORAGE_URL_PORSCHE_CAYENNE', 0, true),
+('20000000-0000-0000-0000-000000000001', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/porsche-cayenne-s-e-hybrid.jpg', 0, true),
 
 -- Peugeot 3008 Images
-('20000000-0000-0000-0000-000000000002', 'REPLACE_WITH_SUPABASE_STORAGE_URL_PEUGEOT_3008', 0, true),
+('20000000-0000-0000-0000-000000000002', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/peugeot-3008-puretech-130.jpg', 0, true),
 
 -- Infiniti FX Images
-('20000000-0000-0000-0000-000000000003', 'REPLACE_WITH_SUPABASE_STORAGE_URL_INFINITI_FX', 0, true),
+('20000000-0000-0000-0000-000000000003', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/infiniti-fx-37-awd-3-7-i-v6.jpg', 0, true),
 
 -- Peugeot 208 Images
-('20000000-0000-0000-0000-000000000004', 'REPLACE_WITH_SUPABASE_STORAGE_URL_PEUGEOT_208', 0, true),
+('20000000-0000-0000-0000-000000000004', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/peugeot-208-1-2i-puretech-style.jpg', 0, true),
 
 -- Renault Express Images
-('20000000-0000-0000-0000-000000000005', 'REPLACE_WITH_SUPABASE_STORAGE_URL_RENAULT_EXPRESS', 0, true),
+('20000000-0000-0000-0000-000000000005', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/renault-express-confort-1-5blue-dci.jpg', 0, true),
 
 -- Opel Corsa Images
-('30000000-0000-0000-0000-000000000001', 'REPLACE_WITH_SUPABASE_STORAGE_URL_OPEL_CORSA', 0, true),
+('30000000-0000-0000-0000-000000000001', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/opel-corsa-1-4-i-turbo.jpg', 0, true),
 
 -- Peugeot 2008 Images
-('30000000-0000-0000-0000-000000000002', 'REPLACE_WITH_SUPABASE_STORAGE_URL_PEUGEOT_2008', 0, true),
+('30000000-0000-0000-0000-000000000002', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/peugeot-2008-1-2i-puretech-style.jpg', 0, true),
 
 -- Fiat Barchetta Images
-('30000000-0000-0000-0000-000000000003', 'REPLACE_WITH_SUPABASE_STORAGE_URL_FIAT_BARCHETTA', 0, true),
+('30000000-0000-0000-0000-000000000003', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/fiat-barchetta-cabrio-1-8i-16v.jpg', 0, true),
 
 -- Peugeot 208 (Yellow) Images
-('30000000-0000-0000-0000-000000000004', 'REPLACE_WITH_SUPABASE_STORAGE_URL_PEUGEOT_208_YELLOW', 0, true),
+('30000000-0000-0000-0000-000000000004', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/peugeot-208-1-2i-puretech-style-geel-.jpg', 0, true),
 
 -- Opel Insignia Images
-('30000000-0000-0000-0000-000000000005', 'REPLACE_WITH_SUPABASE_STORAGE_URL_OPEL_INSIGNIA', 0, true),
+('30000000-0000-0000-0000-000000000005', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/opel-insignia-sports-tourer-2-0-cdti.jpg', 0, true),
 
 -- Ford C-Max Images
-('30000000-0000-0000-0000-000000000006', 'REPLACE_WITH_SUPABASE_STORAGE_URL_FORD_CMAX', 0, true),
+('30000000-0000-0000-0000-000000000006', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/ford-c-max-1-0i-ecoboost.jpg', 0, true),
 
 -- Fiat Bravo Images
-('30000000-0000-0000-0000-000000000007', 'REPLACE_WITH_SUPABASE_STORAGE_URL_FIAT_BRAVO', 0, true),
+('30000000-0000-0000-0000-000000000007', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/fiat-bravo-1-6-multijet-active.jpg', 0, true),
 
 -- Alfa Romeo Spider Images
-('40000000-0000-0000-0000-000000000001', 'REPLACE_WITH_SUPABASE_STORAGE_URL_ALFA_SPIDER', 0, true),
+('40000000-0000-0000-0000-000000000001', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/alfa-romeo-spider-2-0-twin-spark-cabrio.jpg', 0, true),
 
 -- Mercedes E 500 Images
-('40000000-0000-0000-0000-000000000002', 'REPLACE_WITH_SUPABASE_STORAGE_URL_MERCEDES_E500', 0, true),
+('40000000-0000-0000-0000-000000000002', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/mercedes-benz-e-500-v8-t-7g-tronic.jpg', 0, true),
 
 -- Chevrolet Aveo Images
-('40000000-0000-0000-0000-000000000003', 'REPLACE_WITH_SUPABASE_STORAGE_URL_CHEVROLET_AVEO', 0, true),
+('40000000-0000-0000-0000-000000000003', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/chevrolet-aveo-1-4-i-16v-lt.jpg', 0, true),
 
 -- Opel Vectra Images
-('40000000-0000-0000-0000-000000000004', 'REPLACE_WITH_SUPABASE_STORAGE_URL_OPEL_VECTRA', 0, true),
+('40000000-0000-0000-0000-000000000004', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/opel-vectra-c-1-6-i.jpg', 0, true),
 
 -- Renault Grand Scenic (Blue) Images
-('40000000-0000-0000-0000-000000000005', 'REPLACE_WITH_SUPABASE_STORAGE_URL_RENAULT_SCENIC_BLUE', 0, true),
+('40000000-0000-0000-0000-000000000005', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/renault-grand-scenic-1-6-i.jpg', 0, true),
 
 -- Kia Soul Images
-('40000000-0000-0000-0000-000000000006', 'REPLACE_WITH_SUPABASE_STORAGE_URL_KIA_SOUL', 0, true),
+('40000000-0000-0000-0000-000000000006', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/kia-soul-1-6i-automaat-full.jpg', 0, true),
 
 -- Peugeot 5008 Images
-('40000000-0000-0000-0000-000000000007', 'REPLACE_WITH_SUPABASE_STORAGE_URL_PEUGEOT_5008', 0, true),
+('40000000-0000-0000-0000-000000000007', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/peugeot-5008-gt-line-1-5-bluehdi-eat8.jpg', 0, true),
 
 -- Mercedes E 250 D Images
-('50000000-0000-0000-0000-000000000001', 'REPLACE_WITH_SUPABASE_STORAGE_URL_MERCEDES_E250D', 0, true),
+('50000000-0000-0000-0000-000000000001', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/mercedes-benz-e-250-d-oldtimer.jpg', 0, true),
 
 -- Jaguar XE Images
-('50000000-0000-0000-0000-000000000002', 'REPLACE_WITH_SUPABASE_STORAGE_URL_JAGUAR_XE', 0, true),
+('50000000-0000-0000-0000-000000000002', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/jaguar-xe-2-0-d-e-performance-prestige.jpg', 0, true),
 
 -- Chevrolet Aveo Diesel Images
-('50000000-0000-0000-0000-000000000003', 'REPLACE_WITH_SUPABASE_STORAGE_URL_CHEVROLET_AVEO_DIESEL', 0, true),
+('50000000-0000-0000-0000-000000000003', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/chevrolet-aveo-1-3-diesel.jpg', 0, true),
 
 -- Chrysler PT Cruiser Images
-('50000000-0000-0000-0000-000000000004', 'REPLACE_WITH_SUPABASE_STORAGE_URL_CHRYSLER_PT_CRUISER', 0, true),
+('50000000-0000-0000-0000-000000000004', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/chrysler-pt-cruiser-2-0i-16v-limited.jpg', 0, true),
 
 -- Mercedes Sprinter Images
-('50000000-0000-0000-0000-000000000005', 'REPLACE_WITH_SUPABASE_STORAGE_URL_MERCEDES_SPRINTER', 0, true),
+('50000000-0000-0000-0000-000000000005', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/mercedes-benz-sprinter-2-2-cdi.jpg', 0, true),
 
 -- Land Rover Range Rover Sport Images
-('50000000-0000-0000-0000-000000000006', 'REPLACE_WITH_SUPABASE_STORAGE_URL_RANGE_ROVER_SPORT', 0, true),
+('50000000-0000-0000-0000-000000000006', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/land-rover-range-rover-sport-2-7-tdv6.jpg', 0, true),
 
 -- Dacia Logan Images
-('50000000-0000-0000-0000-000000000007', 'REPLACE_WITH_SUPABASE_STORAGE_URL_DACIA_LOGAN', 0, true),
+('50000000-0000-0000-0000-000000000007', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/dacia-logan-0-9-tce.jpg', 0, true),
 
 -- MINI Cooper S Images
-('50000000-0000-0000-0000-000000000008', 'REPLACE_WITH_SUPABASE_STORAGE_URL_MINI_COOPER_S', 0, true),
+('50000000-0000-0000-0000-000000000008', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/mini-cooper-s-1-6i-16v.jpg', 0, true),
 
 -- Opel Astra Images
-('60000000-0000-0000-0000-000000000001', 'REPLACE_WITH_SUPABASE_STORAGE_URL_OPEL_ASTRA', 0, true),
+('60000000-0000-0000-0000-000000000001', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/opel-astra-1-6-16v-bertone-cabriolet.jpg', 0, true),
 
 -- VW Caddy Images
-('60000000-0000-0000-0000-000000000002', 'REPLACE_WITH_SUPABASE_STORAGE_URL_VW_CADDY', 0, true),
+('60000000-0000-0000-0000-000000000002', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/volkswagen-caddy-combi-1-6-tdi.jpg', 0, true),
 
 -- Dodge RAM Images
-('60000000-0000-0000-0000-000000000004', 'REPLACE_WITH_SUPABASE_STORAGE_URL_DODGE_RAM', 0, true),
+('60000000-0000-0000-0000-000000000004', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/dodge-ram-pickup-4-7-v8-lpg.jpg', 0, true),
 
 -- Citroen Grand C4 Picasso Images
-('60000000-0000-0000-0000-000000000005', 'REPLACE_WITH_SUPABASE_STORAGE_URL_CITROEN_C4_PICASSO', 0, true),
+('60000000-0000-0000-0000-000000000005', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/citroen-grand-c4-picasso-1-6-hdi.jpg', 0, true),
 
 -- Renault Espace Images
-('60000000-0000-0000-0000-000000000006', 'REPLACE_WITH_SUPABASE_STORAGE_URL_RENAULT_ESPACE', 0, true),
+('60000000-0000-0000-0000-000000000006', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/renault-espace-1-6-blue-dci-intens.jpg', 0, true),
 
 -- Volvo S60 Images
-('70000000-0000-0000-0000-000000000001', 'REPLACE_WITH_SUPABASE_STORAGE_URL_VOLVO_S60', 0, true),
+('70000000-0000-0000-0000-000000000001', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/volvo-s60-2-4i-20v.jpg', 0, true),
 
 -- Opel Astra Cabriolet 2009 Images
-('70000000-0000-0000-0000-000000000002', 'REPLACE_WITH_SUPABASE_STORAGE_URL_OPEL_ASTRA_2009', 0, true),
+('70000000-0000-0000-0000-000000000002', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/opel-astra-1-6-16v-cabriolet.jpg', 0, true),
 
 -- Citroen Berlingo Images
-('80000000-0000-0000-0000-000000000001', 'REPLACE_WITH_SUPABASE_STORAGE_URL_CITROEN_BERLINGO', 0, true),
+('80000000-0000-0000-0000-000000000001', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/citroen-berlingo-1-6i-benzine.jpg', 0, true),
 
 -- Peugeot Bipper Images
-('80000000-0000-0000-0000-000000000002', 'REPLACE_WITH_SUPABASE_STORAGE_URL_PEUGEOT_BIPPER', 0, true),
+('80000000-0000-0000-0000-000000000002', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/peugeot-bipper-1-3-hdi-automaat.jpg', 0, true),
 
 -- Volvo V60 Images
-('90000000-0000-0000-0000-000000000001', 'REPLACE_WITH_SUPABASE_STORAGE_URL_VOLVO_V60', 0, true),
+('90000000-0000-0000-0000-000000000001', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/volvo-v60-2-0-i-benzine.jpg', 0, true),
 
 -- BMW X4 M40 Images
-('90000000-0000-0000-0000-000000000002', 'REPLACE_WITH_SUPABASE_STORAGE_URL_BMW_X4', 0, true),
+('90000000-0000-0000-0000-000000000002', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/bmw-x4-m40-3-0-das.jpg', 0, true),
 
 -- Fiat Talento Images
-('90000000-0000-0000-0000-000000000003', 'REPLACE_WITH_SUPABASE_STORAGE_URL_FIAT_TALENTO', 0, true),
+('90000000-0000-0000-0000-000000000003', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/fiat-talento-2-0-multijet-l2h1.jpg', 0, true),
 
 -- VW Polo Oldtimer Images
-('90000000-0000-0000-0000-000000000004', 'REPLACE_WITH_SUPABASE_STORAGE_URL_VW_POLO', 0, true),
+('90000000-0000-0000-0000-000000000004', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/volkswagen-polo-coupe-oldtimer.jpg', 0, true),
 
 -- MPM Motors PS160 Images
-('90000000-0000-0000-0000-000000000005', 'REPLACE_WITH_SUPABASE_STORAGE_URL_MPM_MOTORS', 0, true);
+('90000000-0000-0000-0000-000000000005', 'https://jfhshiingwwoqhnbcxgy.supabase.co/storage/v1/object/public/car-images/mpm-motors-ps160-1-6i.jpg', 0, true);

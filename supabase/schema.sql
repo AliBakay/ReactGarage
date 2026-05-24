@@ -6,7 +6,7 @@ CREATE TABLE cars (
   year        INT  NOT NULL,
   price       NUMERIC(12,2) NOT NULL,
   mileage     INT  NOT NULL,
-  fuel_type   TEXT NOT NULL CHECK (fuel_type IN ('gasoline','diesel','electric','hybrid')),
+  fuel_type   TEXT NOT NULL CHECK (fuel_type IN ('gasoline','diesel','electric','hybrid','lpg','other')),
   specs_json  JSONB NOT NULL DEFAULT '{}',
   created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   featured    BOOLEAN NOT NULL DEFAULT false,

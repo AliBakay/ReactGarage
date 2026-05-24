@@ -10,6 +10,8 @@ const FUEL_LABEL: Record<string, string> = {
   diesel:   "Diesel",
   electric: "Elektrisch",
   hybrid:   "Hybride",
+  lpg:      "LPG",
+  other:    "Andere",
 };
 
 const FUEL_COLOR: Record<string, string> = {
@@ -17,6 +19,8 @@ const FUEL_COLOR: Record<string, string> = {
   diesel:   "text-blue-500",
   electric: "text-green-500",
   hybrid:   "text-teal-500",
+  lpg:      "text-purple-500",
+  other:    "text-slate-500",
 };
 
 const FUEL_BG: Record<string, string> = {
@@ -24,6 +28,8 @@ const FUEL_BG: Record<string, string> = {
   diesel:   "bg-blue-50 text-blue-600",
   electric: "bg-green-50 text-green-600",
   hybrid:   "bg-teal-50 text-teal-600",
+  lpg:      "bg-purple-50 text-purple-600",
+  other:    "bg-slate-50 text-slate-600",
 };
 
 interface Props {

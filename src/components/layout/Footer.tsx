@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Car, MapPin, Phone, Mail, Share2, ExternalLink, Globe } from "lucide-react";
+import { MapPin, Phone, Mail, Share2, ExternalLink, Globe } from "lucide-react";
 
 export function Footer() {
   return (
@@ -8,13 +8,8 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Brand */}
         <div className="md:col-span-2">
-          <div className="flex items-center gap-2.5 mb-5">
-            <div className="w-9 h-9 bg-garage-accent rounded-xl flex items-center justify-center shadow-md shadow-garage-accent/30">
-              <Car size={18} className="text-white" />
-            </div>
-            <span className="font-display font-bold text-xl">
-              Auto<span className="text-garage-accent">Deal</span>
-            </span>
+          <div className="flex items-center mb-5">
+            <img src="/logo.png" alt="Garage van Hozeham" className="h-14 w-auto" />
           </div>
           <p className="text-sm text-white/60 leading-relaxed max-w-sm">
             Premium tweedehands voertuigen. Professioneel gekeurd, eerlijk geprijsd en klaar om te rijden.
@@ -47,7 +42,7 @@ export function Footer() {
             </li>
             <li className="flex items-center gap-2.5">
               <Mail size={15} className="text-garage-accent shrink-0" />
-              <a href="mailto:info@autodeal.be" className="hover:text-white transition-colors">info@autodeal.be</a>
+              <a href="mailto:info@garagevanhozeham.be" className="hover:text-white transition-colors">info@garagevanhozeham.be</a>
             </li>
           </ul>
         </div>
@@ -75,7 +70,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-xs text-white/40">
-            © {new Date().getFullYear()} AutoDeal. Alle rechten voorbehouden.
+            © {new Date().getFullYear()} Garage van Hozeham. Alle rechten voorbehouden.
           </p>
           <p className="text-xs text-white/40">
             Professioneel gekeurd · Eerlijk geprijsd · Betrouwbaar

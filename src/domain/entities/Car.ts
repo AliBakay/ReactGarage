@@ -1,4 +1,4 @@
-export type FuelType = "gasoline" | "diesel" | "electric" | "hybrid";
+export type FuelType = "gasoline" | "diesel" | "electric" | "hybrid" | "lpg" | "other";
 
 export interface CarSpecs {
   horsepower: number;
