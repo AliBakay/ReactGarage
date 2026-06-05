@@ -14,23 +14,23 @@ export default function AdminAddCarPage() {
   const [formData, setFormData] = useState({
     make: "",
     model: "",
-    year: new Date().getFullYear(),
-    price: 0,
-    mileage: 0,
+    year: new Date().getFullYear().toString(),
+    price: "",
+    mileage: "",
     fuelType: "gasoline" as FuelType,
     description: "",
     featured: false,
     specs: {
-      horsepower: 0,
-      torque: 0,
+      horsepower: "",
+      torque: "",
       engine: "",
       transmission: "Automaat",
       drivetrain: "FWD",
       acceleration: "",
-      topSpeed: 0,
-      seating: 5,
+      topSpeed: "",
+      seating: "5",
       color: "",
-      doors: 5,
+      doors: "5",
     }
   });
 
@@ -59,13 +59,28 @@ export default function AdminAddCarPage() {
     setSuccess(false);
 
     try {
-      await SupabaseCarRepository.addCar(formData, files);
+      const payload = {
+        ...formData,
+        year: parseInt(formData.year) || 0,
+        price: parseFloat(formData.price) || 0,
+        mileage: parseInt(formData.mileage) || 0,
+        specs: {
+          ...formData.specs,
+          horsepower: parseInt(formData.specs.horsepower) || 0,
+          torque: parseInt(formData.specs.torque) || 0,
+          topSpeed: parseInt(formData.specs.topSpeed) || 0,
+          seating: parseInt(formData.specs.seating) || 0,
+          doors: parseInt(formData.specs.doors) || 0,
+        }
+      };
+
+      await SupabaseCarRepository.addCar(payload, files);
       setSuccess(true);
       // Reset form
       setFormData({
-        make: "", model: "", year: new Date().getFullYear(), price: 0, mileage: 0,
+        make: "", model: "", year: new Date().getFullYear().toString(), price: "", mileage: "",
         fuelType: "gasoline", description: "", featured: false,
-        specs: { horsepower: 0, torque: 0, engine: "", transmission: "Automaat", drivetrain: "FWD", acceleration: "", topSpeed: 0, seating: 5, color: "", doors: 5 }
+        specs: { horsepower: "", torque: "", engine: "", transmission: "Automaat", drivetrain: "FWD", acceleration: "", topSpeed: "", seating: "5", color: "", doors: "5" }
       });
       setFiles([]);
       setPreviews([]);
@@ -118,15 +133,18 @@ export default function AdminAddCarPage() {
               </div>
               <div>
                 <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Bouwjaar</label>
-                <input type="number" required className="input-light" min="1900" max="2100" value={formData.year} onChange={e => setFormData(p => ({...p, year: Number(e.target.value)}))} />
+                <input type="text" inputMode="numeric" required className="input-light" placeholder="bijv. 2024" value={formData.year} onChange={e => setFormData(p => ({...p, year: e.target.value}))} />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Prijs (€)</label>
-                <input type="number" required className="input-light" min="0" value={formData.price} onChange={e => setFormData(p => ({...p, price: Number(e.target.value)}))} />
+                <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Prijs</label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-garage-muted font-bold">€</span>
+                  <input type="text" inputMode="numeric" required className="input-light pl-8" placeholder="45000" value={formData.price} onChange={e => setFormData(p => ({...p, price: e.target.value}))} />
+                </div>
               </div>
               <div>
                 <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Kilometerstand (km)</label>
-                <input type="number" required className="input-light" min="0" value={formData.mileage} onChange={e => setFormData(p => ({...p, mileage: Number(e.target.value)}))} />
+                <input type="text" inputMode="numeric" required className="input-light" placeholder="bijv. 12000" value={formData.mileage} onChange={e => setFormData(p => ({...p, mileage: e.target.value}))} />
               </div>
               <div>
                 <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Brandstof</label>
@@ -152,11 +170,11 @@ export default function AdminAddCarPage() {
               </div>
               <div>
                 <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Vermogen (PK)</label>
-                <input type="number" className="input-light" value={formData.specs.horsepower} onChange={e => setFormData(p => ({...p, specs: {...p.specs, horsepower: Number(e.target.value)}}))} />
+                <input type="text" inputMode="numeric" className="input-light" placeholder="bijv. 300" value={formData.specs.horsepower} onChange={e => setFormData(p => ({...p, specs: {...p.specs, horsepower: e.target.value}}))} />
               </div>
               <div>
                 <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Koppel (Nm)</label>
-                <input type="number" className="input-light" value={formData.specs.torque} onChange={e => setFormData(p => ({...p, specs: {...p.specs, torque: Number(e.target.value)}}))} />
+                <input type="text" inputMode="numeric" className="input-light" placeholder="bijv. 450" value={formData.specs.torque} onChange={e => setFormData(p => ({...p, specs: {...p.specs, torque: e.target.value}}))} />
               </div>
               <div>
                 <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Transmissie</label>
@@ -172,7 +190,7 @@ export default function AdminAddCarPage() {
               </div>
               <div>
                 <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Topsnelheid</label>
-                <input type="number" className="input-light" value={formData.specs.topSpeed} onChange={e => setFormData(p => ({...p, specs: {...p.specs, topSpeed: Number(e.target.value)}}))} />
+                <input type="text" inputMode="numeric" className="input-light" placeholder="bijv. 250" value={formData.specs.topSpeed} onChange={e => setFormData(p => ({...p, specs: {...p.specs, topSpeed: e.target.value}}))} />
               </div>
               <div>
                 <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Kleur</label>
@@ -181,11 +199,11 @@ export default function AdminAddCarPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Zitplaatsen</label>
-                  <input type="number" className="input-light" value={formData.specs.seating} onChange={e => setFormData(p => ({...p, specs: {...p.specs, seating: Number(e.target.value)}}))} />
+                  <input type="text" inputMode="numeric" className="input-light" placeholder="bijv. 5" value={formData.specs.seating} onChange={e => setFormData(p => ({...p, specs: {...p.specs, seating: e.target.value}}))} />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Deuren</label>
-                  <input type="number" className="input-light" value={formData.specs.doors} onChange={e => setFormData(p => ({...p, specs: {...p.specs, doors: Number(e.target.value)}}))} />
+                  <input type="text" inputMode="numeric" className="input-light" placeholder="bijv. 5" value={formData.specs.doors} onChange={e => setFormData(p => ({...p, specs: {...p.specs, doors: e.target.value}}))} />
                 </div>
               </div>
             </div>
