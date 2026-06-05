@@ -15,6 +15,7 @@ interface CarRow {
   created_at: string;
   featured: boolean;
   description: string | null;
+  status: string | null;
 }
 
 function mapRowToCar(row: CarRow): Car {
@@ -62,6 +63,7 @@ function mapRowToCar(row: CarRow): Car {
     createdAt:  row.created_at,
     featured:   row.featured ?? false,
     description: row.description ?? "",
+    status:     (row.status as "draft" | "published") ?? "published",
   };
 }
 
@@ -77,6 +79,7 @@ export const SupabaseCarRepository = {
       let query = supabase
         .from("cars")
         .select("*, car_images(image_url, display_order, is_primary)")
+        .eq("status", "published")
         .order("featured", { ascending: false })
         .order("price", { ascending: true });
 
@@ -104,6 +107,20 @@ export const SupabaseCarRepository = {
       return (data as CarRow[]).map(mapRowToCar);
     } catch (err) {
       console.warn("Network error:", err);
+      return [];
+    }
+  },
+
+  async getAdminCars(): Promise<Car[]> {
+    try {
+      const { data, error } = await supabase
+        .from("cars")
+        .select("*, car_images(image_url, display_order, is_primary)")
+        .order("created_at", { ascending: false });
+
+      if (error || !data) return [];
+      return (data as CarRow[]).map(mapRowToCar);
+    } catch {
       return [];
     }
   },
@@ -136,6 +153,7 @@ export const SupabaseCarRepository = {
       const { data, error } = await supabase
         .from("cars")
         .select("*, car_images(image_url, display_order, is_primary)")
+        .eq("status", "published")
         .eq("featured", true)
         .limit(limit);
 
@@ -176,6 +194,7 @@ export const SupabaseCarRepository = {
         },
         featured: carData.featured,
         description: carData.description,
+        status: carData.status,
       })
       .select("id")
       .single();
@@ -220,4 +239,98 @@ export const SupabaseCarRepository = {
 
     return carId;
   },
+
+  async updateCar(id: string, carData: Partial<Omit<Car, "id" | "createdAt" | "imagesUrl">>, newFiles: File[], deletedImageUrls: string[] = []): Promise<void> {
+    const specsPayload = carData.specs ? {
+      horsepower: carData.specs.horsepower,
+      torque: carData.specs.torque,
+      engine: carData.specs.engine,
+      transmission: carData.specs.transmission,
+      drivetrain: carData.specs.drivetrain,
+      acceleration: carData.specs.acceleration,
+      top_speed: carData.specs.topSpeed,
+      seating: carData.specs.seating,
+      color: carData.specs.color,
+      doors: carData.specs.doors,
+    } : undefined;
+
+    const payload: any = {};
+    if (carData.make !== undefined) payload.make = carData.make;
+    if (carData.model !== undefined) payload.model = carData.model;
+    if (carData.year !== undefined) payload.year = carData.year;
+    if (carData.price !== undefined) payload.price = carData.price;
+    if (carData.mileage !== undefined) payload.mileage = carData.mileage;
+    if (carData.fuelType !== undefined) payload.fuel_type = carData.fuelType;
+    if (carData.featured !== undefined) payload.featured = carData.featured;
+    if (carData.description !== undefined) payload.description = carData.description;
+    if (carData.status !== undefined) payload.status = carData.status;
+    if (specsPayload) payload.specs_json = specsPayload;
+
+    if (Object.keys(payload).length > 0) {
+      const { error: carError } = await supabase.from("cars").update(payload).eq("id", id);
+      if (carError) throw new Error("Kon auto niet bijwerken: " + carError.message);
+    }
+
+    if (deletedImageUrls.length > 0) {
+      await supabase.from("car_images").delete().in("image_url", deletedImageUrls);
+      const filePaths = deletedImageUrls.map(url => {
+        const parts = url.split("car-images/");
+        return parts.length > 1 ? parts[1] : null;
+      }).filter(Boolean) as string[];
+      
+      if (filePaths.length > 0) {
+        await supabase.storage.from("car-images").remove(filePaths);
+      }
+    }
+
+    if (newFiles && newFiles.length > 0) {
+      const imageInserts = [];
+      const { data: existingImages } = await supabase.from("car_images").select("display_order").eq("car_id", id).order("display_order", { ascending: false }).limit(1);
+      const startOrder = existingImages && existingImages.length > 0 ? existingImages[0].display_order + 1 : 0;
+
+      for (let i = 0; i < newFiles.length; i++) {
+        const file = newFiles[i];
+        const fileExt = file.name.split('.').pop();
+        const fileName = `${id}/${Date.now()}-${i}.${fileExt}`;
+
+        const { error: uploadError } = await supabase.storage.from("car-images").upload(fileName, file);
+
+        if (!uploadError) {
+          const { data: urlData } = supabase.storage.from("car-images").getPublicUrl(fileName);
+          imageInserts.push({
+            car_id: id,
+            image_url: urlData.publicUrl,
+            display_order: startOrder + i,
+            is_primary: (startOrder + i) === 0
+          });
+        }
+      }
+
+      if (imageInserts.length > 0) {
+        await supabase.from("car_images").insert(imageInserts);
+      }
+    }
+
+    featuredCarsCache = null;
+  },
+
+  async deleteCar(id: string): Promise<void> {
+    const { data: images } = await supabase.from("car_images").select("image_url").eq("car_id", id);
+    
+    if (images && images.length > 0) {
+      const filePaths = images.map(img => {
+        const parts = img.image_url.split("car-images/");
+        return parts.length > 1 ? parts[1] : null;
+      }).filter(Boolean) as string[];
+
+      if (filePaths.length > 0) {
+        await supabase.storage.from("car-images").remove(filePaths);
+      }
+    }
+
+    const { error } = await supabase.from("cars").delete().eq("id", id);
+    if (error) throw new Error("Kon auto niet verwijderen: " + error.message);
+    
+    featuredCarsCache = null;
+  }
 };

@@ -26,6 +26,7 @@ export interface Car {
   createdAt: string;
   featured: boolean;
   description: string;
+  status: "draft" | "published";
 }
 
 export interface CarFilters {

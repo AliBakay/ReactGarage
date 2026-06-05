@@ -1,15 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { SupabaseCarRepository } from "../../infrastructure/supabase/SupabaseCarRepository";
-import { Plus, X, Save, CheckCircle } from "lucide-react";
+import { Plus, X, Save, CheckCircle, ArrowLeft } from "lucide-react";
 import type { FuelType } from "../../domain/entities/Car";
+import { Link } from "react-router-dom";
 
-export default function AdminAddCarPage() {
+export default function AdminCarFormPage() {
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const isEdit = !!id;
+
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const [files, setFiles] = useState<File[]>([]);
   const [previews, setPreviews] = useState<string[]>([]);
+  const [existingImages, setExistingImages] = useState<string[]>([]);
+  const [deletedImages, setDeletedImages] = useState<string[]>([]);
 
   const [formData, setFormData] = useState({
     make: "",
@@ -20,6 +28,7 @@ export default function AdminAddCarPage() {
     fuelType: "gasoline" as FuelType,
     description: "",
     featured: false,
+    status: "published" as "draft" | "published",
     specs: {
       horsepower: "",
       torque: "",
@@ -34,6 +43,46 @@ export default function AdminAddCarPage() {
     }
   });
 
+  useEffect(() => {
+    if (isEdit && id) {
+      loadCar(id);
+    }
+  }, [isEdit, id]);
+
+  async function loadCar(carId: string) {
+    try {
+      const car = await SupabaseCarRepository.getCarById(carId);
+      if (car) {
+        setFormData({
+          make: car.make,
+          model: car.model,
+          year: car.year.toString(),
+          price: car.price.toString(),
+          mileage: car.mileage.toString(),
+          fuelType: car.fuelType,
+          description: car.description,
+          featured: car.featured,
+          status: car.status,
+          specs: {
+            horsepower: car.specs.horsepower ? car.specs.horsepower.toString() : "",
+            torque: car.specs.torque ? car.specs.torque.toString() : "",
+            engine: car.specs.engine,
+            transmission: car.specs.transmission,
+            drivetrain: car.specs.drivetrain,
+            acceleration: car.specs.acceleration,
+            topSpeed: car.specs.topSpeed ? car.specs.topSpeed.toString() : "",
+            seating: car.specs.seating.toString(),
+            color: car.specs.color,
+            doors: car.specs.doors.toString(),
+          }
+        });
+        setExistingImages(car.imagesUrl);
+      }
+    } catch (err) {
+      setError("Fout bij laden van voertuig");
+    }
+  }
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const newFiles = Array.from(e.target.files);
@@ -44,7 +93,7 @@ export default function AdminAddCarPage() {
     }
   };
 
-  const removeFile = (index: number) => {
+  const removeNewFile = (index: number) => {
     setFiles(prev => prev.filter((_, i) => i !== index));
     setPreviews(prev => {
       URL.revokeObjectURL(prev[index]);
@@ -52,7 +101,12 @@ export default function AdminAddCarPage() {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const removeExistingImage = (url: string) => {
+    setExistingImages(prev => prev.filter(img => img !== url));
+    setDeletedImages(prev => [...prev, url]);
+  };
+
+  const handleSubmit = async (e: React.FormEvent, status: "draft" | "published") => {
     e.preventDefault();
     setLoading(true);
     setError(null);
@@ -61,6 +115,7 @@ export default function AdminAddCarPage() {
     try {
       const payload = {
         ...formData,
+        status,
         year: parseInt(formData.year) || 0,
         price: parseFloat(formData.price) || 0,
         mileage: parseInt(formData.mileage) || 0,
@@ -74,19 +129,20 @@ export default function AdminAddCarPage() {
         }
       };
 
-      await SupabaseCarRepository.addCar(payload, files);
+      if (isEdit && id) {
+        await SupabaseCarRepository.updateCar(id, payload, files, deletedImages);
+      } else {
+        await SupabaseCarRepository.addCar(payload, files);
+      }
+      
       setSuccess(true);
-      // Reset form
-      setFormData({
-        make: "", model: "", year: new Date().getFullYear().toString(), price: "", mileage: "",
-        fuelType: "gasoline", description: "", featured: false,
-        specs: { horsepower: "", torque: "", engine: "", transmission: "Automaat", drivetrain: "FWD", acceleration: "", topSpeed: "", seating: "5", color: "", doors: "5" }
-      });
-      setFiles([]);
-      setPreviews([]);
       window.scrollTo(0, 0);
+      
+      if (!isEdit) {
+        setTimeout(() => navigate('/beheerpaneel'), 1500);
+      }
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : "Er ging iets mis bij het toevoegen van de auto.";
+      const errorMessage = err instanceof Error ? err.message : "Er ging iets mis bij het opslaan van de auto.";
       setError(errorMessage);
     } finally {
       setLoading(false);
@@ -96,17 +152,26 @@ export default function AdminAddCarPage() {
   return (
     <div className="min-h-screen bg-garage-surface py-28 px-4">
       <div className="max-w-4xl mx-auto">
+        
+        <Link to="/beheerpaneel" className="inline-flex items-center gap-2 text-garage-darkSub hover:text-garage-accent mb-6 font-semibold transition-colors">
+          <ArrowLeft size={16} /> Terug naar dashboard
+        </Link>
+
         <div className="mb-8">
-          <h1 className="font-display text-4xl font-extrabold text-garage-dark">Auto Toevoegen</h1>
-          <p className="text-garage-darkSub mt-2">Voeg een nieuw voertuig toe aan de inventaris.</p>
+          <h1 className="font-display text-4xl font-extrabold text-garage-dark">
+            {isEdit ? "Auto Bewerken" : "Auto Toevoegen"}
+          </h1>
+          <p className="text-garage-darkSub mt-2">
+            {isEdit ? "Pas de gegevens van dit voertuig aan." : "Voeg een nieuw voertuig toe aan de inventaris."}
+          </p>
         </div>
 
         {success && (
           <div className="bg-green-50 border border-green-200 text-green-700 p-6 rounded-2xl mb-8 flex items-center gap-4">
             <CheckCircle size={24} className="shrink-0" />
             <div>
-              <p className="font-bold">Succesvol toegevoegd!</p>
-              <p className="text-sm">De auto is nu zichtbaar in de catalogus.</p>
+              <p className="font-bold">Succesvol {isEdit ? "bijgewerkt" : "toegevoegd"}!</p>
+              <p className="text-sm">De wijzigingen zijn opgeslagen.</p>
             </div>
           </div>
         )}
@@ -118,7 +183,7 @@ export default function AdminAddCarPage() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-8">
+        <form className="space-y-8">
           {/* Basis Informatie */}
           <div className="bg-white p-8 rounded-2xl border border-garage-border shadow-sm">
             <h2 className="font-display font-bold text-xl mb-6 text-garage-dark border-b border-garage-border pb-4">Basis Informatie</h2>
@@ -232,13 +297,29 @@ export default function AdminAddCarPage() {
             <h2 className="font-display font-bold text-xl mb-6 text-garage-dark border-b border-garage-border pb-4">Foto's Uploaden</h2>
             
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-6">
-              {previews.map((src, idx) => (
-                <div key={idx} className="relative aspect-[4/3] rounded-xl overflow-hidden border border-garage-border group">
-                  <img src={src} alt="Preview" className="w-full h-full object-cover" />
-                  <button type="button" onClick={() => removeFile(idx)} className="absolute top-2 right-2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center text-red-500 hover:bg-red-50 opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
+              {/* Bestaande foto's */}
+              {existingImages.map((src, idx) => (
+                <div key={`exist-${idx}`} className="relative aspect-[4/3] rounded-xl overflow-hidden border border-garage-border group">
+                  <img src={src} alt="Bestaande foto" className="w-full h-full object-cover" />
+                  <button type="button" onClick={() => removeExistingImage(src)} className="absolute top-2 right-2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center text-red-500 hover:bg-red-50 opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
                     <X size={16} />
                   </button>
                   {idx === 0 && (
+                    <span className="absolute bottom-2 left-2 bg-slate-800 text-white text-[10px] font-bold px-2 py-1 rounded-lg uppercase">
+                      Bestaand
+                    </span>
+                  )}
+                </div>
+              ))}
+
+              {/* Nieuwe previews */}
+              {previews.map((src, idx) => (
+                <div key={`new-${idx}`} className="relative aspect-[4/3] rounded-xl overflow-hidden border border-garage-border group">
+                  <img src={src} alt="Nieuwe preview" className="w-full h-full object-cover" />
+                  <button type="button" onClick={() => removeNewFile(idx)} className="absolute top-2 right-2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center text-red-500 hover:bg-red-50 opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
+                    <X size={16} />
+                  </button>
+                  {existingImages.length === 0 && idx === 0 && (
                     <span className="absolute bottom-2 left-2 bg-garage-accent text-white text-[10px] font-bold px-2 py-1 rounded-lg uppercase">
                       Hoofdfoto
                     </span>
@@ -254,13 +335,27 @@ export default function AdminAddCarPage() {
                 <input type="file" multiple accept="image/*" className="hidden" onChange={handleFileChange} />
               </label>
             </div>
+            <p className="text-xs text-garage-darkSub">Tip: Foto's worden niet gecomprimeerd en behouden hun originele hoge kwaliteit.</p>
           </div>
 
           {/* Acties */}
-          <div className="flex justify-end pt-4">
-            <button type="submit" disabled={loading} className="btn-primary py-4 px-8 flex items-center gap-2 text-lg disabled:opacity-70 disabled:cursor-not-allowed">
+          <div className="flex flex-col sm:flex-row justify-end gap-4 pt-4 border-t border-slate-200 mt-8">
+            <button 
+              type="button" 
+              disabled={loading} 
+              onClick={(e) => handleSubmit(e, "draft")}
+              className="px-6 py-3 rounded-xl font-bold text-garage-dark bg-slate-200 hover:bg-slate-300 transition-colors disabled:opacity-50"
+            >
+              Opslaan als Concept
+            </button>
+            <button 
+              type="button" 
+              disabled={loading} 
+              onClick={(e) => handleSubmit(e, "published")}
+              className="btn-primary py-3 px-8 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+            >
               {loading ? <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" /> : <Save size={20} />}
-              {loading ? "Opslaan..." : "Voertuig Opslaan"}
+              {loading ? "Opslaan..." : "Publiceren"}
             </button>
           </div>
         </form>
