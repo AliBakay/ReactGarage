@@ -232,4 +232,73 @@ export const SupabaseCarRepository = {
       return fallback;
     }
   },
+
+  async addCar(carData: Omit<Car, "id" | "createdAt" | "imagesUrl">, files: File[]): Promise<string> {
+    const { data: newCar, error: carError } = await supabase
+      .from("cars")
+      .insert({
+        make: carData.make,
+        model: carData.model,
+        year: carData.year,
+        price: carData.price,
+        mileage: carData.mileage,
+        fuel_type: carData.fuelType,
+        specs_json: {
+          horsepower: carData.specs.horsepower,
+          torque: carData.specs.torque,
+          engine: carData.specs.engine,
+          transmission: carData.specs.transmission,
+          drivetrain: carData.specs.drivetrain,
+          acceleration: carData.specs.acceleration,
+          top_speed: carData.specs.topSpeed,
+          seating: carData.specs.seating,
+          color: carData.specs.color,
+          doors: carData.specs.doors,
+        },
+        featured: carData.featured,
+        description: carData.description,
+      })
+      .select("id")
+      .single();
+
+    if (carError || !newCar) {
+      throw new Error("Kon voertuig niet toevoegen: " + (carError?.message || "Onbekende fout"));
+    }
+
+    const carId = newCar.id;
+
+    if (files && files.length > 0) {
+      const imageInserts = [];
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const fileExt = file.name.split('.').pop();
+        const fileName = `${carId}/${Date.now()}-${i}.${fileExt}`;
+
+        const { error: uploadError } = await supabase.storage
+          .from("car-images")
+          .upload(fileName, file);
+
+        if (!uploadError) {
+          const { data: urlData } = supabase.storage.from("car-images").getPublicUrl(fileName);
+          imageInserts.push({
+            car_id: carId,
+            image_url: urlData.publicUrl,
+            display_order: i,
+            is_primary: i === 0
+          });
+        }
+      }
+
+      if (imageInserts.length > 0) {
+        await supabase.from("car_images").insert(imageInserts);
+      }
+    }
+
+    if (carData.featured) {
+      featuredCarsCache = null;
+    }
+
+    return carId;
+  },
 };

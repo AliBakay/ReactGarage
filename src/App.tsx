@@ -3,10 +3,13 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
+import { ProtectedRoute } from './components/layout/ProtectedRoute'
 
 const HomePage = lazy(() => import('./presentation/pages/HomePage'))
 const InventoryPage = lazy(() => import('./presentation/pages/InventoryPage'))
 const CarDetailPage = lazy(() => import('./presentation/pages/CarDetailPage'))
+const LoginPage = lazy(() => import('./presentation/pages/LoginPage'))
+const AdminAddCarPage = lazy(() => import('./presentation/pages/AdminAddCarPage'))
 
 function PageLoader() {
   return (
@@ -113,6 +116,14 @@ const router = createBrowserRouter([
       { path: "/inventory", element: <InventoryPage /> },
       { path: "/cars/:id",  element: <CarDetailPage /> },
       { path: "/contact",   element: <ContactPage /> },
+      { path: "/garage-admin-access", element: <LoginPage /> },
+      {
+        path: "/beheerpaneel",
+        element: <ProtectedRoute />,
+        children: [
+          { index: true, element: <AdminAddCarPage /> }
+        ]
+      }
     ]
   }
 ])
