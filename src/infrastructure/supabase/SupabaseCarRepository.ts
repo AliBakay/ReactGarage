@@ -135,6 +135,10 @@ function applyFilters(cars: Car[], filters: CarFilters): Car[] {
 }
 
 // ── Repository ───────────────────────────────────────────────────────────────
+let featuredCarsCache: Car[] | null = null;
+let featuredCarsCacheTime = 0;
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
 export const SupabaseCarRepository = {
   async getFilteredCars(filters: CarFilters): Promise<Car[]> {
     try {
@@ -197,6 +201,11 @@ export const SupabaseCarRepository = {
   },
 
   async getFeaturedCars(limit = 6): Promise<Car[]> {
+    const now = Date.now();
+    if (featuredCarsCache && now - featuredCarsCacheTime < CACHE_TTL) {
+      return featuredCarsCache.slice(0, limit);
+    }
+
     try {
       const { data, error } = await supabase
         .from("cars")
@@ -206,12 +215,21 @@ export const SupabaseCarRepository = {
 
       if (error || !data || data.length === 0) {
         console.warn("Featured cars fetch failed, using mock data.");
-        return MOCK_CARS.filter(c => c.featured).slice(0, limit);
+        const fallback = MOCK_CARS.filter(c => c.featured).slice(0, limit);
+        featuredCarsCache = fallback;
+        featuredCarsCacheTime = now;
+        return fallback;
       }
 
-      return (data as CarRow[]).map(mapRowToCar);
+      const cars = (data as CarRow[]).map(mapRowToCar);
+      featuredCarsCache = cars;
+      featuredCarsCacheTime = now;
+      return cars.slice(0, limit);
     } catch {
-      return MOCK_CARS.filter(c => c.featured).slice(0, limit);
+      const fallback = MOCK_CARS.filter(c => c.featured).slice(0, limit);
+      featuredCarsCache = fallback;
+      featuredCarsCacheTime = now;
+      return fallback;
     }
   },
 };

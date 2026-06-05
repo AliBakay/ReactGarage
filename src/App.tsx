@@ -1,17 +1,32 @@
+import { lazy, Suspense } from 'react'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
-import HomePage from './presentation/pages/HomePage'
-import InventoryPage from './presentation/pages/InventoryPage'
-import CarDetailPage from './presentation/pages/CarDetailPage'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
+
+const HomePage = lazy(() => import('./presentation/pages/HomePage'))
+const InventoryPage = lazy(() => import('./presentation/pages/InventoryPage'))
+const CarDetailPage = lazy(() => import('./presentation/pages/CarDetailPage'))
+
+function PageLoader() {
+  return (
+    <div className="min-h-screen bg-garage-surface pt-28 flex items-center justify-center">
+      <div className="text-center">
+        <div className="w-12 h-12 border-[3px] border-garage-accent border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+        <p className="text-garage-darkSub text-sm">Laden...</p>
+      </div>
+    </div>
+  )
+}
 
 function RootLayout() {
   return (
     <>
       <Navbar />
       <main>
-        <Outlet />
+        <Suspense fallback={<PageLoader />}>
+          <Outlet />
+        </Suspense>
       </main>
       <Footer />
     </>
