@@ -93,7 +93,7 @@ export function FilterSidebar({ filters, onChange, onClear, totalCount }: Props)
             Max Prijs
           </label>
           <span className="text-sm font-bold text-garage-accent">
-            €{priceMax.toLocaleString()}
+            €{priceMax.toLocaleString('nl-NL')}
           </span>
         </div>
         <input

@@ -102,7 +102,7 @@ export default function AdminDashboardPage() {
                         </div>
                       </td>
                       <td className="px-6 py-4 font-display font-bold text-garage-dark">
-                        €{car.price.toLocaleString()}
+                        €{car.price.toLocaleString('nl-NL')}
                       </td>
                       <td className="px-6 py-4">
                         <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${

@@ -23,9 +23,12 @@ function PageLoader() {
   )
 }
 
+import { ScrollToTop } from './components/layout/ScrollToTop'
+
 function RootLayout() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <main>
         <Suspense fallback={<PageLoader />}>

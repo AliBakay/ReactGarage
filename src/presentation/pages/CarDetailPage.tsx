@@ -7,7 +7,7 @@ import type { Car } from "../../domain/entities/Car";
 import {
   ArrowLeft, ChevronLeft, ChevronRight, Fuel, Gauge, Calendar,
   Zap, Settings, Users, Car as CarIcon, Phone, Mail,
-  CheckCircle, Shield, Star,
+  CheckCircle, Shield, Star, X
 } from "lucide-react";
 
 const FUEL_LABEL: Record<string, string> = {
@@ -23,6 +23,7 @@ const FUEL_LABEL: Record<string, string> = {
 function ImageGallery({ images, make, model }: { images: string[]; make: string; model: string }) {
   const [idx, setIdx] = useState(0);
   const [dir, setDir] = useState(1);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const go = (delta: number) => {
     setDir(delta);
@@ -51,7 +52,8 @@ function ImageGallery({ images, make, model }: { images: string[]; make: string;
             initial="enter"
             animate="center"
             exit="exit"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover cursor-zoom-in hover:scale-105 transition-transform duration-500"
+            onClick={() => setModalOpen(true)}
             onError={e => { (e.target as HTMLImageElement).src = fallback; }}
           />
         </AnimatePresence>
@@ -98,6 +100,38 @@ function ImageGallery({ images, make, model }: { images: string[]; make: string;
           ))}
         </div>
       )}
+
+      <AnimatePresence>
+        {modalOpen && (
+          <motion.div 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-md"
+            onClick={() => setModalOpen(false)}
+          >
+            <button className="absolute top-6 right-6 text-white/70 hover:text-white p-2 transition-colors">
+              <X size={36} />
+            </button>
+            {imgs.length > 1 && (
+              <>
+                <button onClick={(e) => { e.stopPropagation(); go(-1); }} className="absolute left-6 top-1/2 -translate-y-1/2 text-white/50 hover:text-white p-3 transition-colors bg-white/10 rounded-full hover:bg-white/20">
+                  <ChevronLeft size={32} />
+                </button>
+                <button onClick={(e) => { e.stopPropagation(); go(1); }} className="absolute right-6 top-1/2 -translate-y-1/2 text-white/50 hover:text-white p-3 transition-colors bg-white/10 rounded-full hover:bg-white/20">
+                  <ChevronRight size={32} />
+                </button>
+              </>
+            )}
+            <img 
+              src={imgs[idx]} 
+              alt={`${make} ${model}`} 
+              className="max-w-full max-h-full object-contain cursor-zoom-out rounded-sm shadow-2xl"
+              onClick={(e) => { e.stopPropagation(); setModalOpen(false); }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -122,7 +156,7 @@ function InquiryForm({ car }: { car: Car }) {
     name:    "",
     email:   "",
     phone:   "",
-    message: `Ik heb interesse in de ${car.year} ${car.make} ${car.model} (€${car.price.toLocaleString()}).`,
+    message: `Ik heb interesse in de ${car.year} ${car.make} ${car.model} (€${car.price.toLocaleString('nl-NL')}).`,
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -275,14 +309,14 @@ export default function CarDetailPage() {
                     {car.model}
                     <span className="text-garage-darkSub font-normal text-2xl ml-2">({car.year})</span>
                   </h1>
-                  <p className="text-4xl font-display font-extrabold text-garage-accent mt-4">
-                    €{car.price.toLocaleString()}
+                  <p className="font-display font-black text-4xl text-garage-dark">
+                    €{car.price.toLocaleString('nl-NL')}
                   </p>
 
                   {/* Quick stats */}
                   <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-garage-border">
                     {[
-                      { icon: <Gauge size={18} />, label: "Kilometerstand", value: `${car.mileage.toLocaleString()} km` },
+                      { icon: <Gauge size={18} />, label: "Kilometerstand", value: `${car.mileage.toLocaleString('nl-NL')} km` },
                       { icon: <Fuel size={18} />,  label: "Brandstof",      value: FUEL_LABEL[car.fuelType] },
                       { icon: <Calendar size={18} />, label: "Bouwjaar",    value: String(car.year) },
                     ].map(s => (

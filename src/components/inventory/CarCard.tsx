@@ -107,7 +107,7 @@ export function CarCard({ car, large = false }: Props) {
         <div className="flex items-center gap-4 text-xs text-garage-darkSub">
           <span className="flex items-center gap-1.5">
             <Gauge size={13} className="text-garage-accent" />
-            {car.mileage.toLocaleString()} km
+            {car.mileage.toLocaleString('nl-NL')} km
           </span>
           <span className={cn("flex items-center gap-1.5", FUEL_COLOR[car.fuelType])}>
             <Fuel size={13} />
@@ -124,7 +124,7 @@ export function CarCard({ car, large = false }: Props) {
           <div>
             <p className="text-[10px] text-garage-muted uppercase tracking-wider mb-0.5">Prijs</p>
             <p className="font-display font-bold text-2xl text-garage-dark">
-              €{car.price.toLocaleString()}
+              €{car.price.toLocaleString('nl-NL')}
             </p>
           </div>
           <Link
