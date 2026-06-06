@@ -426,7 +426,7 @@ export default function HomePage() {
             </Link>
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <a href="tel:+32492440514" className="btn-ghost-light flex items-center justify-center gap-2 px-8 py-4 rounded-2xl text-base flex-1">
-                <Phone size={18} /> Bellen
+                <Phone size={18} /> {t('detail.inquiry.call')}
               </a>
               <a href="https://wa.me/32492440514" target="_blank" rel="noopener noreferrer" className="bg-[#25D366] text-white hover:bg-[#1DA851] transition-colors flex items-center justify-center gap-2 px-8 py-4 rounded-2xl text-base flex-1 font-semibold">
                 <WhatsAppIcon size={18} /> WhatsApp
