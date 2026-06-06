@@ -9,6 +9,7 @@ export class SupabaseReviewRepository {
       carBought: row.car_bought,
       text: row.text,
       avatar: row.avatar,
+      rating: row.rating || 5,
       published: row.published,
       createdAt: new Date(row.created_at),
     };
@@ -46,6 +47,7 @@ export class SupabaseReviewRepository {
         car_bought: review.carBought,
         text: review.text,
         avatar: review.avatar,
+        rating: review.rating,
         published: review.published,
       },
     ]);
@@ -59,6 +61,7 @@ export class SupabaseReviewRepository {
     if (review.carBought !== undefined) updateData.car_bought = review.carBought;
     if (review.text !== undefined) updateData.text = review.text;
     if (review.avatar !== undefined) updateData.avatar = review.avatar;
+    if (review.rating !== undefined) updateData.rating = review.rating;
     if (review.published !== undefined) updateData.published = review.published;
 
     const { error } = await supabase.from("reviews").update(updateData).eq("id", id);

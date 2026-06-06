@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SupabaseReviewRepository } from "../../infrastructure/supabase/SupabaseReviewRepository";
 import type { Review } from "../../domain/entities/Review";
-import { CheckCircle, XCircle, Trash2, Plus, Edit2, X, Save, MessageSquare } from "lucide-react";
+import { CheckCircle, XCircle, Trash2, Plus, Edit2, X, Save, MessageSquare, Star } from "lucide-react";
 
 export default function AdminReviewsPage() {
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -16,6 +16,7 @@ export default function AdminReviewsPage() {
     carBought: "",
     text: "",
     avatar: "",
+    rating: 5,
     published: true,
   });
 
@@ -61,6 +62,7 @@ export default function AdminReviewsPage() {
         carBought: review.carBought,
         text: review.text,
         avatar: review.avatar,
+        rating: review.rating || 5,
         published: review.published,
       });
     } else {
@@ -70,6 +72,7 @@ export default function AdminReviewsPage() {
         carBought: "",
         text: "",
         avatar: "",
+        rating: 5,
         published: true,
       });
     }
@@ -95,27 +98,22 @@ export default function AdminReviewsPage() {
     <div className="min-h-screen bg-garage-surface py-28 px-4">
       <div className="max-w-6xl mx-auto">
         
-        {/* Admin Navigation Header */}
-        <div className="flex flex-wrap items-center justify-between mb-8 gap-4 bg-white p-6 rounded-2xl border border-garage-border shadow-sm">
-          <div className="flex gap-4">
-            <Link to="/beheerpaneel" className="px-5 py-2.5 rounded-xl font-bold text-garage-darkSub hover:bg-slate-50 transition-colors">
-              Voorraad
-            </Link>
-            <Link to="/beheerpaneel/reviews" className="px-5 py-2.5 rounded-xl font-bold bg-slate-100 text-garage-dark">
-              Reviews
-            </Link>
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+          <div>
+            <h1 className="font-display text-4xl font-extrabold text-garage-dark mb-2">Reviews Beheren</h1>
+            <p className="text-garage-darkSub text-sm mb-4">Voeg handmatig klantervaringen toe en bepaal welke zichtbaar zijn op de homepage.</p>
+            <div className="inline-flex items-center gap-2 bg-white p-1.5 rounded-xl border border-garage-border shadow-sm">
+              <Link to="/beheerpaneel" className="px-5 py-2 rounded-lg font-bold text-sm text-garage-darkSub hover:bg-slate-50 transition-colors">
+                Voorraad
+              </Link>
+              <Link to="/beheerpaneel/reviews" className="px-5 py-2 rounded-lg font-bold text-sm bg-garage-bg text-white">
+                Reviews
+              </Link>
+            </div>
           </div>
           <button onClick={() => openModal()} className="btn-primary flex items-center gap-2 py-2.5">
             <Plus size={18} /> Nieuwe Review
           </button>
-        </div>
-
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="font-display text-4xl font-extrabold text-garage-dark">Reviews Beheren</h1>
-          <p className="text-garage-darkSub mt-2">
-            Voeg handmatig klantervaringen toe (bijv. gekopieerd vanuit Google) en bepaal welke zichtbaar zijn op de homepage.
-          </p>
         </div>
 
         {/* Content */}
@@ -190,7 +188,7 @@ export default function AdminReviewsPage() {
         {/* Modal */}
         {isModalOpen && (
           <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl relative">
+            <div className="bg-white rounded-3xl p-6 md:p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
               <button 
                 onClick={() => setIsModalOpen(false)}
                 className="absolute top-6 right-6 text-garage-muted hover:text-garage-dark transition-colors"
@@ -216,6 +214,21 @@ export default function AdminReviewsPage() {
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-widest text-garage-darkSub mb-1.5">Review Tekst</label>
                   <textarea required rows={4} className="input-light resize-none" value={formData.text} onChange={e => setFormData(p => ({...p, text: e.target.value}))} />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-widest text-garage-darkSub mb-2">Beoordeling</label>
+                  <div className="flex gap-2">
+                    {[1, 2, 3, 4, 5].map(star => (
+                      <button
+                        key={star}
+                        type="button"
+                        onClick={() => setFormData(p => ({...p, rating: star}))}
+                        className="p-1 focus:outline-none transition-transform hover:scale-110"
+                      >
+                        <Star size={28} className={star <= formData.rating ? "fill-yellow-400 text-yellow-400" : "fill-slate-200 text-slate-200"} />
+                      </button>
+                    ))}
+                  </div>
                 </div>
                 <label className="flex items-center gap-3 cursor-pointer py-2">
                   <input type="checkbox" className="w-5 h-5 rounded text-garage-accent focus:ring-garage-accent" checked={formData.published} onChange={e => setFormData(p => ({...p, published: e.target.checked}))} />

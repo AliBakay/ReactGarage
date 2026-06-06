@@ -4,6 +4,7 @@ export interface Review {
   carBought: string;
   text: string;
   avatar: string;
+  rating: number;
   published: boolean;
   createdAt: Date;
 }

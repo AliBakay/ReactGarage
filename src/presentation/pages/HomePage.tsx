@@ -328,7 +328,11 @@ export default function HomePage() {
                   {/* Stars */}
                   <div className="flex gap-1 mb-4">
                     {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} size={14} className="fill-yellow-400 text-yellow-400" />
+                      <Star 
+                        key={i} 
+                        size={14} 
+                        className={i < (t.rating || 5) ? "fill-yellow-400 text-yellow-400" : "fill-slate-200 text-slate-200"} 
+                      />
                     ))}
                   </div>
                   <p className="text-garage-darkSub text-sm leading-relaxed mb-5 italic">
