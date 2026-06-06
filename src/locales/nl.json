@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Home",
+    "inventory": "Aanbod",
+    "contact": "Contact",
+    "admin": "Beheer"
+  },
+  "home": {
+    "subtitle": "Uw lokale autobedrijf",
+    "hero_title": "Vind uw <1>Betrouwbare</1><br/>Occasion",
+    "hero_desc": "Ontdek ons ruime aanbod van eerlijke en betrouwbare tweedehands auto's. Transparant, veilig en direct bij u in de buurt.",
+    "btn_inventory": "Bekijk Aanbod",
+    "btn_call": "Bel Ons Nu",
+    "stats": {
+      "clients": "Tevreden Klanten",
+      "reliable": "Betrouwbaar",
+      "checked": "Volledig Gekeurd",
+      "experience": "Jaar Ervaring"
+    },
+    "featured": "Uitgelichte Auto's",
+    "featured_sub": "Onze Aanraders",
+    "view_all": "Bekijk alles"
+  },
+  "inventory": {
+    "title": "Bekijk Alle Voertuigen",
+    "sub": "Volledig Aanbod",
+    "desc": "Professioneel gekeurd · Eerlijk geprijsd · Klaar om te rijden",
+    "found_one": "<1>{{count}}</1> voertuig gevonden",
+    "found_other": "<1>{{count}}</1> voertuigen gevonden",
+    "no_cars": "Geen auto's gevonden",
+    "adjust_filters": "Probeer uw filters aan te passen",
+    "clear_filters": "Filters wissen",
+    "loading": "Laden..."
+  },
+  "common": {
+    "price": "Prijs",
+    "mileage": "Kilometerstand",
+    "fuel": "Brandstof",
+    "year": "Bouwjaar",
+    "view": "Bekijken",
+    "back_to_inventory": "Terug naar Aanbod"
+  }
+}

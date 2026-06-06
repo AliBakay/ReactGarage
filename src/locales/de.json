@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "inventory": "Fahrzeuge",
+    "contact": "Kontakt",
+    "admin": "Verwaltung"
+  },
+  "home": {
+    "subtitle": "Ihr lokaler Autohändler",
+    "hero_title": "Finden Sie Ihren <1>Zuverlässigen</1><br/>Gebrauchtwagen",
+    "hero_desc": "Entdecken Sie unsere große Auswahl an ehrlichen und zuverlässigen Gebrauchtwagen. Transparent, sicher und direkt in Ihrer Nähe.",
+    "btn_inventory": "Fahrzeuge anzeigen",
+    "btn_call": "Jetzt anrufen",
+    "stats": {
+      "clients": "Zufriedene Kunden",
+      "reliable": "Zuverlässig",
+      "checked": "Vollständig geprüft",
+      "experience": "Jahre Erfahrung"
+    },
+    "featured": "Besondere Fahrzeuge",
+    "featured_sub": "Unsere Empfehlungen",
+    "view_all": "Alle ansehen"
+  },
+  "inventory": {
+    "title": "Alle Fahrzeuge anzeigen",
+    "sub": "Gesamter Bestand",
+    "desc": "Professionell geprüft · Fair bepreist · Fahrbereit",
+    "found_one": "<1>{{count}}</1> Fahrzeug gefunden",
+    "found_other": "<1>{{count}}</1> Fahrzeuge gefunden",
+    "no_cars": "Keine Autos gefunden",
+    "adjust_filters": "Versuchen Sie, Ihre Filter anzupassen",
+    "clear_filters": "Filter löschen",
+    "loading": "Wird geladen..."
+  },
+  "common": {
+    "price": "Preis",
+    "mileage": "Kilometerstand",
+    "fuel": "Kraftstoff",
+    "year": "Baujahr",
+    "view": "Ansehen",
+    "back_to_inventory": "Zurück zu Fahrzeuge"
+  }
+}

@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 interface SEOProps {
   title: string;
@@ -9,8 +10,9 @@ interface SEOProps {
 }
 
 export function SEO({ title, description, url = "https://garagevanhozeham.be", schema, image = "/logo.png" }: SEOProps) {
+  const { i18n } = useTranslation();
   return (
-    <Helmet>
+    <Helmet htmlAttributes={{ lang: i18n.language }}>
       <title>{title}</title>
       <meta name="description" content={description} />
       

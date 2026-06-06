@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Home",
+    "inventory": "Inventory",
+    "contact": "Contact",
+    "admin": "Admin"
+  },
+  "home": {
+    "subtitle": "Your local car dealer",
+    "hero_title": "Find your <1>Reliable</1><br/>Used Car",
+    "hero_desc": "Discover our wide selection of honest and reliable used cars. Transparent, safe, and right in your neighborhood.",
+    "btn_inventory": "View Inventory",
+    "btn_call": "Call Us Now",
+    "stats": {
+      "clients": "Happy Clients",
+      "reliable": "Reliable",
+      "checked": "Fully Inspected",
+      "experience": "Years Experience"
+    },
+    "featured": "Featured Cars",
+    "featured_sub": "Our Recommendations",
+    "view_all": "View all"
+  },
+  "inventory": {
+    "title": "View All Vehicles",
+    "sub": "Full Inventory",
+    "desc": "Professionally inspected · Fairly priced · Ready to drive",
+    "found_one": "<1>{{count}}</1> vehicle found",
+    "found_other": "<1>{{count}}</1> vehicles found",
+    "no_cars": "No cars found",
+    "adjust_filters": "Try adjusting your filters",
+    "clear_filters": "Clear filters",
+    "loading": "Loading..."
+  },
+  "common": {
+    "price": "Price",
+    "mileage": "Mileage",
+    "fuel": "Fuel",
+    "year": "Year",
+    "view": "View",
+    "back_to_inventory": "Back to Inventory"
+  }
+}

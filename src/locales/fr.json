@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "inventory": "Véhicules",
+    "contact": "Contact",
+    "admin": "Admin"
+  },
+  "home": {
+    "subtitle": "Votre concessionnaire local",
+    "hero_title": "Trouvez votre Voiture<br/><1>d'Occasion Fiable</1>",
+    "hero_desc": "Découvrez notre large sélection de voitures d'occasion honnêtes et fiables. Transparentes, sûres et près de chez vous.",
+    "btn_inventory": "Voir les véhicules",
+    "btn_call": "Appelez-nous",
+    "stats": {
+      "clients": "Clients satisfaits",
+      "reliable": "Fiable",
+      "checked": "Entièrement inspecté",
+      "experience": "Années d'expérience"
+    },
+    "featured": "Véhicules en vedette",
+    "featured_sub": "Nos recommandations",
+    "view_all": "Voir tout"
+  },
+  "inventory": {
+    "title": "Voir tous les véhicules",
+    "sub": "Inventaire complet",
+    "desc": "Inspecté professionnellement · Prix équitable · Prêt à conduire",
+    "found_one": "<1>{{count}}</1> véhicule trouvé",
+    "found_other": "<1>{{count}}</1> véhicules trouvés",
+    "no_cars": "Aucune voiture trouvée",
+    "adjust_filters": "Essayez d'ajuster vos filtres",
+    "clear_filters": "Effacer les filtres",
+    "loading": "Chargement..."
+  },
+  "common": {
+    "price": "Prix",
+    "mileage": "Kilométrage",
+    "fuel": "Carburant",
+    "year": "Année",
+    "view": "Voir",
+    "back_to_inventory": "Retour aux Véhicules"
+  }
+}

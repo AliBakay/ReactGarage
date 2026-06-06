@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Fuel, Gauge, Calendar, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import type { Car } from "../../domain/entities/Car";
 import { cn } from "../../lib/utils";
 
@@ -38,6 +39,7 @@ interface Props {
 }
 
 export function CarCard({ car, large = false, layout = "grid" }: Props) {
+  const { t } = useTranslation();
   const thumb =
     car.imagesUrl[0] ??
     `https://placehold.co/800x500/0a192f/ffffff?text=${encodeURIComponent(car.make)}`;
@@ -123,7 +125,7 @@ export function CarCard({ car, large = false, layout = "grid" }: Props) {
           layout === "list" ? "md:pt-0 md:border-t-0 md:justify-end md:gap-6" : ""
         )}>
           <div className={cn(layout === "list" ? "md:text-right" : "")}>
-            <p className="text-[10px] text-garage-muted uppercase tracking-wider mb-0.5">Prijs</p>
+            <p className="text-[10px] text-garage-muted uppercase tracking-wider mb-0.5">{t('common.price')}</p>
             <p className="font-display font-bold text-2xl text-garage-dark">
               €{car.price.toLocaleString('nl-NL')}
             </p>
@@ -132,7 +134,7 @@ export function CarCard({ car, large = false, layout = "grid" }: Props) {
             to={`/cars/${car.id}`}
             className="flex items-center gap-2 bg-garage-accent text-white text-xs font-semibold px-4 py-2.5 rounded-xl hover:bg-garage-accent2 transition-all shadow-sm shadow-garage-accent/20 hover:shadow-garage-accent/30"
           >
-            Bekijken <ArrowRight size={13} />
+            {t('common.view')} <ArrowRight size={13} />
           </Link>
         </div>
       </div>

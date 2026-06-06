@@ -5,6 +5,7 @@ import { FilterSidebar } from "../../components/inventory/FilterSidebar";
 import { LayoutGrid, List, AlertCircle, Search } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation, Trans } from "react-i18next";
 import { cn } from "../../lib/utils";
 
 const fadeUp = {
@@ -15,6 +16,7 @@ const fadeUp = {
 export default function InventoryPage() {
   const { cars, loading, error, filters, updateFilter, clearFilters } = useCars();
   const [grid, setGrid] = useState<"grid" | "list">("grid");
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-garage-surface">
@@ -32,7 +34,7 @@ export default function InventoryPage() {
             animate="show"
             className="text-xs font-bold uppercase tracking-widest text-garage-accent mb-2"
           >
-            Volledig Aanbod
+            {t('inventory.sub')}
           </motion.p>
           <motion.h1
             variants={fadeUp}
@@ -41,7 +43,7 @@ export default function InventoryPage() {
             transition={{ delay: 0.1 }}
             className="font-display text-4xl md:text-5xl font-extrabold text-white"
           >
-            Bekijk Alle Voertuigen
+            {t('inventory.title')}
           </motion.h1>
           <motion.p
             variants={fadeUp}
@@ -50,7 +52,7 @@ export default function InventoryPage() {
             transition={{ delay: 0.2 }}
             className="text-white/60 mt-3 text-lg"
           >
-            Professioneel gekeurd · Eerlijk geprijsd · Klaar om te rijden
+            {t('inventory.desc')}
           </motion.p>
         </div>
       </div>
@@ -74,11 +76,14 @@ export default function InventoryPage() {
             <div className="flex items-center justify-between mb-6 bg-white rounded-xl px-4 py-3 border border-garage-border shadow-sm">
               <p className="text-sm text-garage-darkSub">
                 {loading
-                  ? "Laden..."
+                  ? t('inventory.loading')
                   : (
                     <span>
-                      <strong className="text-garage-dark">{cars.length}</strong>
-                      {" "}voertuig{cars.length !== 1 ? "en" : ""} gevonden
+                      <Trans 
+                        i18nKey={cars.length === 1 ? "inventory.found_one" : "inventory.found_other"}
+                        count={cars.length}
+                        components={{ 1: <strong className="text-garage-dark" /> }} 
+                      />
                     </span>
                   )
                 }
@@ -137,13 +142,13 @@ export default function InventoryPage() {
                 <div className="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Search size={28} className="text-garage-muted" />
                 </div>
-                <p className="text-xl font-display font-bold text-garage-dark mb-2">Geen auto's gevonden</p>
-                <p className="text-sm text-garage-darkSub mb-6">Probeer uw filters aan te passen</p>
+                <p className="text-xl font-display font-bold text-garage-dark mb-2">{t('inventory.no_cars')}</p>
+                <p className="text-sm text-garage-darkSub mb-6">{t('inventory.adjust_filters')}</p>
                 <button
                   onClick={clearFilters}
                   className="btn-primary text-sm px-6 py-2.5"
                 >
-                  Filters wissen
+                  {t('inventory.clear_filters')}
                 </button>
               </div>
             )}

@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SEO } from "../../components/seo/SEO";
+import { useTranslation } from "react-i18next";
 import { GetCarById } from "../../application/use-cases/GetCarById";
 import type { Car } from "../../domain/entities/Car";
 import {
@@ -251,6 +252,7 @@ export default function CarDetailPage() {
   const { id } = useParams<{ id: string }>();
   const [car, setCar] = useState<Car | null>(null);
   const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!id) return;
@@ -313,7 +315,7 @@ export default function CarDetailPage() {
             to="/inventory"
             className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
           >
-            <ArrowLeft size={15} /> Terug naar Aanbod
+            <ArrowLeft size={15} /> {t('common.back_to_inventory')}
           </Link>
         </div>
       </div>
@@ -339,9 +341,9 @@ export default function CarDetailPage() {
                 {/* Quick stats */}
                 <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-garage-border">
                   {[
-                    { icon: <Gauge size={18} />, label: "Kilometerstand", value: `${car.mileage.toLocaleString('nl-NL')} km` },
-                    { icon: <Fuel size={18} />,  label: "Brandstof",      value: FUEL_LABEL[car.fuelType] },
-                    { icon: <Calendar size={18} />, label: "Bouwjaar",    value: String(car.year) },
+                    { icon: <Gauge size={18} />, label: t('common.mileage'), value: `${car.mileage.toLocaleString('nl-NL')} km` },
+                    { icon: <Fuel size={18} />,  label: t('common.fuel'),      value: FUEL_LABEL[car.fuelType] },
+                    { icon: <Calendar size={18} />, label: t('common.year'),    value: String(car.year) },
                   ].map(s => (
                     <div key={s.label} className="text-center p-4 bg-slate-50 rounded-xl">
                       <div className="text-garage-accent flex justify-center mb-2">{s.icon}</div>

@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "inventory": "Araçlarımız",
+    "contact": "İletişim",
+    "admin": "Yönetim"
+  },
+  "home": {
+    "subtitle": "Yerel otomobil bayiniz",
+    "hero_title": "<1>Güvenilir</1> 2. El<br/>Aracınızı Bulun",
+    "hero_desc": "Dürüst ve güvenilir ikinci el araç seçeneklerimizi keşfedin. Şeffaf, güvenli ve hemen yakınınızda.",
+    "btn_inventory": "Araçları Gör",
+    "btn_call": "Hemen Ara",
+    "stats": {
+      "clients": "Mutlu Müşteri",
+      "reliable": "Güvenilir",
+      "checked": "Ekspertizli",
+      "experience": "Yıllık Tecrübe"
+    },
+    "featured": "Öne Çıkan Araçlar",
+    "featured_sub": "Tavsiyelerimiz",
+    "view_all": "Tümünü gör"
+  },
+  "inventory": {
+    "title": "Tüm Araçları İnceleyin",
+    "sub": "Tam Liste",
+    "desc": "Profesyonelce incelendi · Uygun fiyatlı · Sürüşe hazır",
+    "found_one": "<1>{{count}}</1> araç bulundu",
+    "found_other": "<1>{{count}}</1> araç bulundu",
+    "no_cars": "Araç bulunamadı",
+    "adjust_filters": "Filtreleri değiştirmeyi deneyin",
+    "clear_filters": "Filtreleri temizle",
+    "loading": "Yükleniyor..."
+  },
+  "common": {
+    "price": "Fiyat",
+    "mileage": "Kilometre",
+    "fuel": "Yakıt",
+    "year": "Yıl",
+    "view": "İncele",
+    "back_to_inventory": "Araçlara Dön"
+  }
+}

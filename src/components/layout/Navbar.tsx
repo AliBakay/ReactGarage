@@ -1,12 +1,15 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { cn } from "../../lib/utils";
+import { LanguageSwitcher } from "../ui/LanguageSwitcher";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { pathname } = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -16,9 +19,9 @@ export function Navbar() {
   }, []);
 
   const links = [
-    { href: "/", label: "Home" },
-    { href: "/inventory", label: "Aanbod" },
-    { href: "/contact", label: "Contact" },
+    { href: "/", label: t('nav.home') },
+    { href: "/inventory", label: t('nav.inventory') },
+    { href: "/contact", label: t('nav.contact') },
   ];
 
   return (
@@ -56,6 +59,7 @@ export function Navbar() {
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-4">
+          <LanguageSwitcher />
           <a
             href="tel:+32492440514"
             className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
@@ -64,7 +68,7 @@ export function Navbar() {
             <span>+32 492 44 05 14</span>
           </a>
           <Link to="/inventory" className="btn-primary text-sm py-2.5 px-5">
-            Aanbod Bekijken
+            {t('home.btn_inventory')}
           </Link>
         </div>
 
@@ -95,8 +99,11 @@ export function Navbar() {
             </Link>
           ))}
           <Link to="/inventory" className="btn-primary text-sm text-center mt-2">
-            Aanbod Bekijken
+            {t('home.btn_inventory')}
           </Link>
+          <div className="mt-2 flex justify-center">
+            <LanguageSwitcher />
+          </div>
         </div>
       )}
     </header>

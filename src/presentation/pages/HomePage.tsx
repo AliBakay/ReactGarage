@@ -11,6 +11,7 @@ import { CarCard } from "../../components/inventory/CarCard";
 import { useCars } from "../hooks/useCars";
 import { SupabaseReviewRepository } from "../../infrastructure/supabase/SupabaseReviewRepository";
 import type { Review } from "../../domain/entities/Review";
+import { useTranslation, Trans } from "react-i18next";
 
 // ── Animation variants ──────────────────────────────────────────────────────
 const fadeUp = {
@@ -53,6 +54,7 @@ export default function HomePage() {
   const { featured, loading } = useCars();
   const [reviews, setReviews] = useState<Review[]>([]);
   const [reviewsLoading, setReviewsLoading] = useState(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function fetchReviews() {
@@ -99,7 +101,7 @@ export default function HomePage() {
             className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 mb-8 backdrop-blur-sm"
           >
             <CheckCircle size={14} className="text-garage-accent" />
-            <span className="text-sm text-white/90 font-medium">Uw lokale autobedrijf</span>
+            <span className="text-sm text-white/90 font-medium">{t('home.subtitle')}</span>
           </motion.div>
 
           {/* Title */}
@@ -109,11 +111,7 @@ export default function HomePage() {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="font-display text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6"
           >
-            Vind uw{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-garage-accent to-garage-accent2">
-              Betrouwbare
-            </span>
-            <br />Occasion
+            <Trans i18nKey="home.hero_title" components={{ 1: <span className="text-transparent bg-clip-text bg-gradient-to-r from-garage-accent to-garage-accent2" /> }} />
           </motion.h1>
 
           {/* Subtitle */}
@@ -123,8 +121,7 @@ export default function HomePage() {
             transition={{ delay: 0.4 }}
             className="mt-2 text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed"
           >
-            Ontdek ons ruime aanbod van eerlijke en betrouwbare tweedehands auto's.
-            Transparant, veilig en direct bij u in de buurt.
+            {t('home.hero_desc')}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -138,13 +135,13 @@ export default function HomePage() {
               to="/inventory"
               className="btn-primary flex items-center gap-2 text-base px-8 py-4 rounded-2xl"
             >
-              Bekijk Aanbod <ArrowRight size={18} />
+              {t('home.btn_inventory')} <ArrowRight size={18} />
             </Link>
             <a
               href="tel:+32492440514"
               className="btn-ghost-light flex items-center gap-2 text-base px-8 py-4 rounded-2xl"
             >
-              <Phone size={18} /> Bel Ons Nu
+              <Phone size={18} /> {t('home.btn_call')}
             </a>
           </motion.div>
 
@@ -201,7 +198,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 className="label-tag mb-2"
               >
-                Onze Aanraders
+                {t('home.featured_sub')}
               </motion.p>
               <motion.h2
                 variants={fadeUp}
@@ -210,14 +207,14 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 className="font-display text-3xl md:text-4xl font-bold text-garage-dark"
               >
-                Uitgelichte Auto's
+                {t('home.featured')}
               </motion.h2>
             </div>
             <Link
               to="/inventory"
               className="hidden md:flex items-center gap-2 text-sm font-semibold text-garage-accent hover:gap-3 transition-all"
             >
-              Bekijk alles <ChevronRight size={16} />
+              {t('home.view_all')} <ChevronRight size={16} />
             </Link>
           </div>
 
@@ -252,7 +249,7 @@ export default function HomePage() {
 
           <div className="text-center mt-10 md:hidden">
             <Link to="/inventory" className="btn-primary inline-flex items-center gap-2">
-              Bekijk alle auto's <ArrowRight size={16} />
+              {t('home.view_all')} <ArrowRight size={16} />
             </Link>
           </div>
         </div>

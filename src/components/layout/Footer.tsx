@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Share2, ExternalLink, Globe } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className="bg-garage-bg text-white border-t border-white/10">
       {/* Top section */}
@@ -58,9 +60,9 @@ export function Footer() {
           <h3 className="font-semibold text-white mb-5">Navigatie</h3>
           <ul className="space-y-2.5 text-sm text-white/60">
             {[
-              ["Home", "/"],
-              ["Aanbod", "/inventory"],
-              ["Contact", "/contact"],
+              [t('nav.home'), "/"],
+              [t('nav.inventory'), "/inventory"],
+              [t('nav.contact'), "/contact"],
               ["Privacybeleid", "/privacy"],
             ].map(([label, href]) => (
               <li key={href}>
