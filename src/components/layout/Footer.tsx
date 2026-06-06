@@ -1,6 +1,26 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Share2, ExternalLink, Globe } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
+
+const TikTokIcon = ({ size = 24, className = "" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.28 6.28 0 005.4 15.6a6.28 6.28 0 006.28 6.29 6.27 6.27 0 006.28-6.25V9.44a8.27 8.27 0 004.7 1.48V7.5a4.77 4.77 0 01-3.07-.81z"/>
+  </svg>
+);
+
+const FacebookIcon = ({ size = 24, className = "" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+  </svg>
+);
+
+const InstagramIcon = ({ size = 24, className = "" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
 
 export function Footer() {
   const { t } = useTranslation();
@@ -18,15 +38,25 @@ export function Footer() {
           </p>
           {/* Social */}
           <div className="flex items-center gap-4 mt-6">
-            {[Share2, Globe, ExternalLink].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-garage-accent transition-colors"
-              >
-                <Icon size={16} className="text-white" />
-              </a>
-            ))}
+            {[
+              { icon: FacebookIcon, href: "https://www.facebook.com/salim04oruc/", label: "Facebook" },
+              { icon: InstagramIcon, href: "https://www.instagram.com/salim_oruc04/", label: "Instagram" },
+              { icon: TikTokIcon, href: "https://www.tiktok.com/discover/garage-van-hozeham", label: "TikTok" }
+            ].map((social, i) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-garage-accent transition-colors"
+                >
+                  <Icon size={16} className="text-white" />
+                </a>
+              );
+            })}
           </div>
         </div>
 
