@@ -12,9 +12,9 @@
     "btn_inventory": "Fahrzeuge anzeigen",
     "btn_call": "Jetzt anrufen",
     "stats": {
-      "clients": "Zufriedene Kunden",
+      "customers": "Zufriedene Kunden",
       "reliable": "Zuverlässig",
-      "checked": "Vollständig geprüft",
+      "inspected": "Vollständig Geprüft",
       "experience": "Jahre Erfahrung"
     },
     "featured": "Besondere Fahrzeuge",
@@ -97,7 +97,8 @@
           "Geprüft"
         ]
       }
-    }
+    },
+    "contact_btn": "Kontakt"
   },
   "inventory": {
     "title": "Alle Fahrzeuge anzeigen",
@@ -168,5 +169,45 @@
         "Geprüft"
       ]
     }
+  },
+  "footer": {
+    "desc": "Zuverlässige Gebrauchtfahrzeuge. Professionell geprüft, fair bepreist und fahrbereit.",
+    "contact": "Kontakt",
+    "address": "Adresse",
+    "vat": "MwSt",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "nav": "Navigation",
+    "privacy": "Datenschutzrichtlinie",
+    "rights": "Alle Rechte vorbehalten.",
+    "links": {
+      "buy": "Auto Kaufen Maasmechelen",
+      "second_hand": "Gebrauchtwagen Limburg",
+      "reliable": "Zuverlässige Gebrauchtwagen"
+    },
+    "slogan": "Professionell geprüft · Fair bepreist · Zuverlässig"
+  },
+  "contact_page": {
+    "sub": "Kontakt",
+    "title": "Kontakt aufnehmen",
+    "desc": "Unser Team steht bereit, um Ihre Fragen zu beantworten.",
+    "info_title": "Kontaktinformationen",
+    "labels": {
+      "address": "Adresse",
+      "vat": "MwSt",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "hours": "Öffnungszeiten"
+    },
+    "hours_val": "Mo-Fr: 9:00 – 18:00\nSa: 10:00 – 16:00",
+    "form_title": "Nachricht Senden",
+    "form_sub": "Wir antworten innerhalb von 24 Stunden",
+    "name": "Name",
+    "name_ph": "Ihr Name",
+    "email": "E-Mail",
+    "email_ph": "ihre@email.com",
+    "msg": "Nachricht",
+    "msg_ph": "Ihre Nachricht...",
+    "submit": "Nachricht Senden"
   }
 }

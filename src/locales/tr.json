@@ -12,10 +12,10 @@
     "btn_inventory": "Araçları Gör",
     "btn_call": "Hemen Ara",
     "stats": {
-      "clients": "Mutlu Müşteri",
+      "customers": "Mutlu Müşteri",
       "reliable": "Güvenilir",
-      "checked": "Ekspertizli",
-      "experience": "Yıllık Tecrübe"
+      "inspected": "Tam Kontrollü",
+      "experience": "Yıl Deneyim"
     },
     "featured": "Öne Çıkan Araçlar",
     "featured_sub": "Tavsiyelerimiz",
@@ -97,7 +97,8 @@
           "Onaylı"
         ]
       }
-    }
+    },
+    "contact_btn": "Bize Ulaşın"
   },
   "inventory": {
     "title": "Tüm Araçları İnceleyin",
@@ -168,5 +169,45 @@
         "Onaylı"
       ]
     }
+  },
+  "footer": {
+    "desc": "Güvenilir ikinci el araçlar. Profesyonelce incelendi, adil fiyatlandırıldı ve sürüşe hazır.",
+    "contact": "İletişim",
+    "address": "Adres",
+    "vat": "KDV",
+    "phone": "Telefon",
+    "email": "E-posta",
+    "nav": "Navigasyon",
+    "privacy": "Gizlilik Politikası",
+    "rights": "Tüm hakları saklıdır.",
+    "links": {
+      "buy": "Araç Satın Al Maasmechelen",
+      "second_hand": "İkinci El Araç Limburg",
+      "reliable": "Güvenilir İkinci El"
+    },
+    "slogan": "Profesyonel kontrol · Adil fiyat · Güvenilir"
+  },
+  "contact_page": {
+    "sub": "İletişim",
+    "title": "Bizimle İletişime Geçin",
+    "desc": "Ekibimiz sorularınızı yanıtlamaya hazır.",
+    "info_title": "İletişim Bilgileri",
+    "labels": {
+      "address": "Adres",
+      "vat": "KDV",
+      "phone": "Telefon",
+      "email": "E-posta",
+      "hours": "Çalışma Saatleri"
+    },
+    "hours_val": "Pzt-Cum: 9:00 – 18:00\nCmt: 10:00 – 16:00",
+    "form_title": "Mesaj Gönder",
+    "form_sub": "24 saat içinde yanıtlıyoruz",
+    "name": "İsim",
+    "name_ph": "İsminiz",
+    "email": "E-posta",
+    "email_ph": "email@adresiniz.com",
+    "msg": "Mesaj",
+    "msg_ph": "Mesajınız...",
+    "submit": "Mesajı Gönder"
   }
 }

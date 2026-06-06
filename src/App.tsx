@@ -43,15 +43,18 @@ function RootLayout() {
   )
 }
 
+import { useTranslation } from 'react-i18next';
+
 function ContactPage() {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-garage-surface">
       {/* Dark header */}
       <div className="bg-garage-bg pt-28 pb-16 px-4 text-center">
-        <p className="text-xs font-bold uppercase tracking-widest text-garage-accent mb-3">Contact</p>
-        <h1 className="font-display text-5xl font-extrabold text-white mb-4">Neem Contact Op</h1>
+        <p className="text-xs font-bold uppercase tracking-widest text-garage-accent mb-3">{t('contact_page.sub')}</p>
+        <h1 className="font-display text-5xl font-extrabold text-white mb-4">{t('contact_page.title')}</h1>
         <p className="text-white/60 text-lg max-w-xl mx-auto">
-          Ons team staat klaar om uw vragen te beantwoorden.
+          {t('contact_page.desc')}
         </p>
       </div>
 
@@ -59,13 +62,13 @@ function ContactPage() {
       <div className="max-w-5xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Contact info */}
         <div className="bg-white rounded-2xl border border-garage-border p-8 shadow-sm space-y-6">
-          <h2 className="font-display font-bold text-2xl text-garage-dark">Contactgegevens</h2>
+          <h2 className="font-display font-bold text-2xl text-garage-dark">{t('contact_page.info_title')}</h2>
           {[
-            { icon: <MapPin size={20} />, label: "Adres",      value: "Slakweidestraat 40G 1A\n3630 Maasmechelen", href: "https://www.google.com/maps/search/?api=1&query=Slakweidestraat+40G+1A,+3630+Maasmechelen" },
-            { icon: <div className="text-sm font-black border-2 border-current px-1 rounded">B</div>, label: "BTW", value: "BE0676463449" },
-            { icon: <Phone size={20} />,  label: "Telefoon",   value: "+32 492 44 05 14", href: "tel:+32492440514" },
-            { icon: <Mail size={20} />,   label: "E-mail",     value: "info@garagevanhozeham.be", href: "mailto:info@garagevanhozeham.be" },
-            { icon: <Clock size={20} />,  label: "Openingsuren", value: "Ma-Vr: 9:00 – 18:00\nZa: 10:00 – 16:00" },
+            { icon: <MapPin size={20} />, label: t('contact_page.labels.address'),      value: "Slakweidestraat 40G 1A\n3630 Maasmechelen", href: "https://www.google.com/maps/search/?api=1&query=Slakweidestraat+40G+1A,+3630+Maasmechelen" },
+            { icon: <div className="text-sm font-black border-2 border-current px-1 rounded">B</div>, label: t('contact_page.labels.vat'), value: "BE0676463449" },
+            { icon: <Phone size={20} />,  label: t('contact_page.labels.phone'),   value: "+32 492 44 05 14", href: "tel:+32492440514" },
+            { icon: <Mail size={20} />,   label: t('contact_page.labels.email'),     value: "info@garagevanhozeham.be", href: "mailto:info@garagevanhozeham.be" },
+            { icon: <Clock size={20} />,  label: t('contact_page.labels.hours'), value: t('contact_page.hours_val') },
           ].map(item => (
             <div key={item.label} className="flex items-start gap-4">
               <div className="w-10 h-10 bg-red-50 rounded-xl flex items-center justify-center text-garage-accent shrink-0">
@@ -88,13 +91,13 @@ function ContactPage() {
         {/* Quick contact form */}
         <div className="bg-white rounded-2xl border border-garage-border shadow-sm overflow-hidden">
           <div className="bg-garage-bg px-6 py-5">
-            <h2 className="font-display font-bold text-lg text-white">Stuur een Bericht</h2>
-            <p className="text-sm text-white/60 mt-1">We antwoorden binnen 24 uur</p>
+            <h2 className="font-display font-bold text-lg text-white">{t('contact_page.form_title')}</h2>
+            <p className="text-sm text-white/60 mt-1">{t('contact_page.form_sub')}</p>
           </div>
           <form className="p-6 space-y-4" onSubmit={e => e.preventDefault()}>
             {[
-              { label: "Naam",   placeholder: "Uw naam",    type: "text" },
-              { label: "E-mail", placeholder: "uw@email.com", type: "email" },
+              { label: t('contact_page.name'),   placeholder: t('contact_page.name_ph'),    type: "text" },
+              { label: t('contact_page.email'), placeholder: t('contact_page.email_ph'), type: "email" },
             ].map(f => (
               <div key={f.label}>
                 <label className="text-xs font-bold uppercase tracking-widest text-garage-darkSub block mb-1.5">{f.label}</label>
@@ -102,11 +105,11 @@ function ContactPage() {
               </div>
             ))}
             <div>
-              <label className="text-xs font-bold uppercase tracking-widest text-garage-darkSub block mb-1.5">Bericht</label>
-              <textarea rows={4} placeholder="Uw bericht..." className="input-light resize-none" required />
+              <label className="text-xs font-bold uppercase tracking-widest text-garage-darkSub block mb-1.5">{t('contact_page.msg')}</label>
+              <textarea rows={4} placeholder={t('contact_page.msg_ph')} className="input-light resize-none" required />
             </div>
             <button type="submit" className="btn-primary w-full py-3.5 flex items-center justify-center gap-2">
-              <Mail size={16} /> Verstuur Bericht
+              <Mail size={16} /> {t('contact_page.submit')}
             </button>
           </form>
         </div>

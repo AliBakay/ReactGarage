@@ -12,9 +12,9 @@
     "btn_inventory": "View Inventory",
     "btn_call": "Call Us Now",
     "stats": {
-      "clients": "Happy Clients",
+      "customers": "Happy Customers",
       "reliable": "Reliable",
-      "checked": "Fully Inspected",
+      "inspected": "Fully Inspected",
       "experience": "Years Experience"
     },
     "featured": "Featured Cars",
@@ -97,7 +97,8 @@
           "Inspected"
         ]
       }
-    }
+    },
+    "contact_btn": "Contact Us"
   },
   "inventory": {
     "title": "View All Vehicles",
@@ -168,5 +169,45 @@
         "Inspected"
       ]
     }
+  },
+  "footer": {
+    "desc": "Reliable used vehicles. Professionally inspected, fairly priced, and ready to drive.",
+    "contact": "Contact",
+    "address": "Address",
+    "vat": "VAT",
+    "phone": "Phone",
+    "email": "E-mail",
+    "nav": "Navigation",
+    "privacy": "Privacy Policy",
+    "rights": "All rights reserved.",
+    "links": {
+      "buy": "Buy Car Maasmechelen",
+      "second_hand": "Used Car Limburg",
+      "reliable": "Reliable Used Cars"
+    },
+    "slogan": "Professionally inspected · Fairly priced · Reliable"
+  },
+  "contact_page": {
+    "sub": "Contact",
+    "title": "Get In Touch",
+    "desc": "Our team is ready to answer your questions.",
+    "info_title": "Contact Information",
+    "labels": {
+      "address": "Address",
+      "vat": "VAT",
+      "phone": "Phone",
+      "email": "E-mail",
+      "hours": "Opening Hours"
+    },
+    "hours_val": "Mon-Fri: 9:00 – 18:00\nSat: 10:00 – 16:00",
+    "form_title": "Send a Message",
+    "form_sub": "We reply within 24 hours",
+    "name": "Name",
+    "name_ph": "Your name",
+    "email": "E-mail",
+    "email_ph": "your@email.com",
+    "msg": "Message",
+    "msg_ph": "Your message...",
+    "submit": "Send Message"
   }
 }

@@ -12,10 +12,10 @@
     "btn_inventory": "Voir les véhicules",
     "btn_call": "Appelez-nous",
     "stats": {
-      "clients": "Clients satisfaits",
+      "customers": "Clients Satisfaits",
       "reliable": "Fiable",
-      "checked": "Entièrement inspecté",
-      "experience": "Années d'expérience"
+      "inspected": "Entièrement Inspecté",
+      "experience": "Années d'Expérience"
     },
     "featured": "Véhicules en vedette",
     "featured_sub": "Nos recommandations",
@@ -97,7 +97,8 @@
           "Inspecté"
         ]
       }
-    }
+    },
+    "contact_btn": "Nous contacter"
   },
   "inventory": {
     "title": "Voir tous les véhicules",
@@ -168,5 +169,45 @@
         "Inspecté"
       ]
     }
+  },
+  "footer": {
+    "desc": "Véhicules d'occasion fiables. Inspectés professionnellement, à prix juste et prêts à rouler.",
+    "contact": "Contact",
+    "address": "Adresse",
+    "vat": "TVA",
+    "phone": "Téléphone",
+    "email": "E-mail",
+    "nav": "Navigation",
+    "privacy": "Politique de confidentialité",
+    "rights": "Tous droits réservés.",
+    "links": {
+      "buy": "Acheter Voiture Maasmechelen",
+      "second_hand": "Voiture d'Occasion Limburg",
+      "reliable": "Occasions Fiables"
+    },
+    "slogan": "Inspecté professionnellement · Prix juste · Fiable"
+  },
+  "contact_page": {
+    "sub": "Contact",
+    "title": "Prenez Contact",
+    "desc": "Notre équipe est prête à répondre à vos questions.",
+    "info_title": "Informations de Contact",
+    "labels": {
+      "address": "Adresse",
+      "vat": "TVA",
+      "phone": "Téléphone",
+      "email": "E-mail",
+      "hours": "Heures d'ouverture"
+    },
+    "hours_val": "Lun-Ven: 9:00 – 18:00\nSam: 10:00 – 16:00",
+    "form_title": "Envoyer un Message",
+    "form_sub": "Nous répondons sous 24 heures",
+    "name": "Nom",
+    "name_ph": "Votre nom",
+    "email": "E-mail",
+    "email_ph": "votre@email.com",
+    "msg": "Message",
+    "msg_ph": "Votre message...",
+    "submit": "Envoyer le Message"
   }
 }

@@ -416,7 +416,7 @@ export default function HomePage() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Link to="/contact" className="btn-primary flex items-center gap-2 px-8 py-4 rounded-2xl text-base">
-              Neem contact op <ArrowRight size={18} />
+              {t('home.contact_btn')} <ArrowRight size={18} />
             </Link>
             <a href="tel:+32492440514" className="btn-ghost-light flex items-center gap-2 px-8 py-4 rounded-2xl text-base">
               <Phone size={18} /> +32 492 44 05 14

@@ -12,9 +12,9 @@
     "btn_inventory": "Bekijk Aanbod",
     "btn_call": "Bel Ons Nu",
     "stats": {
-      "clients": "Tevreden Klanten",
+      "customers": "Tevreden Klanten",
       "reliable": "Betrouwbaar",
-      "checked": "Volledig Gekeurd",
+      "inspected": "Volledig Gekeurd",
       "experience": "Jaar Ervaring"
     },
     "featured": "Uitgelichte Auto's",
@@ -97,7 +97,8 @@
           "Gekeurd"
         ]
       }
-    }
+    },
+    "contact_btn": "Neem contact op"
   },
   "inventory": {
     "title": "Bekijk Alle Voertuigen",
@@ -168,5 +169,45 @@
         "Gekeurd"
       ]
     }
+  },
+  "footer": {
+    "desc": "Betrouwbare tweedehands voertuigen. Professioneel gekeurd, eerlijk geprijsd en klaar om te rijden.",
+    "contact": "Contact",
+    "address": "Adres",
+    "vat": "BTW",
+    "phone": "Telefoon",
+    "email": "E-mail",
+    "nav": "Navigatie",
+    "privacy": "Privacybeleid",
+    "rights": "Alle rechten voorbehouden.",
+    "links": {
+      "buy": "Auto Kopen Maasmechelen",
+      "second_hand": "Tweedehands Auto Limburg",
+      "reliable": "Betrouwbare Occasions"
+    },
+    "slogan": "Professioneel gekeurd · Eerlijk geprijsd · Betrouwbaar"
+  },
+  "contact_page": {
+    "sub": "Contact",
+    "title": "Neem Contact Op",
+    "desc": "Ons team staat klaar om uw vragen te beantwoorden.",
+    "info_title": "Contactgegevens",
+    "labels": {
+      "address": "Adres",
+      "vat": "BTW",
+      "phone": "Telefoon",
+      "email": "E-mail",
+      "hours": "Openingsuren"
+    },
+    "hours_val": "Ma-Vr: 9:00 – 18:00\nZa: 10:00 – 16:00",
+    "form_title": "Stuur een Bericht",
+    "form_sub": "We antwoorden binnen 24 uur",
+    "name": "Naam",
+    "name_ph": "Uw naam",
+    "email": "E-mail",
+    "email_ph": "uw@email.com",
+    "msg": "Bericht",
+    "msg_ph": "Uw bericht...",
+    "submit": "Verstuur Bericht"
   }
 }
