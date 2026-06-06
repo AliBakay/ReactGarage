@@ -69,7 +69,8 @@
       "specs": {
         "engine": "Motor",
         "power": "Leistung",
-        "torque": "Drehmoment",
+        "engineCapacity": "Hubraum",
+        "euronorm": "Euronorm",
         "transmission": "Getriebe",
         "drivetrain": "Antrieb",
         "accel": "0–100 km/h",
@@ -141,7 +142,8 @@
     "specs": {
       "engine": "Motor",
       "power": "Leistung",
-      "torque": "Drehmoment",
+      "engineCapacity": "Hubraum",
+      "euronorm": "Euronorm",
       "transmission": "Getriebe",
       "drivetrain": "Antrieb",
       "accel": "0–100 km/h",

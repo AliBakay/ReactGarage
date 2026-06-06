@@ -372,7 +372,7 @@ export default function CarDetailPage() {
                     { icon: <Gauge size={18} />, label: t('common.mileage'), value: `${car.mileage.toLocaleString('nl-NL')} km` },
                     { icon: <Fuel size={18} />,  label: t('common.fuel'),      value: FUEL_LABEL[car.fuelType] },
                     { icon: <Calendar size={18} />, label: t('common.year'),    value: String(car.year) },
-                    { icon: <Shield size={18} />, label: "Euronorm",    value: car.specs.euronorm || "-" },
+                    { icon: <Shield size={18} />, label: t('detail.specs.euronorm'),    value: car.specs.euronorm || "-" },
                   ].map(s => (
                     <div key={s.label} className="text-center p-4 bg-slate-50 rounded-xl">
                       <div className="text-garage-accent flex justify-center mb-2">{s.icon}</div>
@@ -396,7 +396,7 @@ export default function CarDetailPage() {
                 <h2 className="font-display font-bold text-xl text-garage-dark mb-4">{t('detail.specs_title')}</h2>
                 <SpecRow icon={<Zap size={14} />}      label={t('detail.specs.engine')}        value={car.specs.engine} />
                 <SpecRow icon={<Zap size={14} />}      label={t('detail.specs.power')}     value={car.specs.horsepower ? `${car.specs.horsepower} pk (${Math.round(Number(car.specs.horsepower) * 0.735499)} kW)` : "-"} />
-                <SpecRow icon={<Zap size={14} />}      label={"Cilinderinhoud"}       value={car.specs.engineCapacity ? `${car.specs.engineCapacity} cc` : "-"} />
+                <SpecRow icon={<Zap size={14} />}      label={t('detail.specs.engineCapacity')}       value={car.specs.engineCapacity ? `${car.specs.engineCapacity} cc` : "-"} />
                 <SpecRow icon={<Settings size={14} />} label={t('detail.specs.transmission')}  value={car.specs.transmission} />
                 <SpecRow icon={<CarIcon size={14} />}  label={t('detail.specs.drivetrain')}  value={car.specs.drivetrain} />
                 <SpecRow icon={<Zap size={14} />}      label={t('detail.specs.accel')}   value={car.specs.acceleration} />

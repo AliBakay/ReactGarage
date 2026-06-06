@@ -69,7 +69,8 @@
       "specs": {
         "engine": "Motor",
         "power": "Güç",
-        "torque": "Tork",
+        "engineCapacity": "Motor Hacmi",
+        "euronorm": "Emisyon Standardı",
         "transmission": "Şanzıman",
         "drivetrain": "Çekiş",
         "accel": "0–100 km/s",
@@ -141,7 +142,8 @@
     "specs": {
       "engine": "Motor",
       "power": "Güç",
-      "torque": "Tork",
+      "engineCapacity": "Motor Hacmi",
+      "euronorm": "Emisyon Standardı",
       "transmission": "Şanzıman",
       "drivetrain": "Çekiş",
       "accel": "0–100 km/s",

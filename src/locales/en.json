@@ -69,7 +69,8 @@
       "specs": {
         "engine": "Engine",
         "power": "Power",
-        "torque": "Torque",
+        "engineCapacity": "Engine Capacity",
+        "euronorm": "Euro Standard",
         "transmission": "Transmission",
         "drivetrain": "Drivetrain",
         "accel": "0–100 km/h",
@@ -141,7 +142,8 @@
     "specs": {
       "engine": "Engine",
       "power": "Power",
-      "torque": "Torque",
+      "engineCapacity": "Engine Capacity",
+      "euronorm": "Euro Standard",
       "transmission": "Transmission",
       "drivetrain": "Drivetrain",
       "accel": "0–100 km/h",

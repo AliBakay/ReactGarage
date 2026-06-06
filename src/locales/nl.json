@@ -69,7 +69,8 @@
       "specs": {
         "engine": "Motor",
         "power": "Vermogen",
-        "torque": "Koppel",
+        "engineCapacity": "Cilinderinhoud",
+        "euronorm": "Euronorm",
         "transmission": "Transmissie",
         "drivetrain": "Aandrijving",
         "accel": "0–100 km/u",
@@ -141,7 +142,8 @@
     "specs": {
       "engine": "Motor",
       "power": "Vermogen",
-      "torque": "Koppel",
+      "engineCapacity": "Cilinderinhoud",
+      "euronorm": "Euronorm",
       "transmission": "Transmissie",
       "drivetrain": "Aandrijving",
       "accel": "0–100 km/u",

@@ -69,7 +69,8 @@
       "specs": {
         "engine": "Moteur",
         "power": "Puissance",
-        "torque": "Couple",
+        "engineCapacity": "Cylindrée",
+        "euronorm": "Norme Euro",
         "transmission": "Boîte",
         "drivetrain": "Transmission",
         "accel": "0–100 km/h",
@@ -141,7 +142,8 @@
     "specs": {
       "engine": "Moteur",
       "power": "Puissance",
-      "torque": "Couple",
+      "engineCapacity": "Cylindrée",
+      "euronorm": "Norme Euro",
       "transmission": "Boîte",
       "drivetrain": "Transmission",
       "accel": "0–100 km/h",
