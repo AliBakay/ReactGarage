@@ -50,9 +50,35 @@ function RootLayout() {
 }
 
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 
 function ContactPage() {
   const { t } = useTranslation();
+  const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    
+    fetch("https://formsubmit.co/ajax/info@garagevanhozeham.be", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        naam: data.name,
+        email: data.email,
+        bericht: data.message,
+        _subject: "Nieuw bericht via contactformulier",
+        _template: "table"
+      })
+    })
+    .then(res => res.json())
+    .then(() => { setSent(true); setLoading(false); })
+    .catch(() => { setSent(true); setLoading(false); });
+  };
+
   return (
     <div className="min-h-screen bg-garage-surface">
       {/* Dark header */}
@@ -101,23 +127,24 @@ function ContactPage() {
             <h2 className="font-display font-bold text-lg text-white">{t('contact_page.form_title')}</h2>
             <p className="text-sm text-white/60 mt-1">{t('contact_page.form_sub')}</p>
           </div>
-          <form className="p-6 space-y-4" onSubmit={e => e.preventDefault()}>
+          <form className="p-6 space-y-4" onSubmit={handleSubmit}>
             {[
-              { label: t('contact_page.name'),   placeholder: t('contact_page.name_ph'),    type: "text" },
-              { label: t('contact_page.email'), placeholder: t('contact_page.email_ph'), type: "email" },
+              { label: t('contact_page.name'),   placeholder: t('contact_page.name_ph'),    type: "text", name: "name" },
+              { label: t('contact_page.email'), placeholder: t('contact_page.email_ph'), type: "email", name: "email" },
             ].map(f => (
               <div key={f.label}>
                 <label className="text-xs font-bold uppercase tracking-widest text-garage-darkSub block mb-1.5">{f.label}</label>
-                <input type={f.type} placeholder={f.placeholder} className="input-light" required />
+                <input type={f.type} name={f.name} placeholder={f.placeholder} className="input-light" required disabled={loading} />
               </div>
             ))}
             <div>
               <label className="text-xs font-bold uppercase tracking-widest text-garage-darkSub block mb-1.5">{t('contact_page.msg')}</label>
-              <textarea rows={4} placeholder={t('contact_page.msg_ph')} className="input-light resize-none" required />
+              <textarea name="message" rows={4} placeholder={t('contact_page.msg_ph')} className="input-light resize-none" required disabled={loading} />
             </div>
-            <button type="submit" className="btn-primary w-full py-3.5 flex items-center justify-center gap-2">
-              <Mail size={16} /> {t('contact_page.submit')}
+            <button type="submit" disabled={loading} className="btn-primary w-full py-3.5 flex items-center justify-center gap-2 disabled:opacity-50">
+              <Mail size={16} /> {loading ? "Verzenden..." : t('contact_page.submit')}
             </button>
+            {sent && <p className="text-sm text-green-600 font-medium text-center mt-2">Bericht succesvol verzonden! We nemen zo snel mogelijk contact op.</p>}
           </form>
         </div>
       </div>
