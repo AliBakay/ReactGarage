@@ -11,67 +11,85 @@ const SEO_CONTENT: Record<string, { title: string, desc: string, h1: string, tex
     h1: "Betrouwbare Auto Kopen in Maasmechelen",
     text: (
       <>
-        <p>Ben je op zoek naar een kwalitatieve, betaalbare en volledig gekeurde <strong>tweedehands auto in Maasmechelen</strong>? Dan ben je bij Garage van Hozeham aan het juiste adres! Wij zijn dé occasion dealer van de regio en helpen je graag bij het vinden van de perfecte wagen.</p>
+        <p className="lead text-lg mb-6">Ben je op zoek naar een kwalitatieve, betaalbare en volledig gekeurde <strong>tweedehands auto in Maasmechelen</strong>? Dan ben je bij Garage van Hozeham aan het juiste adres! Wij zijn dé onafhankelijke occasion dealer van de regio en helpen je met persoonlijke en eerlijke service graag bij het vinden van de perfecte wagen.</p>
         
-        <h2>Waarom kiezen voor een occasion in Maasmechelen?</h2>
-        <p>Het kopen van een occasion biedt talloze voordelen. Niet alleen bespaar je aanzienlijk op de afschrijving ten opzichte van een nieuwe wagen, maar bij Garage van Hozeham geniet je ook van zekerheid. Wij inspecteren elke auto grondig op meer dan 100 punten in onze moderne werkplaats aan de Slakweidestraat.</p>
+        <h2>Waarom een occasion kopen in Maasmechelen?</h2>
+        <p>Het kopen van een occasion biedt tegenwoordig talloze voordelen. Niet alleen bespaar je aanzienlijk op de torenhoge afschrijving die gepaard gaat met een splinternieuwe wagen, maar je rijdt ook direct de showroom uit zonder lange levertijden. Door te kiezen voor een lokale dealer in <strong>Maasmechelen</strong> zoals Garage van Hozeham, geniet je van de zekerheid dat je altijd dichtbij terecht kunt voor vragen, service of onderhoud. Geen anonieme megadealers, maar persoonlijk contact.</p>
 
-        <h3>Onze zekerheden bij het kopen van een auto</h3>
+        <h3>Onze strenge kwaliteitsgarantie</h3>
+        <p>Wij begrijpen dat de aankoop van een tweedehands auto best spannend kan zijn. Daarom nemen wij alle zorgen uit handen. Hoe doen we dat?</p>
         <ul>
-          <li><strong>Lokale Service:</strong> Gelegen in het hart van Maasmechelen (Slakweidestraat 40G 1A), we zijn altijd dichtbij voor onderhoud.</li>
-          <li><strong>Eerlijke Prijzen:</strong> Geen verborgen kosten, heldere prijzen.</li>
-          <li><strong>Direct Rijden:</strong> Al onze wagens zijn technisch nagelopen en kunnen vaak dezelfde dag nog mee.</li>
+          <li><strong>Uitgebreide Inspectie:</strong> Voordat een wagen onze showroom (aan de Slakweidestraat) in mag, wordt deze op tientallen kritieke technische en visuele punten gecontroleerd.</li>
+          <li><strong>100% Transparantie met Car-Pass:</strong> Elke auto wordt geleverd met een officiële Car-Pass. Zo ben je absoluut zeker van een logische en gegarandeerde kilometerstand. Geen verrassingen achteraf.</li>
+          <li><strong>Keuring voor Verkoop:</strong> We leveren onze wagens altijd af met een blanco keuringsbewijs, zodat je weet dat de auto technisch volledig in orde is en veilig de weg op kan.</li>
         </ul>
 
-        <h2>Vind Jouw Ideale Wagen Vandaag Nog</h2>
-        <p>Of je nu een compacte stadsauto zoekt voor de ritten in en rond Maasmechelen, een ruime gezinswagen of een stoere SUV, ons wisselende aanbod heeft voor ieder wat wils. We kopen regelmatig nieuwe auto's in en leveren deze af met een geldig keuringsbewijs en Car-Pass.</p>
-        <p>Neem gerust contact met ons op via <strong>+32 492 44 05 14</strong> of breng een bezoekje aan onze showroom. Onze deuren staan open voor een vrijblijvende proefrit en eerlijk advies.</p>
+        <h2>Voor iedereen de juiste auto</h2>
+        <p>Of je nu net je rijbewijs hebt en op zoek bent naar een voordelige, compacte stadsauto om in Maasmechelen en omstreken te rijden, of juist een ruime en veilige gezinswagen (stationwagon of SUV) nodig hebt voor de vakanties; wij streven naar een zeer gevarieerd aanbod. Wij selecteren wagens van diverse topmerken zoals Volkswagen, BMW, Audi, Peugeot en Toyota, gericht op betrouwbaarheid en lage onderhoudskosten.</p>
+
+        <h3>Overname van je huidige wagen</h3>
+        <p>Heb je al een auto en wil je deze inruilen? Dat is bij ons geen enkel probleem. We bieden een eerlijke en marktconforme overnameprijs voor je huidige wagen. Zo hoef je je geen zorgen te maken over de particuliere verkoop en kun je dat bedrag direct inzetten voor je nieuwe droomauto.</p>
+
+        <h2>Kom langs voor een vrijblijvende proefrit</h2>
+        <p>Genoeg gelezen? Auto's moet je ervaren! We nodigen je van harte uit in onze garage aan de <strong>Slakweidestraat 40G 1A in Maasmechelen</strong>. De koffie staat altijd klaar. Je kunt in alle rust ons aanbod bekijken, en als je jouw ideale wagen hebt gevonden, leggen wij de sleutels direct voor je klaar voor een uitgebreide proefrit.</p>
+        <p>Neem gerust contact met ons op via <strong>+32 492 44 05 14</strong> (ook via WhatsApp bereikbaar!) om een afspraak in te plannen.</p>
       </>
     )
   },
   "tweedehands-auto-limburg": {
-    title: "Tweedehands Auto Limburg | Betrouwbare Occasions",
-    desc: "Zoekt u een betrouwbare tweedehands auto in Limburg? Garage van Hozeham biedt de beste occasions van de provincie. Eerlijk, gekeurd en betaalbaar.",
+    title: "Tweedehands Auto Limburg | Betrouwbare Occasions met Garantie",
+    desc: "Zoekt u een betrouwbare tweedehands auto in Limburg? Garage van Hozeham (Maasmechelen) biedt de beste occasions van de provincie. Eerlijk, gekeurd en betaalbaar.",
     h1: "Dé Specialist voor uw Tweedehands Auto in Limburg",
     text: (
       <>
-        <p>Het vinden van de juiste <strong>tweedehands auto in Limburg</strong> kan een flinke zoektocht zijn. U wilt immers niet alleen een mooie wagen, maar ook eentje waar u op kunt vertrouwen. Garage van Hozeham, centraal gelegen in Limburg (Maasmechelen), is uw betrouwbare partner in de automobielsector.</p>
+        <p className="lead text-lg mb-6">Het vinden van de juiste <strong>tweedehands auto in Limburg</strong> kan aanvoelen als een flinke zoektocht. U wilt immers niet zomaar een mooie wagen, maar een voertuig waarop u jarenlang blindelings kunt vertrouwen. Garage van Hozeham is uw betrouwbare partner in de Limburgse automobielsector.</p>
         
-        <h2>De Grootste Kwaliteit in Occasions</h2>
-        <p>Als Limburgs garagebedrijf hechten wij enorm veel waarde aan persoonlijk contact en eerlijk zakendoen. Elke wagen die wij aanbieden is onderworpen aan een strenge technische controle. Hierdoor kunnen wij garanderen dat onze tweedehands auto's veilig en betrouwbaar de weg op gaan.</p>
+        <h2>Waarom kopers uit heel Limburg naar ons komen</h2>
+        <p>Hoewel we gevestigd zijn in Maasmechelen, mogen we wekelijks tevreden klanten verwelkomen uit heel Limburg: van Genk en Hasselt tot Dilsen-Stokkem en Lanaken. Onze uitstekende reputatie is gebouwd op één simpele kernwaarde: <strong>eerlijkheid</strong>. Bij ons vindt u geen gladde praatjes of verborgen gebreken, maar transparante communicatie en topkwaliteit occasions.</p>
 
-        <h3>Uw voordelen op een rij:</h3>
+        <h3>Wat mag u van onze wagens verwachten?</h3>
+        <p>Een auto aankopen is een grote investering. Daarom laten we niets aan het toeval over. Elk voertuig in ons Limburgse wagenpark ondergaat een rigoureuze selectieprocedure:</p>
         <ul>
-          <li>Groot en divers aanbod van alle bekende automerken.</li>
-          <li>Inclusief Car-Pass voor een gegarandeerde kilometerstand.</li>
-          <li>Gevestigd in Limburg, dus makkelijk bereikbaar vanuit Genk, Hasselt of Lanaken.</li>
-          <li>Professionele overname van uw huidige wagen.</li>
+          <li><strong>Aantoonbare Historiek:</strong> We kopen enkel auto's in waarvan het onderhoudsverleden sluitend en aantoonbaar is. Geen vage import zonder papieren.</li>
+          <li><strong>Diepgaande Technische Controle:</strong> Remmen, distributieriem, vloeistoffen en elektronica worden nauwkeurig nagekeken door ervaren specialisten.</li>
+          <li><strong>Car-Pass Garantie:</strong> De kilometerstand is heilig. Met het meegeleverde Car-Pass document garanderen wij dat de gereden kilometers 100% correct zijn.</li>
         </ul>
 
-        <h2>Maak een Proefrit in Limburg</h2>
-        <p>Ziet u een mooie wagen in ons aanbod? Kom dan zeker langs in onze showroom. Wij leggen de sleutels graag voor u klaar voor een uitgebreide proefrit. Een tweedehands auto kopen in Limburg was nog nooit zo zorgeloos. Bekijk hieronder direct een greep uit ons actuele aanbod.</p>
+        <h2>Een breed aanbod occasions in Limburg</h2>
+        <p>Omdat we weten dat elke bestuurder in Limburg unieke behoeften heeft, zorgen we voor een sterk wisselend en veelzijdig aanbod. Zoekt u een zuinige benzine of hybride voor woon-werkverkeer naar Hasselt? Een robuuste diesel voor langere afstanden? Of een sportieve cabrio voor de zonnige weekenden in het Heuvelland? Grote kans dat u het bij ons vindt.</p>
+        
+        <h3>Uw oude auto inruilen?</h3>
+        <p>Zit u nog met uw huidige auto? Wij bieden een vlotte overnameservice. We taxeren uw wagen ter plekke en bieden een eerlijke handelsprijs, zodat uw aankoop soepel en in één vlotte beweging kan worden afgehandeld. Zo bespaart u zich de moeite van advertenties plaatsen en testritten met onbekenden.</p>
+
+        <h2>Ervaar onze Limburgse gastvrijheid</h2>
+        <p>Een auto koopt u niet vanaf een foto. Wij snappen dat het gevoel achter het stuur doorslaggevend is. Blader gerust door onze actuele voorraad op deze website. Ziet u een model dat uw hart sneller doet kloppen? Kom dan langs voor een vrijblijvende bezichtiging en een testrit. Wij zetten de koffie klaar en helpen u graag verder met persoonlijk advies.</p>
       </>
     )
   },
   "betrouwbare-occasions": {
     title: "Betrouwbare Occasions Kopen | Garage van Hozeham",
-    desc: "Veilig en zorgeloos een occasion kopen? Bekijk de betrouwbare tweedehands auto's van Garage van Hozeham. Gekeurd, direct rijklaar en eerlijke prijzen.",
-    h1: "Betrouwbare Occasions Kopen met Zekerheid",
+    desc: "Veilig en zonder zorgen een occasion kopen? Bekijk de betrouwbare tweedehands auto's van Garage van Hozeham. Gekeurd, direct rijklaar en eerlijk geprijsd.",
+    h1: "Betrouwbare Occasions Kopen met 100% Zekerheid",
     text: (
       <>
-        <p>Een occasion kopen is een kwestie van vertrouwen. Bij Garage van Hozeham begrijpen we dat u op zoek bent naar <strong>betrouwbare occasions</strong> zonder verborgen gebreken. Wij screenen al onze voertuigen uiterst zorgvuldig voordat ze de showroom in mogen.</p>
+        <p className="lead text-lg mb-6">Een occasion kopen is voor veel mensen een kwestie van vertrouwen. Bij Garage van Hozeham begrijpen we als geen ander dat u op zoek bent naar <strong>betrouwbare occasions</strong> zonder onaangename verrassingen achteraf. Uw veiligheid en gemoedsrust staan bij ons op de eerste plaats.</p>
         
-        <h2>Wat Maakt Onze Occasions Betrouwbaar?</h2>
-        <p>Er zijn tegenwoordig veel tweedehands wagens op de markt, maar kwaliteit is cruciaal. Wij selecteren onze inkoop streng en focussen op voertuigen met een aantoonbare en correcte onderhoudshistoriek. Daardoor koopt u bij ons geen kat in de zak.</p>
+        <h2>Wanneer is een occasion écht betrouwbaar?</h2>
+        <p>De markt staat vol met tweedehands auto's, maar het scheiden van het kaf en het koren is een vak apart. Wij nemen dat risico volledig voor u weg. Een occasion in onze garage krijgt pas het predicaat "betrouwbaar" als deze aan onze loodzware kwaliteitseisen voldoet.</p>
 
         <ul>
-          <li><strong>Strenge Kwaliteitscontrole:</strong> Elke auto krijgt een volledige technische inspectie.</li>
-          <li><strong>Gecontroleerde Historiek:</strong> We controleren de papieren, de onderhoudshistorie en leveren altijd de Car-Pass.</li>
-          <li><strong>Transparantie:</strong> We vertellen u eerlijk de staat van de auto, inclusief eventuele gebruikerssporen, zodat u precies weet waar u aan toe bent.</li>
+          <li><strong>Selectieve Inkoop:</strong> We kopen uitsluitend wagens in van betrouwbare partners of particulieren waarbij we de volledige onderhoudsgeschiedenis kunnen inzien.</li>
+          <li><strong>Technisch Rapport:</strong> Elk voertuig wordt binnenste buiten gekeerd. Slijtage-onderdelen zoals banden en remmen die hun beste tijd hebben gehad, worden op voorhand door ons vernieuwd.</li>
+          <li><strong>Volledige Transparantie:</strong> Heeft een auto een krasje of kleine gebruikerssporen? We vertellen het u direct. Transparantie zorgt voor de beste klantrelatie op lange termijn.</li>
         </ul>
 
-        <h2>Uw Occasion Dealer</h2>
-        <p>Wij investeren liever in langdurige klantrelaties dan in snelle verkopen. Bent u op zoek naar specifieke occasions? Laat het ons weten, dan zoeken wij met u mee. Neem een kijkje in ons aanbod of bel ons direct op +32 492 44 05 14 voor advies op maat.</p>
+        <h2>Gekeurd voor verkoop & Car-Pass</h2>
+        <p>Wettelijke zekerheid is de basis van een betrouwbare occasion. Al onze wagens worden afgeleverd inclusief een <strong>blanco keuringsbewijs voor verkoop</strong> (inclusief het bijbehorende 80-punten controleverslag van de keuringsinstantie) én een officiële <strong>Car-Pass</strong>. Dit sluit kilometerfraude uit en geeft u de zwart-op-wit garantie dat uw nieuwe auto technisch in een uitstekende staat verkeert.</p>
+
+        <h2>Klaar om in te stappen?</h2>
+        <p>Een extra voordeel bij Garage van Hozeham: onze betrouwbare occasions staan nagenoeg allemaal <strong>direct rijklaar</strong>. Doordat we de technische checks al hebben uitgevoerd, hoeft u na de aankoop vaak niet meer weken te wachten. Kopen, overschrijven en direct genieten van uw nieuwe wagen!</p>
+
+        <p>Kies voor gemoedsrust en bekijk ons aanbod aan zorgvuldig geselecteerde, betrouwbare occasions. Heeft u vragen over een specifiek model of de staat van een wagen? Bel ons op <strong>+32 492 44 05 14</strong> of stuur eenvoudig een berichtje via WhatsApp. We staan voor u klaar.</p>
       </>
     )
   }
