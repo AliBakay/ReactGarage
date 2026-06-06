@@ -11,7 +11,7 @@ export function Navbar() {
   const { pathname } = useLocation();
   const { t } = useTranslation();
 
-  const isLightPage = pathname.startsWith('/beheerpaneel') || pathname.startsWith('/login') || pathname.startsWith('/contact');
+  const isLightPage = pathname.startsWith('/beheerpaneel') || pathname.startsWith('/garage-admin-access');
   const isNavScrolled = scrolled || isLightPage;
 
   useEffect(() => {
