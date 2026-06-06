@@ -2,7 +2,6 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GetCarById } from "../../application/use-cases/GetCarById";
-import { TracingBeam } from "../../components/ui/aceternity";
 import type { Car } from "../../domain/entities/Car";
 import {
   ArrowLeft, ChevronLeft, ChevronRight, Fuel, Gauge, Calendar,
@@ -300,59 +299,57 @@ export default function CarDetailPage() {
           <div className="lg:col-span-2 space-y-8">
             <ImageGallery images={car.imagesUrl} make={car.make} model={car.model} />
 
-            <TracingBeam>
-              <div className="space-y-8 pl-6">
-                {/* Title + price */}
-                <div className="bg-white rounded-2xl p-6 border border-garage-border shadow-sm">
-                  <p className="label-tag mb-2">{car.make}</p>
-                  <h1 className="font-display text-3xl md:text-4xl font-extrabold text-garage-dark mt-1">
-                    {car.model}
-                    <span className="text-garage-darkSub font-normal text-2xl ml-2">({car.year})</span>
-                  </h1>
-                  <p className="font-display font-black text-4xl text-garage-dark">
-                    €{car.price.toLocaleString('nl-NL')}
-                  </p>
+            <div className="space-y-8">
+              {/* Title + price */}
+              <div className="bg-white rounded-2xl p-6 border border-garage-border shadow-sm">
+                <p className="label-tag mb-2">{car.make}</p>
+                <h1 className="font-display text-3xl md:text-4xl font-extrabold text-garage-dark mt-1">
+                  {car.model}
+                  <span className="text-garage-darkSub font-normal text-2xl ml-2">({car.year})</span>
+                </h1>
+                <p className="font-display font-black text-4xl text-garage-dark">
+                  €{car.price.toLocaleString('nl-NL')}
+                </p>
 
-                  {/* Quick stats */}
-                  <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-garage-border">
-                    {[
-                      { icon: <Gauge size={18} />, label: "Kilometerstand", value: `${car.mileage.toLocaleString('nl-NL')} km` },
-                      { icon: <Fuel size={18} />,  label: "Brandstof",      value: FUEL_LABEL[car.fuelType] },
-                      { icon: <Calendar size={18} />, label: "Bouwjaar",    value: String(car.year) },
-                    ].map(s => (
-                      <div key={s.label} className="text-center p-4 bg-slate-50 rounded-xl">
-                        <div className="text-garage-accent flex justify-center mb-2">{s.icon}</div>
-                        <p className="text-xs text-garage-muted">{s.label}</p>
-                        <p className="font-bold text-sm text-garage-dark mt-0.5">{s.value}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Description */}
-                {car.description && (
-                  <div className="bg-white rounded-2xl p-6 border border-garage-border shadow-sm">
-                    <h2 className="font-display font-bold text-xl text-garage-dark mb-4">Over deze auto</h2>
-                    <p className="text-sm text-garage-darkSub leading-relaxed">{car.description}</p>
-                  </div>
-                )}
-
-                {/* Specs */}
-                <div className="bg-white rounded-2xl p-6 border border-garage-border shadow-sm">
-                  <h2 className="font-display font-bold text-xl text-garage-dark mb-4">Technische Specificaties</h2>
-                  <SpecRow icon={<Zap size={14} />}      label="Motor"        value={car.specs.engine} />
-                  <SpecRow icon={<Zap size={14} />}      label="Vermogen"     value={`${car.specs.horsepower} pk`} />
-                  <SpecRow icon={<Zap size={14} />}      label="Koppel"       value={`${car.specs.torque} Nm`} />
-                  <SpecRow icon={<Settings size={14} />} label="Transmissie"  value={car.specs.transmission} />
-                  <SpecRow icon={<CarIcon size={14} />}  label="Aandrijving"  value={car.specs.drivetrain} />
-                  <SpecRow icon={<Zap size={14} />}      label="0–100 km/u"   value={car.specs.acceleration} />
-                  <SpecRow icon={<Gauge size={14} />}    label="Topsnelheid"  value={`${car.specs.topSpeed} km/u`} />
-                  <SpecRow icon={<Users size={14} />}    label="Zitplaatsen"  value={`${car.specs.seating} plaatsen`} />
-                  <SpecRow icon={<CarIcon size={14} />}  label="Kleur"        value={car.specs.color} />
-                  <SpecRow icon={<CarIcon size={14} />}  label="Deuren"       value={`${car.specs.doors} deuren`} />
+                {/* Quick stats */}
+                <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-garage-border">
+                  {[
+                    { icon: <Gauge size={18} />, label: "Kilometerstand", value: `${car.mileage.toLocaleString('nl-NL')} km` },
+                    { icon: <Fuel size={18} />,  label: "Brandstof",      value: FUEL_LABEL[car.fuelType] },
+                    { icon: <Calendar size={18} />, label: "Bouwjaar",    value: String(car.year) },
+                  ].map(s => (
+                    <div key={s.label} className="text-center p-4 bg-slate-50 rounded-xl">
+                      <div className="text-garage-accent flex justify-center mb-2">{s.icon}</div>
+                      <p className="text-xs text-garage-muted">{s.label}</p>
+                      <p className="font-bold text-sm text-garage-dark mt-0.5">{s.value}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </TracingBeam>
+
+              {/* Description */}
+              {car.description && (
+                <div className="bg-white rounded-2xl p-6 border border-garage-border shadow-sm">
+                  <h2 className="font-display font-bold text-xl text-garage-dark mb-4">Over deze auto</h2>
+                  <p className="text-sm text-garage-darkSub leading-relaxed">{car.description}</p>
+                </div>
+              )}
+
+              {/* Specs */}
+              <div className="bg-white rounded-2xl p-6 border border-garage-border shadow-sm">
+                <h2 className="font-display font-bold text-xl text-garage-dark mb-4">Technische Specificaties</h2>
+                <SpecRow icon={<Zap size={14} />}      label="Motor"        value={car.specs.engine} />
+                <SpecRow icon={<Zap size={14} />}      label="Vermogen"     value={`${car.specs.horsepower} pk`} />
+                <SpecRow icon={<Zap size={14} />}      label="Koppel"       value={`${car.specs.torque} Nm`} />
+                <SpecRow icon={<Settings size={14} />} label="Transmissie"  value={car.specs.transmission} />
+                <SpecRow icon={<CarIcon size={14} />}  label="Aandrijving"  value={car.specs.drivetrain} />
+                <SpecRow icon={<Zap size={14} />}      label="0–100 km/u"   value={car.specs.acceleration} />
+                <SpecRow icon={<Gauge size={14} />}    label="Topsnelheid"  value={`${car.specs.topSpeed} km/u`} />
+                <SpecRow icon={<Users size={14} />}    label="Zitplaatsen"  value={`${car.specs.seating} plaatsen`} />
+                <SpecRow icon={<CarIcon size={14} />}  label="Kleur"        value={car.specs.color} />
+                <SpecRow icon={<CarIcon size={14} />}  label="Deuren"       value={`${car.specs.doors} deuren`} />
+              </div>
+            </div>
           </div>
 
           {/* Right: sticky inquiry */}

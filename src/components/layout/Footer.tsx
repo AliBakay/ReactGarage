@@ -34,7 +34,9 @@ export function Footer() {
           <ul className="space-y-3 text-sm text-white/60">
             <li className="flex items-start gap-2.5">
               <MapPin size={15} className="text-garage-accent mt-0.5 shrink-0" />
-              <span>Slakweidestraat 40G 1A<br />3630 Maasmechelen</span>
+              <a href="https://www.google.com/maps/search/?api=1&query=Slakweidestraat+40G+1A,+3630+Maasmechelen" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                Slakweidestraat 40G 1A<br />3630 Maasmechelen
+              </a>
             </li>
             <li className="flex items-center gap-2.5">
               <span className="text-garage-accent shrink-0 text-[10px] font-bold border border-garage-accent px-1 rounded">BTW</span>

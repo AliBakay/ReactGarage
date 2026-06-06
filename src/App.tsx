@@ -59,7 +59,7 @@ function ContactPage() {
         <div className="bg-white rounded-2xl border border-garage-border p-8 shadow-sm space-y-6">
           <h2 className="font-display font-bold text-2xl text-garage-dark">Contactgegevens</h2>
           {[
-            { icon: <MapPin size={20} />, label: "Adres",      value: "Slakweidestraat 40G 1A\n3630 Maasmechelen", href: "https://maps.google.com/?q=Slakweidestraat+40G+1A,+3630+Maasmechelen" },
+            { icon: <MapPin size={20} />, label: "Adres",      value: "Slakweidestraat 40G 1A\n3630 Maasmechelen", href: "https://www.google.com/maps/search/?api=1&query=Slakweidestraat+40G+1A,+3630+Maasmechelen" },
             { icon: <div className="text-sm font-black border-2 border-current px-1 rounded">B</div>, label: "BTW", value: "BE0676463449" },
             { icon: <Phone size={20} />,  label: "Telefoon",   value: "+32 492 44 05 14", href: "tel:+32492440514" },
             { icon: <Mail size={20} />,   label: "E-mail",     value: "info@garagevanhozeham.be", href: "mailto:info@garagevanhozeham.be" },
