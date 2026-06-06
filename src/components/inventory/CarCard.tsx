@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import { Fuel, Gauge, Calendar, ArrowRight, Heart } from "lucide-react";
+import { Fuel, Gauge, Calendar, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import type { Car } from "../../domain/entities/Car";
 import { cn } from "../../lib/utils";
 
@@ -35,10 +34,10 @@ const FUEL_BG: Record<string, string> = {
 interface Props {
   car: Car;
   large?: boolean;
+  layout?: "grid" | "list";
 }
 
-export function CarCard({ car, large = false }: Props) {
-  const [liked, setLiked] = useState(false);
+export function CarCard({ car, large = false, layout = "grid" }: Props) {
   const thumb =
     car.imagesUrl[0] ??
     `https://placehold.co/800x500/0a192f/ffffff?text=${encodeURIComponent(car.make)}`;
@@ -47,10 +46,20 @@ export function CarCard({ car, large = false }: Props) {
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ duration: 0.2 }}
-      className={cn("car-card group flex flex-col", large ? "row-span-2" : "")}
+      className={cn(
+        "car-card group flex",
+        layout === "list" ? "flex-col md:flex-row" : "flex-col",
+        large ? "row-span-2" : ""
+      )}
     >
       {/* Image */}
-      <div className={cn("relative overflow-hidden bg-slate-100", large ? "h-72" : "h-52")}>
+      <Link 
+        to={`/cars/${car.id}`} 
+        className={cn(
+          "relative block overflow-hidden bg-slate-100 shrink-0", 
+          layout === "list" ? "h-52 md:h-auto md:w-80" : (large ? "h-72" : "h-52")
+        )}
+      >
         <img
           src={thumb}
           alt={`${car.year} ${car.make} ${car.model}`}
@@ -73,20 +82,9 @@ export function CarCard({ car, large = false }: Props) {
           {FUEL_LABEL[car.fuelType]}
         </span>
 
-        {/* Like button */}
-        <button
-          onClick={e => { e.preventDefault(); setLiked(l => !l); }}
-          className="absolute bottom-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform"
-        >
-          <Heart
-            size={14}
-            className={cn("transition-colors", liked ? "fill-garage-accent text-garage-accent" : "text-slate-400")}
-          />
-        </button>
-
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-      </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+      </Link>
 
       {/* Content */}
       <div className="flex flex-col gap-3 p-5 flex-1 bg-white">
@@ -120,8 +118,11 @@ export function CarCard({ car, large = false }: Props) {
         </div>
 
         {/* Price + CTA */}
-        <div className="flex items-center justify-between mt-auto pt-4 border-t border-garage-border">
-          <div>
+        <div className={cn(
+          "flex items-center justify-between mt-auto pt-4 border-t border-garage-border",
+          layout === "list" ? "md:pt-0 md:border-t-0 md:justify-end md:gap-6" : ""
+        )}>
+          <div className={cn(layout === "list" ? "md:text-right" : "")}>
             <p className="text-[10px] text-garage-muted uppercase tracking-wider mb-0.5">Prijs</p>
             <p className="font-display font-bold text-2xl text-garage-dark">
               €{car.price.toLocaleString('nl-NL')}
