@@ -19,7 +19,85 @@
     },
     "featured": "Véhicules en vedette",
     "featured_sub": "Nos recommandations",
-    "view_all": "Voir tout"
+    "view_all": "Voir tout",
+    "badges": [
+      "✓ Entièrement inspecté",
+      "✓ CarPass inclus",
+      "✓ Historique transparent",
+      "✓ Service personnel"
+    ],
+    "why_us_sub": "Pourquoi nous choisir?",
+    "why_us_title": "Votre garage local de confiance",
+    "features": [
+      {
+        "title": "Inspecté et Fiable",
+        "body": "Chaque véhicule est minutieusement vérifié et inspecté avant d'être proposé."
+      },
+      {
+        "title": "Occasions de Qualité",
+        "body": "Nous offrons une sélection honnête et soignée de voitures d'occasion."
+      },
+      {
+        "title": "Prix Équitables",
+        "body": "Prix transparents sans frais cachés ni surprises."
+      }
+    ],
+    "testimonials_sub": "Ce que disent nos clients",
+    "testimonials_title": "Clients satisfaits de la région",
+    "contact_sub": "Prendre contact",
+    "contact_title": "Avez-vous une <1>question ?</1>",
+    "contact_desc": "N'hésitez pas à passer pour un café et un essai routier. Nous serons ravis de vous aider!",
+    "filters": {
+      "title": "Filtres",
+      "clear": "Effacer",
+      "search": "Rechercher",
+      "search_placeholder": "Marque, modèle...",
+      "make": "Marque",
+      "all_makes": "Toutes marques",
+      "max_price": "Prix Max",
+      "fuel": "Carburant",
+      "year": "Année",
+      "from": "De",
+      "to": "À",
+      "cars_count": "{{count}} voitures"
+    },
+    "detail": {
+      "loading": "Chargement du véhicule...",
+      "not_found": "Voiture non trouvée.",
+      "about": "À propos de cette voiture",
+      "specs_title": "Spécifications Techniques",
+      "specs": {
+        "engine": "Moteur",
+        "power": "Puissance",
+        "torque": "Couple",
+        "transmission": "Boîte",
+        "drivetrain": "Transmission",
+        "accel": "0–100 km/h",
+        "top_speed": "Vitesse max",
+        "seats": "Sièges",
+        "color": "Couleur",
+        "doors": "Portes",
+        "doors_unit": "portes",
+        "seats_unit": "places"
+      },
+      "inquiry": {
+        "title": "Demander des Informations",
+        "subtitle": "Nous répondons sous 24h",
+        "name": "Nom",
+        "email": "E-mail",
+        "phone": "Téléphone",
+        "message": "Message",
+        "submit": "Envoyer la Demande",
+        "call": "Appeler Directement",
+        "success_title": "Demande envoyée!",
+        "success_desc": "Nous vous contacterons dans les 24 heures.",
+        "badges": [
+          "Sécurisé",
+          "Fiable",
+          "Inspecté"
+        ]
+      }
+    }
   },
   "inventory": {
     "title": "Voir tous les véhicules",
@@ -39,5 +117,56 @@
     "year": "Année",
     "view": "Voir",
     "back_to_inventory": "Retour aux Véhicules"
+  },
+  "filters": {
+    "title": "Filtres",
+    "clear": "Effacer",
+    "search": "Rechercher",
+    "search_placeholder": "Marque, modèle...",
+    "make": "Marque",
+    "all_makes": "Toutes marques",
+    "max_price": "Prix Max",
+    "fuel": "Carburant",
+    "year": "Année",
+    "from": "De",
+    "to": "À",
+    "cars_count": "{{count}} voitures"
+  },
+  "detail": {
+    "loading": "Chargement du véhicule...",
+    "not_found": "Voiture non trouvée.",
+    "about": "À propos de cette voiture",
+    "specs_title": "Spécifications Techniques",
+    "specs": {
+      "engine": "Moteur",
+      "power": "Puissance",
+      "torque": "Couple",
+      "transmission": "Boîte",
+      "drivetrain": "Transmission",
+      "accel": "0–100 km/h",
+      "top_speed": "Vitesse max",
+      "seats": "Sièges",
+      "color": "Couleur",
+      "doors": "Portes",
+      "doors_unit": "portes",
+      "seats_unit": "places"
+    },
+    "inquiry": {
+      "title": "Demander des Informations",
+      "subtitle": "Nous répondons sous 24h",
+      "name": "Nom",
+      "email": "E-mail",
+      "phone": "Téléphone",
+      "message": "Message",
+      "submit": "Envoyer la Demande",
+      "call": "Appeler Directement",
+      "success_title": "Demande envoyée!",
+      "success_desc": "Nous vous contacterons dans les 24 heures.",
+      "badges": [
+        "Sécurisé",
+        "Fiable",
+        "Inspecté"
+      ]
+    }
   }
 }

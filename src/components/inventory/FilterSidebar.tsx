@@ -1,6 +1,7 @@
 import type { CarFilters, FuelType } from "../../domain/entities/Car";
 import { SlidersHorizontal, X, Search } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { cn } from "../../lib/utils";
 
 const MAKES = [
@@ -30,6 +31,7 @@ interface Props {
 export function FilterSidebar({ filters, onChange, onClear, totalCount }: Props) {
   const [priceMax, setPriceMax] = useState(filters.maxPrice ?? 80000);
   const hasFilters = Object.values(filters).some(v => v !== undefined && v !== "");
+  const { t } = useTranslation();
 
   return (
     <aside className="bg-white rounded-2xl border border-garage-border p-6 space-y-6 sticky top-24 h-fit shadow-sm">
@@ -37,18 +39,18 @@ export function FilterSidebar({ filters, onChange, onClear, totalCount }: Props)
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <SlidersHorizontal size={16} className="text-garage-accent" />
-          <span className="font-semibold text-garage-dark">Filters</span>
+          <span className="font-semibold text-garage-dark">{t('filters.title')}</span>
         </div>
         <div className="flex items-center gap-3">
           <span className="text-xs text-garage-muted bg-slate-100 px-2 py-1 rounded-full font-medium">
-            {totalCount} auto's
+            {t('filters.cars_count', { count: totalCount })}
           </span>
           {hasFilters && (
             <button
               onClick={onClear}
               className="text-xs text-garage-accent hover:text-garage-accent2 flex items-center gap-1 font-medium transition-colors"
             >
-              <X size={12} /> Wissen
+              <X size={12} /> {t('filters.clear')}
             </button>
           )}
         </div>
@@ -57,13 +59,13 @@ export function FilterSidebar({ filters, onChange, onClear, totalCount }: Props)
       {/* Search */}
       <div>
         <label className="text-xs font-semibold uppercase tracking-widest text-garage-darkSub block mb-2">
-          Zoeken
+          {t('filters.search')}
         </label>
         <div className="relative">
           <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-garage-muted" />
           <input
             type="text"
-            placeholder="Merk, model..."
+            placeholder={t('filters.search_placeholder')}
             value={filters.search ?? ""}
             onChange={e => onChange("search", e.target.value || undefined)}
             className="w-full bg-slate-50 border border-garage-border rounded-xl pl-9 pr-3 py-2.5 text-sm text-garage-dark placeholder:text-garage-muted focus:outline-none focus:border-garage-accent transition-colors"
@@ -74,14 +76,14 @@ export function FilterSidebar({ filters, onChange, onClear, totalCount }: Props)
       {/* Make */}
       <div>
         <label className="text-xs font-semibold uppercase tracking-widest text-garage-darkSub block mb-2">
-          Merk
+          {t('filters.make')}
         </label>
         <select
           value={filters.make ?? ""}
           onChange={e => onChange("make", e.target.value || undefined)}
           className="w-full bg-slate-50 border border-garage-border rounded-xl px-3 py-2.5 text-sm text-garage-dark focus:outline-none focus:border-garage-accent transition-colors cursor-pointer appearance-none"
         >
-          <option value="">Alle merken</option>
+          <option value="">{t('filters.all_makes')}</option>
           {MAKES.map(m => <option key={m} value={m}>{m}</option>)}
         </select>
       </div>
@@ -90,7 +92,7 @@ export function FilterSidebar({ filters, onChange, onClear, totalCount }: Props)
       <div>
         <div className="flex justify-between mb-2">
           <label className="text-xs font-semibold uppercase tracking-widest text-garage-darkSub">
-            Max Prijs
+            {t('filters.max_price')}
           </label>
           <span className="text-sm font-bold text-garage-accent">
             €{priceMax.toLocaleString('nl-NL')}
@@ -114,7 +116,7 @@ export function FilterSidebar({ filters, onChange, onClear, totalCount }: Props)
       {/* Fuel type */}
       <div>
         <label className="text-xs font-semibold uppercase tracking-widest text-garage-darkSub block mb-2">
-          Brandstof
+          {t('filters.fuel')}
         </label>
         <div className="grid grid-cols-2 gap-2">
           {FUEL_OPTIONS.map(opt => (
@@ -137,7 +139,7 @@ export function FilterSidebar({ filters, onChange, onClear, totalCount }: Props)
       {/* Year range */}
       <div>
         <label className="text-xs font-semibold uppercase tracking-widest text-garage-darkSub block mb-2">
-          Bouwjaar
+          {t('filters.year')}
         </label>
         <div className="flex gap-2">
           {(["minYear", "maxYear"] as const).map((key, i) => (
@@ -146,7 +148,7 @@ export function FilterSidebar({ filters, onChange, onClear, totalCount }: Props)
               type="number"
               min={2000}
               max={CURRENT_YEAR}
-              placeholder={i === 0 ? "Van" : "Tot"}
+              placeholder={i === 0 ? t('filters.from') : t('filters.to')}
               value={filters[key] ?? ""}
               onChange={e => onChange(key, e.target.value ? Number(e.target.value) : undefined)}
               className="w-full bg-slate-50 border border-garage-border rounded-xl px-3 py-2.5 text-sm text-garage-dark placeholder:text-garage-muted focus:outline-none focus:border-garage-accent transition-colors"

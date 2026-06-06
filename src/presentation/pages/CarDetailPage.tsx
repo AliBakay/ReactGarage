@@ -150,9 +150,9 @@ function SpecRow({ icon, label, value }: { icon: React.ReactNode; label: string;
   );
 }
 
-// ── Inquiry Form ──────────────────────────────────────────────────────────────
 function InquiryForm({ car }: { car: Car }) {
   const [sent, setSent] = useState(false);
+  const { t } = useTranslation();
   const [form, setForm] = useState({
     name:    "",
     email:   "",
@@ -170,23 +170,23 @@ function InquiryForm({ car }: { car: Car }) {
       <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
         <CheckCircle size={28} className="text-green-500" />
       </div>
-      <p className="text-xl font-display font-bold text-green-700 mb-2">Aanvraag verzonden!</p>
-      <p className="text-sm text-green-600">We nemen binnen 24 uur contact met u op.</p>
+      <p className="text-xl font-display font-bold text-green-700 mb-2">{t('detail.inquiry.success_title')}</p>
+      <p className="text-sm text-green-600">{t('detail.inquiry.success_desc')}</p>
     </div>
   );
 
   const fields = [
-    { key: "name" as const,  label: "Naam",     type: "text",  placeholder: "Uw naam",     required: true },
-    { key: "email" as const, label: "E-mail",   type: "email", placeholder: "uw@email.com", required: true },
-    { key: "phone" as const, label: "Telefoon", type: "text",  placeholder: "+32 ...",      required: false },
+    { key: "name" as const,  label: t('detail.inquiry.name'),     type: "text",  placeholder: "",     required: true },
+    { key: "email" as const, label: t('detail.inquiry.email'),   type: "email", placeholder: "", required: true },
+    { key: "phone" as const, label: t('detail.inquiry.phone'), type: "text",  placeholder: "",      required: false },
   ];
 
   return (
     <div className="bg-white rounded-2xl border border-garage-border shadow-sm overflow-hidden">
       {/* Header */}
       <div className="bg-garage-bg px-6 py-5">
-        <h3 className="font-display font-bold text-lg text-white">Informatie Aanvragen</h3>
-        <p className="text-sm text-white/60 mt-1">Wij antwoorden binnen 24 uur</p>
+        <h3 className="font-display font-bold text-lg text-white">{t('detail.inquiry.title')}</h3>
+        <p className="text-sm text-white/60 mt-1">{t('detail.inquiry.subtitle')}</p>
       </div>
 
       <form onSubmit={handleSubmit} className="p-6 space-y-4">
@@ -208,7 +208,7 @@ function InquiryForm({ car }: { car: Car }) {
 
         <div>
           <label className="text-xs font-semibold text-garage-darkSub uppercase tracking-wider block mb-1.5">
-            Bericht
+            {t('detail.inquiry.message')}
           </label>
           <textarea
             rows={3}
@@ -219,23 +219,23 @@ function InquiryForm({ car }: { car: Car }) {
         </div>
 
         <button type="submit" className="btn-primary w-full flex items-center justify-center gap-2 py-3.5">
-          <Mail size={16} /> Verstuur Aanvraag
+          <Mail size={16} /> {t('detail.inquiry.submit')}
         </button>
 
         <a
           href="tel:+32000000000"
           className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl border border-garage-border text-garage-darkSub hover:text-garage-dark hover:border-garage-dark transition-all text-sm font-medium"
         >
-          <Phone size={16} /> Direct Bellen
+          <Phone size={16} /> {t('detail.inquiry.call')}
         </a>
       </form>
 
       {/* Trust badges */}
       <div className="border-t border-garage-border px-6 py-4 flex items-center justify-center gap-6">
         {[
-          { icon: <Shield size={14} />, text: "Veilig" },
-          { icon: <Star size={14} />,   text: "Betrouwbaar" },
-          { icon: <CheckCircle size={14} />, text: "Gekeurd" },
+          { icon: <Shield size={14} />, text: (t('detail.inquiry.badges', { returnObjects: true }) as string[])[0] || "Veilig" },
+          { icon: <Star size={14} />,   text: (t('detail.inquiry.badges', { returnObjects: true }) as string[])[1] || "Betrouwbaar" },
+          { icon: <CheckCircle size={14} />, text: (t('detail.inquiry.badges', { returnObjects: true }) as string[])[2] || "Gekeurd" },
         ].map(b => (
           <span key={b.text} className="flex items-center gap-1.5 text-xs text-garage-muted">
             <span className="text-garage-accent">{b.icon}</span>
@@ -270,15 +270,15 @@ export default function CarDetailPage() {
     <div className="min-h-screen bg-garage-surface pt-28 flex items-center justify-center">
       <div className="text-center">
         <div className="w-12 h-12 border-3 border-garage-accent border-t-transparent rounded-full animate-spin mx-auto mb-4 border-[3px]" />
-        <p className="text-garage-darkSub text-sm">Voertuig laden...</p>
+        <p className="text-garage-darkSub text-sm">{t('detail.loading')}</p>
       </div>
     </div>
   );
 
   if (!car) return (
     <div className="min-h-screen bg-garage-surface pt-28 flex flex-col items-center justify-center gap-4">
-      <p className="text-xl font-display text-garage-dark">Auto niet gevonden.</p>
-      <Link to="/inventory" className="btn-primary">Terug naar Aanbod</Link>
+      <p className="text-xl font-display text-garage-dark">{t('detail.not_found')}</p>
+      <Link to="/inventory" className="btn-primary">{t('common.back_to_inventory')}</Link>
     </div>
   );
 
@@ -357,24 +357,24 @@ export default function CarDetailPage() {
               {/* Description */}
               {car.description && (
                 <div className="bg-white rounded-2xl p-6 border border-garage-border shadow-sm">
-                  <h2 className="font-display font-bold text-xl text-garage-dark mb-4">Over deze auto</h2>
+                  <h2 className="font-display font-bold text-xl text-garage-dark mb-4">{t('detail.about')}</h2>
                   <p className="text-sm text-garage-darkSub leading-relaxed">{car.description}</p>
                 </div>
               )}
 
               {/* Specs */}
               <div className="bg-white rounded-2xl p-6 border border-garage-border shadow-sm">
-                <h2 className="font-display font-bold text-xl text-garage-dark mb-4">Technische Specificaties</h2>
-                <SpecRow icon={<Zap size={14} />}      label="Motor"        value={car.specs.engine} />
-                <SpecRow icon={<Zap size={14} />}      label="Vermogen"     value={`${car.specs.horsepower} pk`} />
-                <SpecRow icon={<Zap size={14} />}      label="Koppel"       value={`${car.specs.torque} Nm`} />
-                <SpecRow icon={<Settings size={14} />} label="Transmissie"  value={car.specs.transmission} />
-                <SpecRow icon={<CarIcon size={14} />}  label="Aandrijving"  value={car.specs.drivetrain} />
-                <SpecRow icon={<Zap size={14} />}      label="0–100 km/u"   value={car.specs.acceleration} />
-                <SpecRow icon={<Gauge size={14} />}    label="Topsnelheid"  value={`${car.specs.topSpeed} km/u`} />
-                <SpecRow icon={<Users size={14} />}    label="Zitplaatsen"  value={`${car.specs.seating} plaatsen`} />
-                <SpecRow icon={<CarIcon size={14} />}  label="Kleur"        value={car.specs.color} />
-                <SpecRow icon={<CarIcon size={14} />}  label="Deuren"       value={`${car.specs.doors} deuren`} />
+                <h2 className="font-display font-bold text-xl text-garage-dark mb-4">{t('detail.specs_title')}</h2>
+                <SpecRow icon={<Zap size={14} />}      label={t('detail.specs.engine')}        value={car.specs.engine} />
+                <SpecRow icon={<Zap size={14} />}      label={t('detail.specs.power')}     value={`${car.specs.horsepower} pk`} />
+                <SpecRow icon={<Zap size={14} />}      label={t('detail.specs.torque')}       value={`${car.specs.torque} Nm`} />
+                <SpecRow icon={<Settings size={14} />} label={t('detail.specs.transmission')}  value={car.specs.transmission} />
+                <SpecRow icon={<CarIcon size={14} />}  label={t('detail.specs.drivetrain')}  value={car.specs.drivetrain} />
+                <SpecRow icon={<Zap size={14} />}      label={t('detail.specs.accel')}   value={car.specs.acceleration} />
+                <SpecRow icon={<Gauge size={14} />}    label={t('detail.specs.top_speed')}  value={`${car.specs.topSpeed} km/u`} />
+                <SpecRow icon={<Users size={14} />}    label={t('detail.specs.seats')}  value={`${car.specs.seating} ${t('detail.specs.seats_unit')}`} />
+                <SpecRow icon={<CarIcon size={14} />}  label={t('detail.specs.color')}        value={car.specs.color} />
+                <SpecRow icon={<CarIcon size={14} />}  label={t('detail.specs.doors')}       value={`${car.specs.doors} ${t('detail.specs.doors_unit')}`} />
               </div>
             </div>
           </div>

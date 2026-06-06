@@ -19,7 +19,85 @@
     },
     "featured": "Uitgelichte Auto's",
     "featured_sub": "Onze Aanraders",
-    "view_all": "Bekijk alles"
+    "view_all": "Bekijk alles",
+    "badges": [
+      "✓ Volledig nagekeken",
+      "✓ Inclusief CarPass",
+      "✓ Transparante historie",
+      "✓ Persoonlijke service"
+    ],
+    "why_us_sub": "Waarom voor ons kiezen?",
+    "why_us_title": "Uw vertrouwde garage in de buurt",
+    "features": [
+      {
+        "title": "Gekeurd & Betrouwbaar",
+        "body": "Elk voertuig wordt grondig nagekeken en volledig gekeurd voordat het wordt aangeboden, zodat u veilig de weg op kan."
+      },
+      {
+        "title": "Kwalitatieve Occasions",
+        "body": "We bieden een eerlijk en zorgvuldig gekozen aanbod aan tweedehands auto's voor elk budget."
+      },
+      {
+        "title": "Eerlijke Prijzen",
+        "body": "Transparante prijzen zonder verborgen kosten of verrassingen achteraf. We houden het graag duidelijk."
+      }
+    ],
+    "testimonials_sub": "Wat klanten over ons zeggen",
+    "testimonials_title": "Tevreden klanten uit de regio",
+    "contact_sub": "Neem contact op",
+    "contact_title": "Heeft u een <1>vraag?</1>",
+    "contact_desc": "Kom gerust langs voor een kop koffie en een proefrit. We helpen u graag op weg!",
+    "filters": {
+      "title": "Filters",
+      "clear": "Wissen",
+      "search": "Zoeken",
+      "search_placeholder": "Merk, model...",
+      "make": "Merk",
+      "all_makes": "Alle merken",
+      "max_price": "Max Prijs",
+      "fuel": "Brandstof",
+      "year": "Bouwjaar",
+      "from": "Van",
+      "to": "Tot",
+      "cars_count": "{{count}} auto's"
+    },
+    "detail": {
+      "loading": "Voertuig laden...",
+      "not_found": "Auto niet gevonden.",
+      "about": "Over deze auto",
+      "specs_title": "Technische Specificaties",
+      "specs": {
+        "engine": "Motor",
+        "power": "Vermogen",
+        "torque": "Koppel",
+        "transmission": "Transmissie",
+        "drivetrain": "Aandrijving",
+        "accel": "0–100 km/u",
+        "top_speed": "Topsnelheid",
+        "seats": "Zitplaatsen",
+        "color": "Kleur",
+        "doors": "Deuren",
+        "doors_unit": "deuren",
+        "seats_unit": "plaatsen"
+      },
+      "inquiry": {
+        "title": "Informatie Aanvragen",
+        "subtitle": "Wij antwoorden binnen 24 uur",
+        "name": "Naam",
+        "email": "E-mail",
+        "phone": "Telefoon",
+        "message": "Bericht",
+        "submit": "Verstuur Aanvraag",
+        "call": "Direct Bellen",
+        "success_title": "Aanvraag verzonden!",
+        "success_desc": "We nemen binnen 24 uur contact met u op.",
+        "badges": [
+          "Veilig",
+          "Betrouwbaar",
+          "Gekeurd"
+        ]
+      }
+    }
   },
   "inventory": {
     "title": "Bekijk Alle Voertuigen",
@@ -39,5 +117,56 @@
     "year": "Bouwjaar",
     "view": "Bekijken",
     "back_to_inventory": "Terug naar Aanbod"
+  },
+  "filters": {
+    "title": "Filters",
+    "clear": "Wissen",
+    "search": "Zoeken",
+    "search_placeholder": "Merk, model...",
+    "make": "Merk",
+    "all_makes": "Alle merken",
+    "max_price": "Max Prijs",
+    "fuel": "Brandstof",
+    "year": "Bouwjaar",
+    "from": "Van",
+    "to": "Tot",
+    "cars_count": "{{count}} auto's"
+  },
+  "detail": {
+    "loading": "Voertuig laden...",
+    "not_found": "Auto niet gevonden.",
+    "about": "Over deze auto",
+    "specs_title": "Technische Specificaties",
+    "specs": {
+      "engine": "Motor",
+      "power": "Vermogen",
+      "torque": "Koppel",
+      "transmission": "Transmissie",
+      "drivetrain": "Aandrijving",
+      "accel": "0–100 km/u",
+      "top_speed": "Topsnelheid",
+      "seats": "Zitplaatsen",
+      "color": "Kleur",
+      "doors": "Deuren",
+      "doors_unit": "deuren",
+      "seats_unit": "plaatsen"
+    },
+    "inquiry": {
+      "title": "Informatie Aanvragen",
+      "subtitle": "Wij antwoorden binnen 24 uur",
+      "name": "Naam",
+      "email": "E-mail",
+      "phone": "Telefoon",
+      "message": "Bericht",
+      "submit": "Verstuur Aanvraag",
+      "call": "Direct Bellen",
+      "success_title": "Aanvraag verzonden!",
+      "success_desc": "We nemen binnen 24 uur contact met u op.",
+      "badges": [
+        "Veilig",
+        "Betrouwbaar",
+        "Gekeurd"
+      ]
+    }
   }
 }

@@ -19,7 +19,85 @@
     },
     "featured": "Featured Cars",
     "featured_sub": "Our Recommendations",
-    "view_all": "View all"
+    "view_all": "View all",
+    "badges": [
+      "✓ Fully inspected",
+      "✓ CarPass included",
+      "✓ Transparent history",
+      "✓ Personal service"
+    ],
+    "why_us_sub": "Why choose us?",
+    "why_us_title": "Your trusted local garage",
+    "features": [
+      {
+        "title": "Inspected & Reliable",
+        "body": "Every vehicle is thoroughly checked and fully inspected before it is offered."
+      },
+      {
+        "title": "Quality Used Cars",
+        "body": "We offer an honest and carefully chosen selection of used cars for every budget."
+      },
+      {
+        "title": "Fair Prices",
+        "body": "Transparent prices without hidden costs or surprises."
+      }
+    ],
+    "testimonials_sub": "What clients say about us",
+    "testimonials_title": "Happy clients from the region",
+    "contact_sub": "Get in touch",
+    "contact_title": "Do you have a <1>question?</1>",
+    "contact_desc": "Feel free to drop by for a coffee and a test drive. We are happy to help!",
+    "filters": {
+      "title": "Filters",
+      "clear": "Clear",
+      "search": "Search",
+      "search_placeholder": "Make, model...",
+      "make": "Make",
+      "all_makes": "All makes",
+      "max_price": "Max Price",
+      "fuel": "Fuel",
+      "year": "Year",
+      "from": "From",
+      "to": "To",
+      "cars_count": "{{count}} cars"
+    },
+    "detail": {
+      "loading": "Loading vehicle...",
+      "not_found": "Car not found.",
+      "about": "About this car",
+      "specs_title": "Technical Specifications",
+      "specs": {
+        "engine": "Engine",
+        "power": "Power",
+        "torque": "Torque",
+        "transmission": "Transmission",
+        "drivetrain": "Drivetrain",
+        "accel": "0–100 km/h",
+        "top_speed": "Top speed",
+        "seats": "Seats",
+        "color": "Color",
+        "doors": "Doors",
+        "doors_unit": "doors",
+        "seats_unit": "seats"
+      },
+      "inquiry": {
+        "title": "Request Information",
+        "subtitle": "We reply within 24 hours",
+        "name": "Name",
+        "email": "E-mail",
+        "phone": "Phone",
+        "message": "Message",
+        "submit": "Send Request",
+        "call": "Call Directly",
+        "success_title": "Request sent!",
+        "success_desc": "We will contact you within 24 hours.",
+        "badges": [
+          "Secure",
+          "Reliable",
+          "Inspected"
+        ]
+      }
+    }
   },
   "inventory": {
     "title": "View All Vehicles",
@@ -39,5 +117,56 @@
     "year": "Year",
     "view": "View",
     "back_to_inventory": "Back to Inventory"
+  },
+  "filters": {
+    "title": "Filters",
+    "clear": "Clear",
+    "search": "Search",
+    "search_placeholder": "Make, model...",
+    "make": "Make",
+    "all_makes": "All makes",
+    "max_price": "Max Price",
+    "fuel": "Fuel",
+    "year": "Year",
+    "from": "From",
+    "to": "To",
+    "cars_count": "{{count}} cars"
+  },
+  "detail": {
+    "loading": "Loading vehicle...",
+    "not_found": "Car not found.",
+    "about": "About this car",
+    "specs_title": "Technical Specifications",
+    "specs": {
+      "engine": "Engine",
+      "power": "Power",
+      "torque": "Torque",
+      "transmission": "Transmission",
+      "drivetrain": "Drivetrain",
+      "accel": "0–100 km/h",
+      "top_speed": "Top speed",
+      "seats": "Seats",
+      "color": "Color",
+      "doors": "Doors",
+      "doors_unit": "doors",
+      "seats_unit": "seats"
+    },
+    "inquiry": {
+      "title": "Request Information",
+      "subtitle": "We reply within 24 hours",
+      "name": "Name",
+      "email": "E-mail",
+      "phone": "Phone",
+      "message": "Message",
+      "submit": "Send Request",
+      "call": "Call Directly",
+      "success_title": "Request sent!",
+      "success_desc": "We will contact you within 24 hours.",
+      "badges": [
+        "Secure",
+        "Reliable",
+        "Inspected"
+      ]
+    }
   }
 }

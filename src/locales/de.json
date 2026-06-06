@@ -19,7 +19,85 @@
     },
     "featured": "Besondere Fahrzeuge",
     "featured_sub": "Unsere Empfehlungen",
-    "view_all": "Alle ansehen"
+    "view_all": "Alle ansehen",
+    "badges": [
+      "✓ Vollständig geprüft",
+      "✓ Inklusive CarPass",
+      "✓ Transparente Historie",
+      "✓ Persönlicher Service"
+    ],
+    "why_us_sub": "Warum uns wählen?",
+    "why_us_title": "Ihre vertrauenswürdige lokale Werkstatt",
+    "features": [
+      {
+        "title": "Geprüft & Zuverlässig",
+        "body": "Jedes Fahrzeug wird vor dem Verkauf gründlich geprüft."
+      },
+      {
+        "title": "Qualitäts-Gebrauchtwagen",
+        "body": "Wir bieten eine ehrliche und sorgfältig ausgewählte Auswahl an Gebrauchtwagen."
+      },
+      {
+        "title": "Faire Preise",
+        "body": "Transparente Preise ohne versteckte Kosten."
+      }
+    ],
+    "testimonials_sub": "Was Kunden über uns sagen",
+    "testimonials_title": "Zufriedene Kunden aus der Region",
+    "contact_sub": "Kontakt aufnehmen",
+    "contact_title": "Haben Sie eine <1>Frage?</1>",
+    "contact_desc": "Kommen Sie gerne auf einen Kaffee und eine Probefahrt vorbei. Wir helfen Ihnen gerne weiter!",
+    "filters": {
+      "title": "Filter",
+      "clear": "Löschen",
+      "search": "Suche",
+      "search_placeholder": "Marke, Modell...",
+      "make": "Marke",
+      "all_makes": "Alle Marken",
+      "max_price": "Max. Preis",
+      "fuel": "Kraftstoff",
+      "year": "Baujahr",
+      "from": "Von",
+      "to": "Bis",
+      "cars_count": "{{count}} Autos"
+    },
+    "detail": {
+      "loading": "Fahrzeug wird geladen...",
+      "not_found": "Auto nicht gefunden.",
+      "about": "Über dieses Auto",
+      "specs_title": "Technische Daten",
+      "specs": {
+        "engine": "Motor",
+        "power": "Leistung",
+        "torque": "Drehmoment",
+        "transmission": "Getriebe",
+        "drivetrain": "Antrieb",
+        "accel": "0–100 km/h",
+        "top_speed": "Höchstgeschwindigkeit",
+        "seats": "Sitzplätze",
+        "color": "Farbe",
+        "doors": "Türen",
+        "doors_unit": "Türen",
+        "seats_unit": "Sitzplätze"
+      },
+      "inquiry": {
+        "title": "Informationen anfordern",
+        "subtitle": "Wir antworten innerhalb von 24 Stunden",
+        "name": "Name",
+        "email": "E-Mail",
+        "phone": "Telefon",
+        "message": "Nachricht",
+        "submit": "Anfrage senden",
+        "call": "Direkt anrufen",
+        "success_title": "Anfrage gesendet!",
+        "success_desc": "Wir werden Sie innerhalb von 24 Stunden kontaktieren.",
+        "badges": [
+          "Sicher",
+          "Zuverlässig",
+          "Geprüft"
+        ]
+      }
+    }
   },
   "inventory": {
     "title": "Alle Fahrzeuge anzeigen",
@@ -39,5 +117,56 @@
     "year": "Baujahr",
     "view": "Ansehen",
     "back_to_inventory": "Zurück zu Fahrzeuge"
+  },
+  "filters": {
+    "title": "Filter",
+    "clear": "Löschen",
+    "search": "Suche",
+    "search_placeholder": "Marke, Modell...",
+    "make": "Marke",
+    "all_makes": "Alle Marken",
+    "max_price": "Max. Preis",
+    "fuel": "Kraftstoff",
+    "year": "Baujahr",
+    "from": "Von",
+    "to": "Bis",
+    "cars_count": "{{count}} Autos"
+  },
+  "detail": {
+    "loading": "Fahrzeug wird geladen...",
+    "not_found": "Auto nicht gefunden.",
+    "about": "Über dieses Auto",
+    "specs_title": "Technische Daten",
+    "specs": {
+      "engine": "Motor",
+      "power": "Leistung",
+      "torque": "Drehmoment",
+      "transmission": "Getriebe",
+      "drivetrain": "Antrieb",
+      "accel": "0–100 km/h",
+      "top_speed": "Höchstgeschwindigkeit",
+      "seats": "Sitzplätze",
+      "color": "Farbe",
+      "doors": "Türen",
+      "doors_unit": "Türen",
+      "seats_unit": "Sitzplätze"
+    },
+    "inquiry": {
+      "title": "Informationen anfordern",
+      "subtitle": "Wir antworten innerhalb von 24 Stunden",
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "message": "Nachricht",
+      "submit": "Anfrage senden",
+      "call": "Direkt anrufen",
+      "success_title": "Anfrage gesendet!",
+      "success_desc": "Wir werden Sie innerhalb von 24 Stunden kontaktieren.",
+      "badges": [
+        "Sicher",
+        "Zuverlässig",
+        "Geprüft"
+      ]
+    }
   }
 }

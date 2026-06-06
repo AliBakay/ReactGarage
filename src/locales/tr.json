@@ -19,7 +19,85 @@
     },
     "featured": "Öne Çıkan Araçlar",
     "featured_sub": "Tavsiyelerimiz",
-    "view_all": "Tümünü gör"
+    "view_all": "Tümünü gör",
+    "badges": [
+      "✓ Ekspertizli",
+      "✓ CarPass dahil",
+      "✓ Şeffaf geçmiş",
+      "✓ Kişisel hizmet"
+    ],
+    "why_us_sub": "Neden bizi seçmelisiniz?",
+    "why_us_title": "Güvenilir yerel galeriniz",
+    "features": [
+      {
+        "title": "Kontrollü & Güvenilir",
+        "body": "Satışa sunulmadan önce her araç detaylıca incelenir."
+      },
+      {
+        "title": "Kaliteli 2. El",
+        "body": "Her bütçeye uygun dürüst ve özenle seçilmiş araçlar sunuyoruz."
+      },
+      {
+        "title": "Dürüst Fiyatlar",
+        "body": "Gizli masraf veya sonradan sürprizler olmadan şeffaf fiyatlar."
+      }
+    ],
+    "testimonials_sub": "Müşterilerimiz ne diyor?",
+    "testimonials_title": "Bölgeden mutlu müşteriler",
+    "contact_sub": "İletişime geçin",
+    "contact_title": "Bir <1>sorunuz</1> mu var?",
+    "contact_desc": "Kahve içmek ve test sürüşü yapmak için uğramaktan çekinmeyin. Size yardımcı olmaktan mutluluk duyarız!",
+    "filters": {
+      "title": "Filtreler",
+      "clear": "Temizle",
+      "search": "Ara",
+      "search_placeholder": "Marka, model...",
+      "make": "Marka",
+      "all_makes": "Tüm markalar",
+      "max_price": "Maks. Fiyat",
+      "fuel": "Yakıt",
+      "year": "Yıl",
+      "from": "Başlangıç",
+      "to": "Bitiş",
+      "cars_count": "{{count}} araç"
+    },
+    "detail": {
+      "loading": "Araç yükleniyor...",
+      "not_found": "Araç bulunamadı.",
+      "about": "Bu araç hakkında",
+      "specs_title": "Teknik Özellikler",
+      "specs": {
+        "engine": "Motor",
+        "power": "Güç",
+        "torque": "Tork",
+        "transmission": "Şanzıman",
+        "drivetrain": "Çekiş",
+        "accel": "0–100 km/s",
+        "top_speed": "Maks. hız",
+        "seats": "Koltuk",
+        "color": "Renk",
+        "doors": "Kapı",
+        "doors_unit": "kapı",
+        "seats_unit": "koltuk"
+      },
+      "inquiry": {
+        "title": "Bilgi İste",
+        "subtitle": "24 saat içinde yanıtlıyoruz",
+        "name": "İsim",
+        "email": "E-posta",
+        "phone": "Telefon",
+        "message": "Mesaj",
+        "submit": "İstek Gönder",
+        "call": "Hemen Ara",
+        "success_title": "İstek gönderildi!",
+        "success_desc": "24 saat içinde sizinle iletişime geçeceğiz.",
+        "badges": [
+          "Güvenli",
+          "Güvenilir",
+          "Onaylı"
+        ]
+      }
+    }
   },
   "inventory": {
     "title": "Tüm Araçları İnceleyin",
@@ -39,5 +117,56 @@
     "year": "Yıl",
     "view": "İncele",
     "back_to_inventory": "Araçlara Dön"
+  },
+  "filters": {
+    "title": "Filtreler",
+    "clear": "Temizle",
+    "search": "Ara",
+    "search_placeholder": "Marka, model...",
+    "make": "Marka",
+    "all_makes": "Tüm markalar",
+    "max_price": "Maks. Fiyat",
+    "fuel": "Yakıt",
+    "year": "Yıl",
+    "from": "Başlangıç",
+    "to": "Bitiş",
+    "cars_count": "{{count}} araç"
+  },
+  "detail": {
+    "loading": "Araç yükleniyor...",
+    "not_found": "Araç bulunamadı.",
+    "about": "Bu araç hakkında",
+    "specs_title": "Teknik Özellikler",
+    "specs": {
+      "engine": "Motor",
+      "power": "Güç",
+      "torque": "Tork",
+      "transmission": "Şanzıman",
+      "drivetrain": "Çekiş",
+      "accel": "0–100 km/s",
+      "top_speed": "Maks. hız",
+      "seats": "Koltuk",
+      "color": "Renk",
+      "doors": "Kapı",
+      "doors_unit": "kapı",
+      "seats_unit": "koltuk"
+    },
+    "inquiry": {
+      "title": "Bilgi İste",
+      "subtitle": "24 saat içinde yanıtlıyoruz",
+      "name": "İsim",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "message": "Mesaj",
+      "submit": "İstek Gönder",
+      "call": "Hemen Ara",
+      "success_title": "İstek gönderildi!",
+      "success_desc": "24 saat içinde sizinle iletişime geçeceğiz.",
+      "badges": [
+        "Güvenli",
+        "Güvenilir",
+        "Onaylı"
+      ]
+    }
   }
 }

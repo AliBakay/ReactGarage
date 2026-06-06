@@ -24,11 +24,11 @@ const stagger = {
 };
 
 // ── Stats data ──────────────────────────────────────────────────────────────
-const stats = [
-  { value: "250+",  label: "Tevreden Klanten",  icon: <Car size={20} /> },
-  { value: "100%",  label: "Betrouwbaar",             icon: <Star size={20} /> },
-  { value: "100%",  label: "Volledig Gekeurd", icon: <Shield size={20} /> },
-  { value: "10+",   label: "Jaar Ervaring",   icon: <Users size={20} /> },
+const statsConfig = [
+  { value: "250+",  key: "customers",  icon: <Car size={20} /> },
+  { value: "100%",  key: "reliable",   icon: <Star size={20} /> },
+  { value: "100%",  key: "inspected",  icon: <Shield size={20} /> },
+  { value: "10+",   key: "experience", icon: <Users size={20} /> },
 ];
 
 // ── Why us features ─────────────────────────────────────────────────────────
@@ -152,7 +152,7 @@ export default function HomePage() {
             transition={{ delay: 0.8 }}
             className="flex flex-wrap items-center justify-center gap-6 mt-14"
           >
-            {["✓ Volledig nagekeken", "✓ Inclusief CarPass", "✓ Transparante historie", "✓ Persoonlijke service"].map(b => (
+            {(t('home.badges', { returnObjects: true }) as string[]).map((b: string) => (
               <span key={b} className="text-sm text-white/60 font-medium">{b}</span>
             ))}
           </motion.div>
@@ -169,19 +169,24 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="grid grid-cols-2 md:grid-cols-4 divide-x divide-garage-border"
           >
-            {stats.map(s => (
-              <motion.div
-                key={s.label}
-                variants={fadeUp}
-                className="flex flex-col items-center py-8 gap-2 px-4"
-              >
-                <div className="w-10 h-10 bg-red-50 rounded-xl flex items-center justify-center text-garage-accent mb-1">
-                  {s.icon}
-                </div>
-                <p className="font-display font-extrabold text-3xl text-garage-dark">{s.value}</p>
-                <p className="text-sm text-garage-darkSub text-center">{s.label}</p>
-              </motion.div>
-            ))}
+            {statsConfig.map(s => {
+              const statsLabels = t('home.stats', { returnObjects: true }) as Record<string, string> || {
+                customers: "Tevreden Klanten", reliable: "Betrouwbaar", inspected: "Volledig Gekeurd", experience: "Jaar Ervaring"
+              };
+              return (
+                <motion.div
+                  key={s.key}
+                  variants={fadeUp}
+                  className="flex flex-col items-center py-8 gap-2 px-4"
+                >
+                  <div className="w-10 h-10 bg-red-50 rounded-xl flex items-center justify-center text-garage-accent mb-1">
+                    {s.icon}
+                  </div>
+                  <p className="font-display font-extrabold text-3xl text-garage-dark">{s.value}</p>
+                  <p className="text-sm text-garage-darkSub text-center">{statsLabels[s.key]}</p>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </section>
@@ -266,7 +271,7 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="label-tag mb-3"
             >
-              Waarom voor ons kiezen?
+              {t('home.why_us_sub')}
             </motion.p>
             <motion.h2
               variants={fadeUp}
@@ -275,7 +280,7 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="font-display text-3xl md:text-4xl font-bold text-garage-dark"
             >
-              Uw vertrouwde garage in de buurt
+              {t('home.why_us_title')}
             </motion.h2>
           </div>
 
@@ -286,7 +291,10 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
-            {features.map(f => (
+            {features.map((f, i) => {
+              const featureTexts = t('home.features', { returnObjects: true }) as { title: string, body: string }[];
+              const text = featureTexts?.[i] || f;
+              return (
               <motion.div
                 key={f.title}
                 variants={fadeUp}
@@ -295,10 +303,10 @@ export default function HomePage() {
                 <div className="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center text-garage-accent mx-auto mb-5 group-hover:bg-garage-accent group-hover:text-white transition-all">
                   {f.icon}
                 </div>
-                <h3 className="font-display font-bold text-xl text-garage-dark mb-3">{f.title}</h3>
-                <p className="text-sm text-garage-darkSub leading-relaxed">{f.body}</p>
+                <h3 className="font-display font-bold text-xl text-garage-dark mb-3">{text.title}</h3>
+                <p className="text-sm text-garage-darkSub leading-relaxed">{text.body}</p>
               </motion.div>
-            ))}
+            )})}
           </motion.div>
         </div>
       </section>
@@ -315,7 +323,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 className="label-tag mb-3"
               >
-                Wat klanten over ons zeggen
+                {t('home.testimonials_sub')}
               </motion.p>
               <motion.h2
                 variants={fadeUp}
@@ -324,7 +332,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 className="font-display text-3xl md:text-4xl font-bold text-garage-dark"
               >
-                Tevreden klanten uit de regio
+                {t('home.testimonials_title')}
               </motion.h2>
             </div>
 
@@ -335,9 +343,9 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="grid grid-cols-1 md:grid-cols-3 gap-6"
             >
-              {reviews.map(t => (
+              {reviews.map(review => (
                 <motion.div
-                  key={t.id}
+                  key={review.id}
                   variants={fadeUp}
                   className="bg-white rounded-2xl p-6 border border-garage-border shadow-sm hover:shadow-md transition-shadow"
                 >
@@ -347,20 +355,20 @@ export default function HomePage() {
                       <Star 
                         key={i} 
                         size={14} 
-                        className={i < (t.rating || 5) ? "fill-yellow-400 text-yellow-400" : "fill-slate-200 text-slate-200"} 
+                        className={i < (review.rating || 5) ? "fill-yellow-400 text-yellow-400" : "fill-slate-200 text-slate-200"} 
                       />
                     ))}
                   </div>
                   <p className="text-garage-darkSub text-sm leading-relaxed mb-5 italic">
-                    "{t.text}"
+                    "{review.text}"
                   </p>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-garage-accent rounded-full flex items-center justify-center text-white text-sm font-bold uppercase">
-                      {t.avatar}
+                      {review.avatar}
                     </div>
                     <div>
-                      <p className="font-semibold text-garage-dark text-sm">{t.name}</p>
-                      {t.carBought && <p className="text-xs text-garage-muted">Aankoop: {t.carBought}</p>}
+                      <p className="font-semibold text-garage-dark text-sm">{review.name}</p>
+                      {review.carBought && <p className="text-xs text-garage-muted">{t('home.purchase') || "Aankoop:"} {review.carBought}</p>}
                     </div>
                   </div>
                 </motion.div>
@@ -380,7 +388,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="label-tag mb-4 text-white/60 uppercase"
           >
-            Neem contact op
+            {t('home.contact_sub')}
           </motion.p>
           <motion.h2
             variants={fadeUp}
@@ -389,8 +397,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="font-display text-4xl md:text-5xl font-extrabold text-white mb-5"
           >
-            Heeft u een{" "}
-            <span className="text-garage-accent">vraag?</span>
+            <Trans i18nKey="home.contact_title" components={{ 1: <span className="text-garage-accent" /> }} />
           </motion.h2>
           <motion.p
             variants={fadeUp}
@@ -399,7 +406,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-white/60 text-lg mb-10"
           >
-            Kom gerust langs voor een kop koffie en een proefrit. We helpen u graag op weg!
+            {t('home.contact_desc')}
           </motion.p>
           <motion.div
             variants={fadeUp}
