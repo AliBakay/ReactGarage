@@ -11,6 +11,9 @@ export function Navbar() {
   const { pathname } = useLocation();
   const { t } = useTranslation();
 
+  const isLightPage = pathname.startsWith('/beheerpaneel') || pathname.startsWith('/login') || pathname.startsWith('/contact');
+  const isNavScrolled = scrolled || isLightPage;
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -28,7 +31,7 @@ export function Navbar() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
+        isNavScrolled
           ? "bg-garage-bg/95 backdrop-blur-xl border-b border-white/10 shadow-lg"
           : "bg-transparent"
       )}
