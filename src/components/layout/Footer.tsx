@@ -79,6 +79,11 @@ export function Footer() {
           <p className="text-xs text-white/40">
             © {new Date().getFullYear()} Garage van Hozeham. Alle rechten voorbehouden.
           </p>
+          <div className="flex gap-4 text-[10px] text-white/20">
+            <Link to="/auto-kopen-maasmechelen" className="hover:text-white/40">Auto Kopen Maasmechelen</Link>
+            <Link to="/tweedehands-auto-limburg" className="hover:text-white/40">Tweedehands Auto Limburg</Link>
+            <Link to="/betrouwbare-occasions" className="hover:text-white/40">Betrouwbare Occasions</Link>
+          </div>
           <p className="text-xs text-white/40">
             Professioneel gekeurd · Eerlijk geprijsd · Betrouwbaar
           </p>

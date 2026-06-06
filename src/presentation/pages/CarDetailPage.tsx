@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { SEO } from "../../components/seo/SEO";
 import { GetCarById } from "../../application/use-cases/GetCarById";
 import type { Car } from "../../domain/entities/Car";
 import {
@@ -281,6 +282,30 @@ export default function CarDetailPage() {
 
   return (
     <div className="min-h-screen bg-garage-surface">
+      <SEO 
+        title={`${car.make} ${car.model} ${car.year} Kopen - Occasion Maasmechelen`}
+        description={`Koop deze prachtige ${car.make} ${car.model} uit ${car.year} voor slechts €${car.price.toLocaleString('nl-NL')}. ${car.mileage.toLocaleString('nl-NL')} km op de teller, ${FUEL_LABEL[car.fuelType] || 'benzine'}.`}
+        url={`https://garagevanhozeham.be/cars/${car.id}`}
+        image={car.imagesUrl[0]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Vehicle",
+          "name": `${car.make} ${car.model}`,
+          "image": car.imagesUrl[0],
+          "brand": { "@type": "Brand", "name": car.make },
+          "model": car.model,
+          "vehicleModelDate": String(car.year),
+          "mileageFromOdometer": { "@type": "QuantitativeValue", "value": car.mileage, "unitCode": "KMT" },
+          "fuelType": FUEL_LABEL[car.fuelType],
+          "offers": {
+            "@type": "Offer",
+            "price": car.price,
+            "priceCurrency": "EUR",
+            "itemCondition": "https://schema.org/UsedCondition",
+            "availability": car.status === 'published' ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
+          }
+        }}
+      />
       {/* Dark header banner */}
       <div className="bg-garage-bg pt-24 pb-8 px-4">
         <div className="max-w-7xl mx-auto">

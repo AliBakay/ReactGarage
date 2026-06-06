@@ -6,6 +6,7 @@ import {
   Car, Users, Award, Phone, ChevronRight
 } from "lucide-react";
 import { AuroraBackground } from "../../components/ui/aceternity";
+import { SEO } from "../../components/seo/SEO";
 import { CarCard } from "../../components/inventory/CarCard";
 import { useCars } from "../hooks/useCars";
 import { SupabaseReviewRepository } from "../../infrastructure/supabase/SupabaseReviewRepository";
@@ -69,6 +70,24 @@ export default function HomePage() {
 
   return (
     <div>
+      <SEO 
+        title="Garage van Hozeham - Premium Tweedehands Auto's in Maasmechelen"
+        description="Betrouwbare tweedehands auto's kopen in Maasmechelen. Volledig gekeurd, eerlijk geprijsd en klaar om te rijden. Bekijk ons aanbod!"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "AutoDealer",
+          "name": "Garage van Hozeham",
+          "image": "https://garagevanhozeham.be/logo.png",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Slakweidestraat 40G 1A",
+            "addressLocality": "Maasmechelen",
+            "postalCode": "3630",
+            "addressCountry": "BE"
+          },
+          "telephone": "+32492440514"
+        }}
+      />
       {/* ── HERO (dark blue, Aurora) ─────────────────────────────────────── */}
       <AuroraBackground className="min-h-screen pt-20">
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto w-full">

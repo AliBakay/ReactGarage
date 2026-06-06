@@ -13,6 +13,7 @@ const AdminDashboardPage = lazy(() => import('./presentation/pages/AdminDashboar
 const AdminCarFormPage = lazy(() => import('./presentation/pages/AdminCarFormPage'))
 const AdminReviewsPage = lazy(() => import('./presentation/pages/AdminReviewsPage'))
 const PrivacyPolicyPage = lazy(() => import('./presentation/pages/PrivacyPolicyPage'))
+const SEOLandingPage = lazy(() => import('./presentation/pages/SEOLandingPage'))
 
 function PageLoader() {
   return (
@@ -140,6 +141,9 @@ const router = createBrowserRouter([
       { path: "/cars/:id",  element: <CarDetailPage /> },
       { path: "/contact",   element: <ContactPage /> },
       { path: "/privacy",   element: <PrivacyPolicyPage /> },
+      { path: "/auto-kopen-maasmechelen", element: <SEOLandingPage /> },
+      { path: "/tweedehands-auto-limburg", element: <SEOLandingPage /> },
+      { path: "/betrouwbare-occasions", element: <SEOLandingPage /> },
       { path: "/garage-admin-access", element: <LoginPage /> },
       {
         path: "/beheerpaneel",

@@ -1,4 +1,5 @@
 import { useCars } from "../hooks/useCars";
+import { SEO } from "../../components/seo/SEO";
 import { CarCard } from "../../components/inventory/CarCard";
 import { FilterSidebar } from "../../components/inventory/FilterSidebar";
 import { LayoutGrid, List, AlertCircle, Search } from "lucide-react";
@@ -17,6 +18,11 @@ export default function InventoryPage() {
 
   return (
     <div className="min-h-screen bg-garage-surface">
+      <SEO 
+        title="Aanbod Tweedehands Auto's - Garage van Hozeham"
+        description="Bekijk ons volledige aanbod betrouwbare occasions. Professioneel gekeurd en direct rijklaar."
+        url="https://garagevanhozeham.be/inventory"
+      />
       {/* ── Page header (dark blue) ── */}
       <div className="bg-garage-bg pt-28 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
