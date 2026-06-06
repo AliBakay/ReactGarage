@@ -59,7 +59,7 @@ export default {
       },
     },
   },
-  plugins: [addVariablesForColors],
+  plugins: [addVariablesForColors, require('@tailwindcss/typography')],
 };
 
 // Expose all Tailwind colors as CSS custom properties (required by Aceternity Aurora)
