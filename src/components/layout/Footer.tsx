@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail, Share2, ExternalLink, Globe } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-garage-bg text-white">
+    <footer className="bg-garage-bg text-white border-t border-white/10">
       {/* Top section */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Brand */}
@@ -12,7 +12,7 @@ export function Footer() {
             <img src="/logo.png" alt="Garage van Hozeham" className="h-14 w-auto" />
           </div>
           <p className="text-sm text-white/60 leading-relaxed max-w-sm">
-            Premium tweedehands voertuigen. Professioneel gekeurd, eerlijk geprijsd en klaar om te rijden.
+            Betrouwbare tweedehands voertuigen. Professioneel gekeurd, eerlijk geprijsd en klaar om te rijden.
           </p>
           {/* Social */}
           <div className="flex items-center gap-4 mt-6">

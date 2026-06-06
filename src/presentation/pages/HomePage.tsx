@@ -355,7 +355,7 @@ export default function HomePage() {
       )}
 
       {/* ── CONTACT CTA (dark blue) ───────────────────────────────────────── */}
-      <section className="bg-garage-bg py-24 text-center">
+      <section className="bg-slate-900 py-24 text-center">
         <div className="max-w-3xl mx-auto px-4">
           <motion.p
             variants={fadeUp}

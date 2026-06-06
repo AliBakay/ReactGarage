@@ -28,7 +28,7 @@ interface Props {
 }
 
 export function FilterSidebar({ filters, onChange, onClear, totalCount }: Props) {
-  const [priceMax, setPriceMax] = useState(filters.maxPrice ?? 150000);
+  const [priceMax, setPriceMax] = useState(filters.maxPrice ?? 80000);
   const hasFilters = Object.values(filters).some(v => v !== undefined && v !== "");
 
   return (
@@ -97,12 +97,12 @@ export function FilterSidebar({ filters, onChange, onClear, totalCount }: Props)
           </span>
         </div>
         <input
-          type="range" min={0} max={150000} step={1000}
+          type="range" min={0} max={80000} step={1000}
           value={priceMax}
           onChange={e => {
             const v = Number(e.target.value);
             setPriceMax(v);
-            onChange("maxPrice", v < 150000 ? v : undefined);
+            onChange("maxPrice", v < 80000 ? v : undefined);
           }}
           className="w-full accent-garage-accent cursor-pointer"
         />
