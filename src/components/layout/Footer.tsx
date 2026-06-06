@@ -34,11 +34,15 @@ export function Footer() {
           <ul className="space-y-3 text-sm text-white/60">
             <li className="flex items-start gap-2.5">
               <MapPin size={15} className="text-garage-accent mt-0.5 shrink-0" />
-              <span>Autostraat 12<br />9000 Gent, België</span>
+              <span>Slakweidestraat 40G 1A<br />3630 Maasmechelen</span>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <span className="text-garage-accent shrink-0 text-[10px] font-bold border border-garage-accent px-1 rounded">BTW</span>
+              <span>BE0676463449</span>
             </li>
             <li className="flex items-center gap-2.5">
               <Phone size={15} className="text-garage-accent shrink-0" />
-              <a href="tel:+32000000000" className="hover:text-white transition-colors">+32 000 000 000</a>
+              <a href="tel:+32492440514" className="hover:text-white transition-colors">+32 492 44 05 14</a>
             </li>
             <li className="flex items-center gap-2.5">
               <Mail size={15} className="text-garage-accent shrink-0" />

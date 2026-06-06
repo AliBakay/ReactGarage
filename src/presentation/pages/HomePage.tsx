@@ -122,7 +122,7 @@ export default function HomePage() {
               Bekijk Aanbod <ArrowRight size={18} />
             </Link>
             <a
-              href="tel:+32000000000"
+              href="tel:+32492440514"
               className="btn-ghost-light flex items-center gap-2 text-base px-8 py-4 rounded-2xl"
             >
               <Phone size={18} /> Bel Ons Nu
@@ -395,8 +395,8 @@ export default function HomePage() {
             <Link to="/contact" className="btn-primary flex items-center gap-2 px-8 py-4 rounded-2xl text-base">
               Neem contact op <ArrowRight size={18} />
             </Link>
-            <a href="tel:+32000000000" className="btn-ghost-light flex items-center gap-2 px-8 py-4 rounded-2xl text-base">
-              <Phone size={18} /> +32 000 000 000
+            <a href="tel:+32492440514" className="btn-ghost-light flex items-center gap-2 px-8 py-4 rounded-2xl text-base">
+              <Phone size={18} /> +32 492 44 05 14
             </a>
           </motion.div>
         </div>

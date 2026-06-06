@@ -57,11 +57,11 @@ export function Navbar() {
         {/* CTA */}
         <div className="hidden md:flex items-center gap-4">
           <a
-            href="tel:+32000000000"
+            href="tel:+32492440514"
             className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
           >
             <Phone size={15} className="text-garage-accent" />
-            <span>+32 000 000 000</span>
+            <span>+32 492 44 05 14</span>
           </a>
           <Link to="/inventory" className="btn-primary text-sm py-2.5 px-5">
             Aanbod Bekijken

@@ -60,7 +60,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="input-light pl-10"
-                placeholder="admin@autodeal.be"
+                placeholder="info@garagevanhozeham.be"
               />
             </div>
           </div>
