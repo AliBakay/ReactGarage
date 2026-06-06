@@ -31,7 +31,8 @@ export default function AdminCarFormPage() {
     status: "published" as "draft" | "published",
     specs: {
       horsepower: "",
-      torque: "",
+      engineCapacity: "",
+      euronorm: "",
       engine: "",
       transmission: "Automaat",
       drivetrain: "FWD",
@@ -65,7 +66,8 @@ export default function AdminCarFormPage() {
           status: car.status,
           specs: {
             horsepower: car.specs.horsepower ? car.specs.horsepower.toString() : "",
-            torque: car.specs.torque ? car.specs.torque.toString() : "",
+            engineCapacity: car.specs.engineCapacity ? car.specs.engineCapacity.toString() : "",
+            euronorm: car.specs.euronorm || "",
             engine: car.specs.engine,
             transmission: car.specs.transmission,
             drivetrain: car.specs.drivetrain,
@@ -190,7 +192,30 @@ export default function AdminCarFormPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Merk</label>
-                <input type="text" required className="input-light" placeholder="bijv. BMW" value={formData.make} onChange={e => setFormData(p => ({...p, make: e.target.value}))} />
+                <select required className="input-light" value={formData.make} onChange={e => setFormData(p => ({...p, make: e.target.value}))}>
+                  <option value="" disabled>Selecteer merk</option>
+                  <option value="Audi">Audi</option>
+                  <option value="BMW">BMW</option>
+                  <option value="Mercedes-Benz">Mercedes-Benz</option>
+                  <option value="Volkswagen">Volkswagen</option>
+                  <option value="Peugeot">Peugeot</option>
+                  <option value="Renault">Renault</option>
+                  <option value="Opel">Opel</option>
+                  <option value="Ford">Ford</option>
+                  <option value="Fiat">Fiat</option>
+                  <option value="Toyota">Toyota</option>
+                  <option value="Volvo">Volvo</option>
+                  <option value="Kia">Kia</option>
+                  <option value="Hyundai">Hyundai</option>
+                  <option value="Nissan">Nissan</option>
+                  <option value="Seat">Seat</option>
+                  <option value="Skoda">Skoda</option>
+                  <option value="Porsche">Porsche</option>
+                  <option value="Land Rover">Land Rover</option>
+                  <option value="Tesla">Tesla</option>
+                  <option value="Citroën">Citroën</option>
+                  <option value="Andere">Andere...</option>
+                </select>
               </div>
               <div>
                 <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Model</label>
@@ -238,16 +263,37 @@ export default function AdminCarFormPage() {
                 <input type="text" inputMode="numeric" className="input-light" placeholder="bijv. 300" value={formData.specs.horsepower} onChange={e => setFormData(p => ({...p, specs: {...p.specs, horsepower: e.target.value}}))} />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Koppel (Nm)</label>
-                <input type="text" inputMode="numeric" className="input-light" placeholder="bijv. 450" value={formData.specs.torque} onChange={e => setFormData(p => ({...p, specs: {...p.specs, torque: e.target.value}}))} />
+                <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Cilinderinhoud (cc)</label>
+                <input type="text" inputMode="numeric" className="input-light" placeholder="bijv. 1998" value={formData.specs.engineCapacity} onChange={e => setFormData(p => ({...p, specs: {...p.specs, engineCapacity: e.target.value}}))} />
               </div>
               <div>
                 <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Transmissie</label>
-                <input type="text" className="input-light" value={formData.specs.transmission} onChange={e => setFormData(p => ({...p, specs: {...p.specs, transmission: e.target.value}}))} />
+                <select className="input-light" value={formData.specs.transmission} onChange={e => setFormData(p => ({...p, specs: {...p.specs, transmission: e.target.value}}))}>
+                  <option value="Automaat">Automaat</option>
+                  <option value="Manueel">Manueel</option>
+                  <option value="Semi-automaat">Semi-automaat</option>
+                </select>
               </div>
               <div>
                 <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Aandrijving</label>
-                <input type="text" className="input-light" placeholder="AWD, RWD..." value={formData.specs.drivetrain} onChange={e => setFormData(p => ({...p, specs: {...p.specs, drivetrain: e.target.value}}))} />
+                <select className="input-light" value={formData.specs.drivetrain} onChange={e => setFormData(p => ({...p, specs: {...p.specs, drivetrain: e.target.value}}))}>
+                  <option value="FWD">Voorwielaandrijving (FWD)</option>
+                  <option value="RWD">Achterwielaandrijving (RWD)</option>
+                  <option value="AWD">Vierwielaandrijving (AWD)</option>
+                  <option value="4x4">4x4</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">Euronorm</label>
+                <select className="input-light" value={formData.specs.euronorm} onChange={e => setFormData(p => ({...p, specs: {...p.specs, euronorm: e.target.value}}))}>
+                  <option value="" disabled>Kies Euronorm</option>
+                  <option value="Euro 6d">Euro 6d</option>
+                  <option value="Euro 6c">Euro 6c</option>
+                  <option value="Euro 6">Euro 6</option>
+                  <option value="Euro 5">Euro 5</option>
+                  <option value="Euro 4">Euro 4</option>
+                  <option value="Euro 3">Euro 3</option>
+                </select>
               </div>
               <div>
                 <label className="block text-xs font-semibold text-garage-darkSub uppercase tracking-wider mb-2">0-100 km/u (sec)</label>

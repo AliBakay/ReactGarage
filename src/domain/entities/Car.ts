@@ -2,7 +2,8 @@ export type FuelType = "gasoline" | "diesel" | "electric" | "hybrid" | "lpg" | "
 
 export interface CarSpecs {
   horsepower: number;
-  torque: number;
+  engineCapacity?: string;
+  euronorm?: string;
   engine: string;
   transmission: string;
   drivetrain: string;

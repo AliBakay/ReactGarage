@@ -29,7 +29,8 @@ function mapRowToCar(row: CarRow): Car {
 
   const specs = (row.specs_json ?? {}) as {
     horsepower?: number;
-    torque?: number;
+    engine_capacity?: string;
+    euronorm?: string;
     engine?: string;
     transmission?: string;
     drivetrain?: string;
@@ -50,7 +51,8 @@ function mapRowToCar(row: CarRow): Car {
     imagesUrl:   imagesUrl,
     specs: {
       horsepower:   specs.horsepower   ?? 0,
-      torque:       specs.torque       ?? 0,
+      engineCapacity: specs.engine_capacity ?? "",
+      euronorm:     specs.euronorm     ?? "",
       engine:       specs.engine       ?? "N/A",
       transmission: specs.transmission ?? "N/A",
       drivetrain:   specs.drivetrain   ?? "N/A",
@@ -182,7 +184,8 @@ export const SupabaseCarRepository = {
         fuel_type: carData.fuelType,
         specs_json: {
           horsepower: carData.specs.horsepower,
-          torque: carData.specs.torque,
+          engine_capacity: carData.specs.engineCapacity,
+          euronorm: carData.specs.euronorm,
           engine: carData.specs.engine,
           transmission: carData.specs.transmission,
           drivetrain: carData.specs.drivetrain,
@@ -243,7 +246,8 @@ export const SupabaseCarRepository = {
   async updateCar(id: string, carData: Partial<Omit<Car, "id" | "createdAt" | "imagesUrl">>, newFiles: File[], deletedImageUrls: string[] = []): Promise<void> {
     const specsPayload = carData.specs ? {
       horsepower: carData.specs.horsepower,
-      torque: carData.specs.torque,
+      engine_capacity: carData.specs.engineCapacity,
+      euronorm: carData.specs.euronorm,
       engine: carData.specs.engine,
       transmission: carData.specs.transmission,
       drivetrain: carData.specs.drivetrain,
