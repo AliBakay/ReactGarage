@@ -11,6 +11,7 @@ const CarDetailPage = lazy(() => import('./presentation/pages/CarDetailPage'))
 const LoginPage = lazy(() => import('./presentation/pages/LoginPage'))
 const AdminDashboardPage = lazy(() => import('./presentation/pages/AdminDashboardPage'))
 const AdminCarFormPage = lazy(() => import('./presentation/pages/AdminCarFormPage'))
+const AdminReviewsPage = lazy(() => import('./presentation/pages/AdminReviewsPage'))
 
 function PageLoader() {
   return (
@@ -127,7 +128,8 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <AdminDashboardPage /> },
           { path: "toevoegen", element: <AdminCarFormPage /> },
-          { path: "bewerken/:id", element: <AdminCarFormPage /> }
+          { path: "bewerken/:id", element: <AdminCarFormPage /> },
+          { path: "reviews", element: <AdminReviewsPage /> }
         ]
       }
     ]
