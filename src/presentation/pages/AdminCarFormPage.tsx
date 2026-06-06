@@ -124,7 +124,6 @@ export default function AdminCarFormPage() {
         specs: {
           ...formData.specs,
           horsepower: parseInt(formData.specs.horsepower) || 0,
-          torque: parseInt(formData.specs.torque) || 0,
           topSpeed: parseInt(formData.specs.topSpeed) || 0,
           seating: parseInt(formData.specs.seating) || 0,
           doors: parseInt(formData.specs.doors) || 0,
