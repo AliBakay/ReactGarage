@@ -42,7 +42,7 @@ export default function AdminDashboardPage() {
   );
 
   return (
-    <div className="min-h-screen bg-garage-surface py-28 px-4">
+    <div className="min-h-screen bg-garage-surface py-24 md:py-28 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8 mt-4">
           <div>

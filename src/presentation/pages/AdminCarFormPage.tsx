@@ -150,7 +150,7 @@ export default function AdminCarFormPage() {
   };
 
   return (
-    <div className="min-h-screen bg-garage-surface py-28 px-4">
+    <div className="min-h-screen bg-garage-surface py-24 md:py-28 px-4">
       <div className="max-w-4xl mx-auto">
         
         <Link to="/beheerpaneel" className="inline-flex items-center gap-2 text-garage-darkSub hover:text-garage-accent mb-6 font-semibold transition-colors">
@@ -185,7 +185,7 @@ export default function AdminCarFormPage() {
 
         <form className="space-y-8">
           {/* Basis Informatie */}
-          <div className="bg-white p-8 rounded-2xl border border-garage-border shadow-sm">
+          <div className="bg-white p-6 md:p-8 rounded-2xl border border-garage-border shadow-sm">
             <h2 className="font-display font-bold text-xl mb-6 text-garage-dark border-b border-garage-border pb-4">Basis Informatie</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -226,7 +226,7 @@ export default function AdminCarFormPage() {
           </div>
 
           {/* Specificaties */}
-          <div className="bg-white p-8 rounded-2xl border border-garage-border shadow-sm">
+          <div className="bg-white p-6 md:p-8 rounded-2xl border border-garage-border shadow-sm">
             <h2 className="font-display font-bold text-xl mb-6 text-garage-dark border-b border-garage-border pb-4">Technische Specificaties</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
@@ -275,7 +275,7 @@ export default function AdminCarFormPage() {
           </div>
 
           {/* Omschrijving & Status */}
-          <div className="bg-white p-8 rounded-2xl border border-garage-border shadow-sm">
+          <div className="bg-white p-6 md:p-8 rounded-2xl border border-garage-border shadow-sm">
             <h2 className="font-display font-bold text-xl mb-6 text-garage-dark border-b border-garage-border pb-4">Omschrijving & Status</h2>
             <div className="space-y-6">
               <div>
@@ -293,7 +293,7 @@ export default function AdminCarFormPage() {
           </div>
 
           {/* Foto's */}
-          <div className="bg-white p-8 rounded-2xl border border-garage-border shadow-sm">
+          <div className="bg-white p-6 md:p-8 rounded-2xl border border-garage-border shadow-sm">
             <h2 className="font-display font-bold text-xl mb-6 text-garage-dark border-b border-garage-border pb-4">Foto's Uploaden</h2>
             
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-6">
@@ -344,7 +344,7 @@ export default function AdminCarFormPage() {
               type="button" 
               disabled={loading} 
               onClick={(e) => handleSubmit(e, "draft")}
-              className="px-6 py-3 rounded-xl font-bold text-garage-dark bg-slate-200 hover:bg-slate-300 transition-colors disabled:opacity-50"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl font-bold text-garage-dark bg-slate-200 hover:bg-slate-300 transition-colors disabled:opacity-50 text-center"
             >
               Opslaan als Concept
             </button>
@@ -352,7 +352,7 @@ export default function AdminCarFormPage() {
               type="button" 
               disabled={loading} 
               onClick={(e) => handleSubmit(e, "published")}
-              className="btn-primary py-3 px-8 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full sm:w-auto btn-primary py-3 px-8 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {loading ? <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" /> : <Save size={20} />}
               {loading ? "Opslaan..." : "Publiceren"}
