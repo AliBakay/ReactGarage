@@ -12,6 +12,7 @@ const LoginPage = lazy(() => import('./presentation/pages/LoginPage'))
 const AdminDashboardPage = lazy(() => import('./presentation/pages/AdminDashboardPage'))
 const AdminCarFormPage = lazy(() => import('./presentation/pages/AdminCarFormPage'))
 const AdminReviewsPage = lazy(() => import('./presentation/pages/AdminReviewsPage'))
+const PrivacyPolicyPage = lazy(() => import('./presentation/pages/PrivacyPolicyPage'))
 
 function PageLoader() {
   return (
@@ -138,6 +139,7 @@ const router = createBrowserRouter([
       { path: "/inventory", element: <InventoryPage /> },
       { path: "/cars/:id",  element: <CarDetailPage /> },
       { path: "/contact",   element: <ContactPage /> },
+      { path: "/privacy",   element: <PrivacyPolicyPage /> },
       { path: "/garage-admin-access", element: <LoginPage /> },
       {
         path: "/beheerpaneel",

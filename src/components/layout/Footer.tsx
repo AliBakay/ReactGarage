@@ -61,6 +61,7 @@ export function Footer() {
               ["Home", "/"],
               ["Aanbod", "/inventory"],
               ["Contact", "/contact"],
+              ["Privacybeleid", "/privacy"],
             ].map(([label, href]) => (
               <li key={href}>
                 <Link to={href} className="hover:text-garage-accent transition-colors">
